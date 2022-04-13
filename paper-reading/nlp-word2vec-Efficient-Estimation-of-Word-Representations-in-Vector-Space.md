@@ -32,6 +32,44 @@ paper: https://arxiv.org/pdf/1301.3781.pdf
 - 高准确、更低成本（用不到一天的时间从 16 亿个单词中学习高质量的词向量）
 - 我们表明这些向量在我们的测试集上提供了最先进的性能，用于测量句法(syntactic)和语义词(semantic)的相似性
 
+# 1. Introduction
+
+介绍了现状
+- 当下（2013年）很多模型将单个词汇视为最小单元，没有体现单词之间的相关性(因为在词汇表里呈现为index)
+    - 具备一定合理性：模型简洁、稳定性、能够在很大的数据集
+    - N-gram模型是一个很好的例子，理论上可以训练数据全集（trillions of words）
+    
+- 这样简洁的模型依旧有局限
+    - 由于需要大量数据，比如语音识别这种数据集较小的领域应用不佳
+    - 因此，用简易的技术堆积并非能够带来巨大改进
+    
+- 最佳构想是对词的表示，比如神经网络模型优于N-gram模型
+
+## 1.1 Goals of the paper
+- 本文主要目的：
+    - 从巨大数据集（数十亿的词、数百万的词汇量）之中构造高质量的词汇向量表示
+    - 对比现状：大部分现存的技术，只能够处理数千万的词、单词向量的modest维度只有50-100
+
+- 词汇向量表示的质量 - 近期技术 [[20]](#20):
+    - 相似词汇更加相近
+    - 词汇有不同的相似程度（可区分、衡量）
+    - 在 context of inflectional languages 已有体现——一个名词会有多个结尾词，一般从原有的向量空间里找类似词汇，也可以找到类似的结尾词
+    
+- 词汇的表示的相似度并不止于（1）简单的词汇含义/语法相似，还有（2）词向量的计算：vector("king") - vector("man") + vector("woman) 约等于 vector("queen") —— 相当于空间上向量之间的关系
+
+
+```In this paper, we try to maximize accuracy of these vector operations by developing new model architectures that preserve the linear regularities among words. We design a new comprehensive test set for measuring both syntactic and semantic regularities1, and show that many such regularities can be learned with high accuracy. Moreover, we discuss how training time and accuracy depends on the dimensionality of the word vectors and on the amount of the training data.```
+
+## 1.2 Previous work
+- NNLM：线性映射层 以及 非线性隐藏层 被用于学习 词向量表示以及统计性语言模型
+- 词向量能够显著提升并且简化 NLP 应用。
+- 但现有的技术，计算量太复杂
+
+# 2. Model architectures
+
+
+
+
 
 
 # 6. Conclusion
@@ -47,4 +85,5 @@ paper: https://arxiv.org/pdf/1301.3781.pdf
 
 
 
-
+<a id="20">[20]</a> 
+T. Mikolov, W.T. Yih, G. Zweig. Linguistic Regularities in Continuous Space Word Representations. NAACL HLT 2013.

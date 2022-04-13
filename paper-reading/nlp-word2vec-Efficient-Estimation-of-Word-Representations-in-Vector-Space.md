@@ -55,7 +55,7 @@ paper: https://arxiv.org/pdf/1301.3781.pdf
     - 词汇有不同的相似程度（可区分、衡量）
     - 在 context of inflectional languages 已有体现——一个名词会有多个结尾词，一般从原有的向量空间里找类似词汇，也可以找到类似的结尾词
     
-- 词汇的表示的相似度并不止于（1）简单的词汇含义/语法相似，还有（2）词向量的计算：vector("king") - vector("man") + vector("woman) 约等于 vector("queen") —— 相当于空间上向量之间的关系
+- 词汇的表示的相似度并不止于（1）简单的词汇含义/语法相似，还有（2）词向量的计算：$vector("king") - vector("man") + vector("woman)$ 约等于 $vector("queen")$ —— 相当于空间上向量之间的关系
 
 
 ```In this paper, we try to maximize accuracy of these vector operations by developing new model architectures that preserve the linear regularities among words. We design a new comprehensive test set for measuring both syntactic and semantic regularities1, and show that many such regularities can be learned with high accuracy. Moreover, we discuss how training time and accuracy depends on the dimensionality of the word vectors and on the amount of the training data.```

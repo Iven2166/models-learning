@@ -67,7 +67,23 @@ paper: https://arxiv.org/pdf/1301.3781.pdf
 
 # 2. Model architectures
 
+有很多模型应用于词表示：包括了 Latent Semantic Analysis (LSA) 和 Latent Dirichlet Allocation (LDA)
 
+本文主要做 词的分布式表示 (distributed representations of words) 
+- 应用神经网络优于LSA：在保持词汇之间的线性规则 (linear regularities)
+- LDA在大数据集上计算复杂度过高
+
+为了对比模型: 1. 模型的参数个数 2.提升准确率，同时保持较低的计算复杂度
+
+因此，模型的训练复杂度以该比例增长： O = E × T × Q，所有模型应用梯度随机下降以及反向传播算法。
+- E: 训练epoch数，一般是 3～50
+- T: 训练集的词汇数，可达到十亿级别(billions)
+- Q: 模型的自定义参数
+
+
+## 2.1 Feedforward neural network net language model (NNLM)
+
+NNLM 应用于 [[1]](#1)
 
 
 

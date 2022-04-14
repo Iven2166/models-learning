@@ -101,5 +101,9 @@ NNLM 应用于 [[1]](#1)
 
 
 
+<a id="1">[1]</a>
+Y. Bengio, R. Ducharme, P. Vincent. A neural probabilistic language model. Journal of Machine Learning Research, 3:1137-1155, 2003.
+-- https://www.jmlr.org/papers/volume3/bengio03a/bengio03a.pdf
+
 <a id="20">[20]</a> 
 T. Mikolov, W.T. Yih, G. Zweig. Linguistic Regularities in Continuous Space Word Representations. NAACL HLT 2013.

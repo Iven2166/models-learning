@@ -85,7 +85,7 @@ paper: https://arxiv.org/pdf/1301.3781.pdf
 
 NNLM 应用于 [[1]](#1)
 
-
+$y = b + WX + U tanh(d + hX)$
 
 
 # 6. Conclusion

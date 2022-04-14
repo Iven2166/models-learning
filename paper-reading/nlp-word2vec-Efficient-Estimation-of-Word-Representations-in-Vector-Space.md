@@ -85,7 +85,17 @@ paper: https://arxiv.org/pdf/1301.3781.pdf
 
 NNLM 应用于 [[1]](#1)
 
-$y = b + WX + U tanh(d + hX)$
+$y = b + WX + U tanh(d + HX)$
+
+- y: V * 1
+- b: V * 1
+- W: V * (n*m)
+- X: (n*m) * 1
+- U: V * h
+- H: h * (n*m)
+
+
+
 
 
 # 6. Conclusion

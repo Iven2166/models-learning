@@ -53,10 +53,11 @@ model.compile(optimizer='rmsprop',...)
 
 
 单个介绍
-- word2vec
+- word2vec(2013)
   - 论文：
     - 原作者-[word2vec思想](https://arxiv.org/pdf/1301.3781.pdf) (也讨论了和NNLM等的区别)
     - 原作者-Skip-gram模型的两个策略：[Hierarchical Softmax 和 Negative Sampling](https://papers.nips.cc/paper/2013/file/9aa42b31882ec039965f3c4923ce901b-Paper.pdf)
+    - 原作者的[博士论文（2012），适合用于了解历史](https://www.fit.vut.cz/study/phd-thesis-file/283/283.pdf)
     - 其他作者解读
       - [word2vec Parameter Learning Explained](https://arxiv.org/pdf/1411.2738.pdf)
       - [word2vec Explained: Deriving Mikolov et al.’s Negative-Sampling Word-Embedding Method](https://arxiv.org/pdf/1402.3722.pdf)

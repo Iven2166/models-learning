@@ -176,7 +176,8 @@ semantic理解为单词对的对应关系，syntactic对应的是时态变化等
 
 # 6. Conclusion
 
-![img.png](img.png)
+`In this paper we studied the quality of vector representations of words derived by various models on a collection of syntactic and semantic language tasks. We observed that it is possible to train high quality word vectors using very simple model architectures, compared to the popular neural network models (both feedforward and recurrent). Because of the much lower computational complexity, it is possible to compute very accurate high dimensional word vectors from a much larger data set. Using the DistBelief distributed framework, it should be possible to train the CBOW and Skip-gram models even on corpora with one trillion words, for basically unlimited size of the vocabulary. That is several orders of magnitude larger than the best previously published results for similar models.`
+
 - 本文中的主要工作：在一系列的质量句法和语义语言任务(syntactic and semantic language tasks)上，研究了不同模型下的词向量表示的质量。
 
 - 模型架构相对简单，提升计算速度，从而纳入了更多的训练样本。

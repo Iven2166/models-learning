@@ -30,11 +30,12 @@
     
 参考：
 
-[Facebook出价模式- CPM,CPC,CPA,OCPM](https://www.papayamobile.com/academy/%E5%85%A8%E9%9D%A2%E8%A7%A3%E6%9E%90facebook%E5%87%BA%E4%BB%B7%E6%A8%A1%E5%BC%8F-cpmcpccpaocpm.html#:~:text=CPC%EF%BC%88Cost%20Per%20Click%EF%BC%89,%E4%BC%9A%E9%80%89%E6%8B%A9CPC%E5%87%BA%E4%BB%B7%E6%A8%A1%E5%BC%8F%E3%80%82)
+- [Facebook出价模式- CPM,CPC,CPA,OCPM](https://www.papayamobile.com/academy/%E5%85%A8%E9%9D%A2%E8%A7%A3%E6%9E%90facebook%E5%87%BA%E4%BB%B7%E6%A8%A1%E5%BC%8F-cpmcpccpaocpm.html#:~:text=CPC%EF%BC%88Cost%20Per%20Click%EF%BC%89,%E4%BC%9A%E9%80%89%E6%8B%A9CPC%E5%87%BA%E4%BB%B7%E6%A8%A1%E5%BC%8F%E3%80%82)
+- [CPC、CPA、CPM 的定义](https://www.zhihu.com/question/20416888)
+- [一些名词解释](https://www.zhihu.com/question/20416888/answer/158234970)
 
-[CPC、CPA、CPM 的定义](https://www.zhihu.com/question/20416888)
 
-[一些名词解释](https://www.zhihu.com/question/20416888/answer/158234970)
+- [知乎-一文读懂CTR预估模型的发展历程](https://zhuanlan.zhihu.com/p/465520407)
 
 
 ## CRT-模型应用

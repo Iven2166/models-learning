@@ -35,8 +35,17 @@
 - [一些名词解释](https://www.zhihu.com/question/20416888/answer/158234970)
 
 
-- [知乎-一文读懂CTR预估模型的发展历程](https://zhuanlan.zhihu.com/p/465520407)
 
+
+---
+- [知乎-一文读懂CTR预估模型的发展历程](https://zhuanlan.zhihu.com/p/465520407)
+  
+
+  - FM
+    - [论文](https://www.csie.ntu.edu.tw/~b97053/paper/Rendle2010FM.pdf) 
+    - [知乎-FM（Factorization Machines）的理论与实践](https://zhuanlan.zhihu.com/p/50426292)
+
+---
 
 ## CRT-模型应用
 

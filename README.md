@@ -100,7 +100,8 @@ model.compile(optimizer='rmsprop',...)
   - [个人博客1](https://wmathor.com/index.php/archives/1399/)
   - [自然语言处理入门-一些名词和概念](http://www.fanyeong.com/2018/02/13/introduction_to_nlp/)
   - [Archive | Deep Learning for Natural Language Processing](https://machinelearningmastery.com/category/natural-language-processing/)
-
+  - [NLP101-github](https://github.com/Huffon/NLP101)
+  - [text-classification](https://github.com/zhengwsh/text-classification)
 
 
 

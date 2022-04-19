@@ -106,3 +106,26 @@
 - 客服服务质检
 - 会话满意度预估
 - 智能人工入口
+
+# 一些存档(无序无归类)
+- [搜索中的 Query 理解及应用-腾讯](https://mp.weixin.qq.com/s?__biz=MzU1NTMyOTI4Mw==&mid=2247499470&idx=1&sn=6a6e80673353fb485a854ed2cffc5dcb&chksm=fbd74ca2cca0c5b4fb0622140eb9fa3cd15c860d06b24a4c7fc37e8b3db614af8c4ad9cbe0d3&scene=27#wechat_redirect)
+- [搜索中的深度匹配模型](https://mp.weixin.qq.com/s?__biz=MzU1NTMyOTI4Mw==&mid=2247498613&idx=1&sn=77f53f7e1edd2dc579cc49b5db803ad4&chksm=fbd74919cca0c00fdae51accb916b42a29d98bf3eb745f42bd9f17d9c4352ef9129ad13a0e5d&scene=21#wechat_redirect)
+- [阿里文娱搜索算法实践与思考](https://mp.weixin.qq.com/s?__biz=MzU1NTMyOTI4Mw==&mid=2247499175&idx=1&sn=1c398e92f0712e4e5f545759d0a85692&chksm=fbd74fcbcca0c6dd11a04b493827ffdda06c69f6013b95c74c54c14f596cab0f303751f9e14d&scene=21#wechat_redirect)
+
+# 岗位JD联想技能树
+
+- 广告算法工程师 -【推荐广告模型】
+  - 关键词：多任务深度学习网络、广告变现、重排混排等排序算法
+  - 多任务深度学习网络，提升广告变现效率
+  - 跟进业界深度学习、迁移学习、强化学习等前沿技术, 将其在商业化多个场景中进行落地应用
+  - 分析海量用户行为数据和视频数据，增加有效的特征，挖掘用户兴趣，优化排序机制
+  - 重排混排等排序算法，优化自然结果和商业化结果的流量分配，在促进短视频生态的同时提升商业化能力
+
+- 广告算法工程师- 【增长广告投放】
+  - 开发和迭代CTR预估模型和竞价策略，提升用户增长广告投放点击率、转化率、ROI等核心指标；
+  - 通过深度学习领域的研发工作，包括但不限于深度模型设计与优化、强化学习、迁移学习、图神经网络等算法和系统提升预估效果；
+  - 通过召回排序等推荐算法，改善增长广告用户在快手的产品体验。
+  
+
+
+

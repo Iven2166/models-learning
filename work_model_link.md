@@ -34,16 +34,31 @@
 - [CPC、CPA、CPM 的定义](https://www.zhihu.com/question/20416888)
 - [一些名词解释](https://www.zhihu.com/question/20416888/answer/158234970)
 
-
-
-
 ---
-- [知乎-一文读懂CTR预估模型的发展历程](https://zhuanlan.zhihu.com/p/465520407)
+[知乎-一文读懂CTR预估模型的发展历程](https://zhuanlan.zhihu.com/p/465520407)
   
+- 摘要：CTR预估是搜索、推荐、广告等领域基础且重要的任务，主要目标是预测用户在当前上下文环境下对某一个候选（视频、商品、广告等） 发生点击的概率。CTR预估从最原始的逻辑回归模型，发展到FM、深度学习模型等，经历了一个不断创新的过程，其核心为如何设计、融合不同的特征交叉方式。本文从FM和DNN开始开始，带你梳理CTR预估模型的发展历程，包括FNN、PNN、Wide&Deep、DCN、DeepFM、xDeepFM等一系列CTR预估模型和它们之间发展演进的关系。
+- 关键词句：
+  - 发展/创新的核心为如何设计、融合不同的特征交叉方式
+  - FNN、PNN、Wide&Deep、DCN、DeepFM、xDeepFM
 
-  - FM
+
+- (1) FM 和 DNN
+  - FM：vector-wise特征交叉，即在每个特征向量的维度进行交叉
     - [论文](https://www.csie.ntu.edu.tw/~b97053/paper/Rendle2010FM.pdf) 
     - [知乎-FM（Factorization Machines）的理论与实践](https://zhuanlan.zhihu.com/p/50426292)
+    - 优势
+      - 在高度稀疏的情况下特征之间的交叉仍然能够估计，而且可以泛化到未被观察的交叉
+      - 参数的学习和模型的预测的时间复杂度是线性的
+    
+  - DNN：bit-wise维度，即每个元素值交叉，不管这个值来自哪个特征
+    - Embedding+DNN的思路。将每个特征通过Embedding矩阵转换成一个向量，将所有向量拼接到一起，通过多层DNN网络进行预测
+
+- (2) 对于DNN和FM的模型优化
+
+Deep Learning over Multi-field Categorical Data – A Case Study on User Response Prediction（2016，FNN）[pdf](https://arxiv.org/pdf/1601.02376.pdf?ref=https://githubhelp.com)
+
+将DNN和FM模型的优势进行了结合。该方法首先使用FM进行训练，得到每个特征对应的向量，作为每个特征的向量表示。然后使用这个向量作为每个特征的初始化向量，后面使用DNN进行预测
 
 ---
 

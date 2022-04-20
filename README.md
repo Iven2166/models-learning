@@ -38,6 +38,13 @@ model.compile(optimizer='rmsprop',...)
 
 ## Transformer
 
+论文解读
+- 精读论文
+  - [Transformer-<Attention-is-all-you-need>](https://github.com/Iven2166/models-learning/blob/main/paper-reading/Transformer-%3CAttention-is-all-you-need%3E.md)
+  
+- 其他参考
+  - [公众号-实现](https://mp.weixin.qq.com/s/cuYAt5B22CYtB3FBabjEIw)
+  
 
 **历史发展**
 

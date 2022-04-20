@@ -51,6 +51,20 @@ model.compile(optimizer='rmsprop',...)
 # 领域划分
 ## NLP
 
+- 一些博客参考
+  
+  - [如何系统性地学习NLP 自然语言处理？](https://www.zhihu.com/question/27529154/answer/1643865710)
+  - [nlp-tutorial](https://github.com/graykode/nlp-tutorial)
+  - [非常牛逼的nlp_course！！！](https://github.com/yandexdataschool/nlp_course)
+  - [nlp-roadmap](https://github.com/graykode/nlp-roadmap)
+  - [Transformers-大集合](https://github.com/huggingface/transformers)
+  - [个人博客1](https://wmathor.com/index.php/archives/1399/)
+  - [自然语言处理入门-一些名词和概念](http://www.fanyeong.com/2018/02/13/introduction_to_nlp/)
+  - [Archive | Deep Learning for Natural Language Processing](https://machinelearningmastery.com/category/natural-language-processing/)
+  - [NLP101-github](https://github.com/Huffon/NLP101)
+  - [text-classification](https://github.com/zhengwsh/text-classification)
+
+
 ### Word Embedding 词嵌入
 
 概念上而言，它是指把一个维数为所有词的数量的高维空间嵌入到一个维数低得多的连续向量空间中，每个单词或词组被映射为实数域上的向量。
@@ -70,8 +84,6 @@ model.compile(optimizer='rmsprop',...)
   - 相同上下文语境的词有似含义
   - 固定表征无法表示"一词多义"（因为一个单词只有一个emb）
 - 基于词向量的动态表征：elmo、GPT、bert
-
-
 
 单个介绍
 - word2vec(2013)
@@ -103,19 +115,6 @@ model.compile(optimizer='rmsprop',...)
 - [论文](https://nlp.stanford.edu/pubs/glove.pdf)
 
 ---
-- 博客参考
-  
-  - [如何系统性地学习NLP 自然语言处理？](https://www.zhihu.com/question/27529154/answer/1643865710)
-  - [nlp-tutorial](https://github.com/graykode/nlp-tutorial)
-  - [nlp-roadmap](https://github.com/graykode/nlp-roadmap)
-  - [Transformers-大集合](https://github.com/huggingface/transformers)
-  - [个人博客1](https://wmathor.com/index.php/archives/1399/)
-  - [自然语言处理入门-一些名词和概念](http://www.fanyeong.com/2018/02/13/introduction_to_nlp/)
-  - [Archive | Deep Learning for Natural Language Processing](https://machinelearningmastery.com/category/natural-language-processing/)
-  - [NLP101-github](https://github.com/Huffon/NLP101)
-  - [text-classification](https://github.com/zhengwsh/text-classification)
-
-
 
 ### 预训练
 

@@ -17,14 +17,19 @@ model.compile(optimizer='rmsprop',...)
 ### 激活函数
 - [激活函数总结](https://zhuanlan.zhihu.com/p/73214810)
 - [逻辑回归原理小结](https://www.cnblogs.com/pinard/p/6029432.html)
-
-
 - [梯度下降（Gradient Descent）小结](https://www.cnblogs.com/pinard/p/5970503.html)
 
 ### 计算
 - [[矩阵分析与应用].张贤达.扫描版](https://github.com/61--/weiyanmin/blob/master/BOOK/%5B%E7%9F%A9%E9%98%B5%E5%88%86%E6%9E%90%E4%B8%8E%E5%BA%94%E7%94%A8%5D.%E5%BC%A0%E8%B4%A4%E8%BE%BE.%E6%89%AB%E6%8F%8F%E7%89%88.pdf)
+- [DNN为例的梯度计算](https://zhuanlan.zhihu.com/p/29815081)
+
 
 # 按照模型划分
+
+## DNN系列
+[发展历史介绍](https://www.jiqizhixin.com/graph/technologies/f82b7976-b182-40fa-b7d8-a3aad9952937#:~:text=%E4%B9%8B%E5%BF%83Techopedia-,%E6%B7%B1%E5%BA%A6%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%EF%BC%88DNN%EF%BC%89%E6%98%AF%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%9A%84%E4%B8%80%E7%A7%8D,%E5%90%91%E4%BC%A0%E6%92%AD%E7%AE%97%E6%B3%95%E8%BF%9B%E8%A1%8C%E8%AE%AD%E7%BB%83%E3%80%82)
+
+
 ## RNN & GRU & LSTM
 
 - 参考
@@ -143,6 +148,8 @@ model.compile(optimizer='rmsprop',...)
   - [!!! NNLM 的 PyTorch 实现](https://wmathor.com/index.php/archives/1442/)
 
 
-
-
-
+# 书
+|书名|描述|link|
+|:---|---|:---|
+|互联网核心应用（搜索、推荐、广告）算法宝藏书.pdf|结合公司业务进行的顶层设计介绍（广泛）|[PDF](https://livehbsaas.oss-cn-beijing.aliyuncs.com/%E4%BA%92%E8%81%94%E7%BD%91%E6%A0%B8%E5%BF%83%E5%BA%94%E7%94%A8%EF%BC%88%E6%90%9C%E7%B4%A2%E3%80%81%E6%8E%A8%E8%8D%90%E3%80%81%E5%B9%BF%E5%91%8A%EF%BC%89%E7%AE%97%E6%B3%95%E5%AE%9D%E8%97%8F%E4%B9%A6.pdf)|
+|||

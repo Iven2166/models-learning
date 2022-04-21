@@ -88,7 +88,7 @@
 FNN和PNN的问题在于，由于采用了DNN结构，模型更倾向于提取高阶特征交叉，对低阶特征交叉提取较少，而后者在CTR预估中也是非常重要的。
 
 [DeepFM: A Factorization-Machine based Neural Network for CTR Prediction（2017）](https://arxiv.org/pdf/1703.04247.pdf)
-提出DeepFM模型，通过结合DNN和FM实现二者优势互补。模型分为DNN模块和FM模块，DNN模块和FM模块共享底层embedding（Q：这个怎么来的？）。Deep模块和FM模块的输出最终拼接到一起，共同预测点击率。
+提出DeepFM模型，通过结合DNN和FM实现二者优势互补。模型分为DNN模块和FM模块，`DNN模块和FM模块共享底层embedding（Q：这个怎么来的？）`。Deep模块和FM模块的输出最终拼接到一起，共同预测点击率。
 
 > **论文摘要**： 
 > 学习用户行为背后的复杂特征交互对于最大化推荐系统的 CTR 至关重要。 尽管取得了很大进展，但现有方法似乎对低阶或高阶交互有强烈的偏见，或者需要专业的特征工程。 
@@ -98,6 +98,23 @@ FNN和PNN的问题在于，由于采用了DNN结构，模型更倾向于提取�
 > 与谷歌最新的 Wide & Deep 模型相比，DeepFM 的“wide”和“deep”部分具有共享输入，除了原始特征之外不需要特征工程。 进行了综合实验以证明 DeepFM 在基准数据和商业数据上优于现有 CTR 预测模型的有效性和效率
 
 ***针对DNN/FM问题的改进***
+
+DNN或者FM模型都是基于embedding的，FM中的embedding是每个特征对应的向量，DNN中的embedding是每个特征值对应的向量。
+- 基于embedding的方法虽然提升了模型的泛化性（generalization），但是记忆性（memorization）较弱：
+  - 例如，对于某个user+某个item这种组合特征，一种处理方法是userid+itemid组成新的id，另一种方式是userid的embedding和itemid的embedding做内积。前者是id特征，记忆性要明显强于后者，而前者的泛化性较弱，例如训练样本中没有这个user和这个item的组合。
+  - id特征：记忆性强于emb组合，但泛化性较弱（比如没有该user-id出现时）
+
+
+[Wide & Deep Learning for Recommender Systems（2016，Wide&Deep）](https://arxiv.org/pdf/1606.07792.pdf)
+提出了在DNN的基础上，添加wide结构：
+
+![/pics/img_wideandeep1.png](img_wideandeep1.png)
+
+- DNN负责泛化性
+- wide负责记忆性
+- 缺点在于左侧的wide部分依赖人工设计特征
+
+Deep & Cross Network for Ad Click Predictions（2017，DCN）将左侧的wide部分替换成了cross layer
 
 
 

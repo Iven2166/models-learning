@@ -116,7 +116,7 @@ DNN或者FM模型都是基于embedding的，FM中的embedding是每个特征对�
 
 [Deep & Cross Network for Ad Click Predictions（2017，DCN）](https://arxiv.org/pdf/1708.05123.pdf) 将左侧的wide部分替换成了cross layer ，随着层数的增加，最终cross部分的输出是所有特征的多阶交叉，且交叉的阶数和cross layer的层数线性相关。通过这种方式，实现了对所有特征交叉的自动化学习，而不再需要手动提取高阶交叉特征了。
 
-$X_{l+1}$
+$x_{l+1} = x_{0} x_{l}^{T}$
 
 ---
 

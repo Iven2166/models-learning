@@ -5,6 +5,7 @@
 - 整体的版图认知
 - 各个模型的认知 & 实践 （一个模型一个文件夹，需要包括md 及 ipynb模型训练文件）
 
+
 # 通用
 ### optimization
 ```python
@@ -64,10 +65,33 @@ model.compile(optimizer='rmsprop',...)
 # 领域划分
 ## NLP
 
+![img.png](img.png)
+
+```markdown 
+NLP
+# 经典模型
+
+## 统计机器学习
+### ......
+
+## 神经网络
+### 词向量
+#### NNLM
+#### Word2Vec
+#### FaseText
+#### Glove
+### CNN
+### RNN & LSTM & GRU
+### Bert 
+### ElMo?
+
+```
+
+
 - 一些博客参考
   
-  - [rumor - 如何系统性地学习NLP 自然语言处理？ - 关注里面对综述的引用](https://www.zhihu.com/question/27529154/answer/1643865710)
-    - [NLP快速入门路线及任务详解](https://mp.weixin.qq.com/s/zrziuFLRvbG8axG48QpFvg)
+  - [rumor - 如何系统性地学习NLP 自然语言处理？ - `关注里面对综述的引用`](https://www.zhihu.com/question/27529154/answer/1643865710)
+    - [NLP快速入门路线及任务详解 - `其他综述`](https://mp.weixin.qq.com/s/zrziuFLRvbG8axG48QpFvg)
     - [深度学习文本分类｜模型&代码&技巧](https://mp.weixin.qq.com/s?__biz=MzAxMTk4NDkwNw==&mid=2247485854&idx=1&sn=040d51b0424bdee66f96d63d4ecfbe7e&chksm=9bb980faacce09ec069afa79c903b1e3a5c0d3679c41092e16b2fdd6949aa059883474d0c2af&token=1473678595&lang=zh_CN&scene=21#wechat_redirect)
   - [nlp-tutorial](https://github.com/graykode/nlp-tutorial)
   - [非常牛逼的nlp_course！！！](https://github.com/yandexdataschool/nlp_course)
@@ -78,6 +102,8 @@ model.compile(optimizer='rmsprop',...)
   - [Archive | Deep Learning for Natural Language Processing](https://machinelearningmastery.com/category/natural-language-processing/)
   - [NLP101-github](https://github.com/Huffon/NLP101)
   - [text-classification](https://github.com/zhengwsh/text-classification)
+  - [meta-research](https://github.com/orgs/facebookresearch/repositories?q=&type=all&language=python&sort=)
+  
 
 
 ### Word Embedding 词嵌入

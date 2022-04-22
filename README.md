@@ -66,7 +66,9 @@ model.compile(optimizer='rmsprop',...)
 
 - 一些博客参考
   
-  - [如何系统性地学习NLP 自然语言处理？](https://www.zhihu.com/question/27529154/answer/1643865710)
+  - [rumor - 如何系统性地学习NLP 自然语言处理？ - 关注里面对综述的引用](https://www.zhihu.com/question/27529154/answer/1643865710)
+    - [NLP快速入门路线及任务详解](https://mp.weixin.qq.com/s/zrziuFLRvbG8axG48QpFvg)
+    - [深度学习文本分类｜模型&代码&技巧](https://mp.weixin.qq.com/s?__biz=MzAxMTk4NDkwNw==&mid=2247485854&idx=1&sn=040d51b0424bdee66f96d63d4ecfbe7e&chksm=9bb980faacce09ec069afa79c903b1e3a5c0d3679c41092e16b2fdd6949aa059883474d0c2af&token=1473678595&lang=zh_CN&scene=21#wechat_redirect)
   - [nlp-tutorial](https://github.com/graykode/nlp-tutorial)
   - [非常牛逼的nlp_course！！！](https://github.com/yandexdataschool/nlp_course)
   - [nlp-roadmap](https://github.com/graykode/nlp-roadmap)
@@ -148,8 +150,8 @@ model.compile(optimizer='rmsprop',...)
   - [!!! NNLM 的 PyTorch 实现](https://wmathor.com/index.php/archives/1442/)
 
 
-# 书
-|书名|描述|link|
+# 其他参考
+|名称|描述|link|
 |:---|---|:---|
 |互联网核心应用（搜索、推荐、广告）算法宝藏书.pdf|结合公司业务进行的顶层设计介绍（广泛）|[PDF](https://livehbsaas.oss-cn-beijing.aliyuncs.com/%E4%BA%92%E8%81%94%E7%BD%91%E6%A0%B8%E5%BF%83%E5%BA%94%E7%94%A8%EF%BC%88%E6%90%9C%E7%B4%A2%E3%80%81%E6%8E%A8%E8%8D%90%E3%80%81%E5%B9%BF%E5%91%8A%EF%BC%89%E7%AE%97%E6%B3%95%E5%AE%9D%E8%97%8F%E4%B9%A6.pdf)|
-|||
+|知乎-视频合集|一些深度学习、机器学习的视频合集|[link](https://space.bilibili.com/73012391/video?tid=0&page=2&keyword=&order=pubdate)|

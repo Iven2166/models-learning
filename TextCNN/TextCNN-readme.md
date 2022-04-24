@@ -2,16 +2,14 @@
 
 模型原理 (原作 `2.Model`)：
 
-- 构造词（句）的向量表示：文章中使用到了 word2vec 训练的词向量，
+- 构造词（句）的向量表示：文章中使用到了 word2vec 训练的词向量， $x_{i} \in \mathbb{R}^{k}$: 句子中第 $i$ 个词，向量具备 $k$ 个维度
 
-$x_{i} \in \mathbb{R}^{k}$: 句子中第 $i$ 个词，向量具备 $k$ 个维度
-
-- 在一定窗口长度下构造句子的部分向量，横向拼接，$x_{i}:{i+j}$ 代表concat了 $x_i$ 到 $x_{i+j}$ 的单词向量: 
+- 在一定窗口长度下构造句子的部分向量，横向拼接，$x_{i:i+j}$ 代表concat了 $x_i$ 到 $x_{i+j}$ 的单词向量: 
 $x_{i:j}= x_{i} \oplus x_{i+1} \oplus . . . \oplus x_{j}$
 
 - 构造卷积filter，$w \in \mathbb{R}^{hk}$ ，用于前一步的 $h$ 个单词向量，产生新特征 $c_{i}$；函数 $f$ 是非线性函数 hyperbolic tangent: $c_{i} = f(w \cdot x_{i:i+h−1} + b)$
 
-- 经过全部窗口，产生 $n-h+1$ 个 $c_{i}$，再对 $c_{i}$ 进行拼接，获取 $c$, $**c** = [c_{1}, c_{2}, ..., c_{n−h+1}]$ , $c \in \mathbb{R}^{n−h+1}$
+- 经过全部窗口，产生 $n-h+1$ 个 $c_{i}$，再对 $c_{i}$ 进行拼接，获取 $c$, $*c* = [c_{1}, c_{2}, ..., c_{n−h+1}]$ , $c \in \mathbb{R}^{n−h+1}$
 
 - 采用max-pooling处理，$\hat{c}$ 提取最显著的特征（由于在句子分类任务中，提取最显著的特征进行分类即可，所以max比较有效）
 `The idea is to capture the most important feature—one with the highest value—for

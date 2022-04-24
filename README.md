@@ -50,7 +50,7 @@
 重要参考
 
 
-| type <img width=10/> 	| paper <img width=100/>                                                                                                                 	| intro     <img width=200/>                                                                             	| link      <img width=10/>                                    	|
+| type 	| paper                                                                                                             	| intro                                                                         	| link                                  	|
 |------	|-------------------------------------------------	|-------------------------------------------------	|----------------	|
 | 原作 	| 2014-Convolutional Neural Networks for Sentence Classification                                                         	| (1) CNN-random-init <br> (2)CNN-static <br> (3)CNN-non-static <br> (4)CNN-multichannel 	| [link](https://aclanthology.org/D14-1181.pdf) 	|
 | 解读 	| 2016-A Sensitivity Analysis of (and Practitioners’ Guide to) Convolutional Neural Networks for Sentence Classification 	|                                                                                        	| [link](https://arxiv.org/pdf/1510.03820.pdf)  	|
@@ -59,6 +59,13 @@
 
 
 ### 原理推导
+
+- 构造词（句）的向量表示：文章中使用到了 word2vec 训练的词向量，
+
+$x_{i} /belong R^{k}$: k be the k-dimensional word vector corresponding to the i-th word in the sentence
+
+- 在一定窗口长度下构造句子的部分向量
+
 $x_{1:n}= x_{1} \oplus x_{2} \oplus . . . \oplus x_{n}$
 
 

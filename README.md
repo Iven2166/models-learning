@@ -49,21 +49,8 @@
 
 重要参考
 
-<style>
-table th:first-of-type {
-    width: 10%;
-}
-table th:nth-of-type(2) {
-    width: 30%;
-}
-table th:nth-of-type(3) {
-    width: 50%;
-table th:nth-of-type(4) {
-    width: 10%;
-}
-</style>
 
-| type 	| paper                                                                                                                  	| intro                                                                                  	| link                                          	|
+| type <img width=10/> 	| paper <img width=100/>                                                                                                                 	| intro     <img width=200/>                                                                             	| link      <img width=10/>                                    	|
 |------	|-------------------------------------------------	|-------------------------------------------------	|----------------	|
 | 原作 	| 2014-Convolutional Neural Networks for Sentence Classification                                                         	| (1) CNN-random-init <br> (2)CNN-static <br> (3)CNN-non-static <br> (4)CNN-multichannel 	| [link](https://aclanthology.org/D14-1181.pdf) 	|
 | 解读 	| 2016-A Sensitivity Analysis of (and Practitioners’ Guide to) Convolutional Neural Networks for Sentence Classification 	|                                                                                        	| [link](https://arxiv.org/pdf/1510.03820.pdf)  	|

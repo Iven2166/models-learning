@@ -6,19 +6,14 @@
 
 $x_{i} \in \mathbb{R}^{k}$: 句子中第 $i$ 个词，向量具备 $k$ 个维度
 
-- 在一定窗口长度下构造句子的部分向量，横向拼接，xi:i+j代表concat了xi到xi+j的单词向量
+- 在一定窗口长度下构造句子的部分向量，横向拼接，$x_{i}:{i+j}$ 代表concat了 $x_i$ 到 $x_{i+j}$ 的单词向量: 
+$x_{i:j}= x_{i} \oplus x_{i+1} \oplus . . . \oplus x_{j}$
 
-$x_{1:n}= x_{1} \oplus x_{2} \oplus . . . \oplus x_{n}$
+- 构造卷积filter，$w \in \mathbb{R}^{hk}$ ，用于前一步的 $h$ 个单词向量，产生新特征 $c_{i}$；函数 $f$ 是非线性函数 hyperbolic tangent: $c_{i} = f(w \cdot x_{i:i+h−1} + b)$
 
-- 构造卷积filter，w∈ R hk，用于前一步的h个单词向量，产生新特征ci；函数f 是非线性函数 hyperbolic tangent
+- 经过全部窗口，产生 $n-h+1$ 个 $c_{i}$，再对 $c_{i}$ 进行拼接，获取 $c$, $**c** = [c_{1}, c_{2}, ..., c_{n−h+1}]$ , $c \in \mathbb{R}^{n−h+1}$
 
-ci = f(w · xi:i+h−1 + b)
-
-- 经过全部窗口，产生n-h+1个ci，再对ci进行拼接，获取c
-
-c = [c1, c2, . . . , cn−h+1], c ∈ R n−h+1
-
-- 采用max-pooling处理，c帽提取最显著的特征（由于在句子分类任务中，提取最显著的特征进行分类即可，所以max比较有效）
+- 采用max-pooling处理，$\hat_{c}$ 提取最显著的特征（由于在句子分类任务中，提取最显著的特征进行分类即可，所以max比较有效）
 `The idea is to capture the most important feature—one with the highest value—for
 each feature map. This pooling scheme naturally
 deals with variable sentence lengths.`
@@ -27,8 +22,8 @@ deals with variable sentence lengths.`
 
 正则化 (原作 `2.1 Regularization`)
 
-- dropout: 对倒数第二层(`penultimate layer`, z = [ˆc1, . . . , cˆm] )进行遮盖处理，在前向传播中(forward propagation)不使用 y = w · z + b， 而是 y = w · (z ◦ r) + b 梯度仅在不遮盖的单元里进行反向传播更新参数。
-r ∈ Rm is a ‘masking’ vector of Bernoulli random variables with probability p of being 1.
+- dropout: 对倒数第二层(`penultimate layer`, $z = [\hat{c_{1}}, ..., \hat{c_{m}}]$ )进行遮盖处理，在前向传播中(forward propagation)不使用 $y = w \dot z + b$， 而是 $y = w · (z \cdot r) + b$ 梯度仅在不遮盖的单元里进行反向传播更新参数。
+$r \in \mathbb{R}^{m}$ is a ‘masking’ vector of Bernoulli random variables with probability p of being 1.
 
 - `At test time, the learned weight vectors are scaled by p such that wˆ = pw, and wˆ is used (without dropout) to score unseen sentences. We additionally constrain l2-norms of the weight vectors by rescaling w to have ||w||2 = s whenever ||w||2 > s after a gradient descent step.`
 

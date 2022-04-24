@@ -62,7 +62,7 @@
 
 - 构造词（句）的向量表示：文章中使用到了 word2vec 训练的词向量，
 
-$x_{i} /in \imath^{k}$: k be the k-dimensional word vector corresponding to the i-th word in the sentence
+$x_{i} /in R^{k}$: k be the k-dimensional word vector corresponding to the i-th word in the sentence
 
 - 在一定窗口长度下构造句子的部分向量
 

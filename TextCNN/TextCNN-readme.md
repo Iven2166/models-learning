@@ -9,7 +9,7 @@ $x_{i:j}= x_{i} \oplus x_{i+1} \oplus . . . \oplus x_{j}$
 
 - 构造卷积filter，$w \in \mathbb{R}^{hk}$ ，用于前一步的 $h$ 个单词向量，产生新特征 $c_{i}$；函数 $f$ 是非线性函数 hyperbolic tangent: $c_{i} = f(w \cdot x_{i:i+h−1} + b)$
 
-- 经过全部窗口，产生 $n-h+1$ 个 $c_{i}$，再对 $c_{i}$ 进行拼接，获取 $c$, $\bold{c} = [c_{1}, c_{2}, ..., c_{n−h+1}]$ , $c \in \mathbb{R}^{n−h+1}$
+- 经过全部窗口，产生 $n-h+1$ 个 $c_{i}$，再对 $c_{i}$ 进行拼接，获取 $c$, $\pmb{c} = [c_{1}, c_{2}, ..., c_{n−h+1}]$ , $c \in \mathbb{R}^{n−h+1}$
 
 - 采用max-pooling处理，$\hat{c}$ 提取最显著的特征（由于在句子分类任务中，提取最显著的特征进行分类即可，所以max比较有效）
 `The idea is to capture the most important feature—one with the highest value—for

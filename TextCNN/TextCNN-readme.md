@@ -1,4 +1,4 @@
-### 原理推导
+# 原作 + 原理推导
 
 模型原理 (原作 `2.Model`)：
 
@@ -32,10 +32,12 @@ r ∈ Rm is a ‘masking’ vector of Bernoulli random variables with probabilit
 
 - `At test time, the learned weight vectors are scaled by p such that wˆ = pw, and wˆ is used (without dropout) to score unseen sentences. We additionally constrain l2-norms of the weight vectors by rescaling w to have ||w||2 = s whenever ||w||2 > s after a gradient descent step.`
 
+# 其他参考
 
-
-TextCNN是很适合中短文本场景的强baseline，但不太适合长文本，因为卷积核尺寸通常不会设很大，无法捕获长距离特征。同时max-pooling也存在局限，会丢掉一些有用特征。另外再仔细想的话，TextCNN和传统的n-gram词袋模型本质是一样的，它的好效果很大部分来自于词向量的引入[3]，因为解决了词袋模型的稀疏性问题。
-
+- TextCNN是很适合中短文本场景的强baseline，但不太适合长文本
+  - 因为卷积核尺寸通常不会设很大，无法捕获长距离特征
+  - 同时max-pooling也存在局限，会丢掉一些有用特征
+- TextCNN和传统的n-gram词袋模型本质是一样的，它的好效果很大部分来自于词向量的引入[3]，因为解决了词袋模型的稀疏性问题。
 
 在TextCNN的实践中，有很多地方可以优化（参考这篇论文[1]）：
 
@@ -54,4 +56,6 @@ Embedding表：中文可以选择char或word级别的输入，也可以两种都
 蒸馏BERT的logits，利用领域内无监督数据
 
 加深全连接：原论文只使用了一层全连接，而加到3、4层左右效果会更好[2]
+
+[参考](https://mp.weixin.qq.com/s?__biz=MzAxMTk4NDkwNw==&mid=2247485854&idx=1&sn=040d51b0424bdee66f96d63d4ecfbe7e&chksm=9bb980faacce09ec069afa79c903b1e3a5c0d3679c41092e16b2fdd6949aa059883474d0c2af&token=793481651&lang=zh_CN&scene=21#wechat_redirect)
 

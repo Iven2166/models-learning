@@ -13,7 +13,7 @@ $x_{i:j}= x_{i} \oplus x_{i+1} \oplus . . . \oplus x_{j}$
 
 - 经过全部窗口，产生 $n-h+1$ 个 $c_{i}$，再对 $c_{i}$ 进行拼接，获取 $c$, $**c** = [c_{1}, c_{2}, ..., c_{n−h+1}]$ , $c \in \mathbb{R}^{n−h+1}$
 
-- 采用max-pooling处理，$\hat_{c}$ 提取最显著的特征（由于在句子分类任务中，提取最显著的特征进行分类即可，所以max比较有效）
+- 采用max-pooling处理，$\hat{c}$ 提取最显著的特征（由于在句子分类任务中，提取最显著的特征进行分类即可，所以max比较有效）
 `The idea is to capture the most important feature—one with the highest value—for
 each feature map. This pooling scheme naturally
 deals with variable sentence lengths.`

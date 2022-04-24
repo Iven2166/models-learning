@@ -49,6 +49,20 @@
 
 重要参考
 
+<style>
+table th:first-of-type {
+    width: 10%;
+}
+table th:nth-of-type(2) {
+    width: 30%;
+}
+table th:nth-of-type(3) {
+    width: 50%;
+table th:nth-of-type(4) {
+    width: 10%;
+}
+</style>
+
 | type 	| paper                                                                                                                  	| intro                                                                                  	| link                                          	|
 |------	|-------------------------------------------------	|-------------------------------------------------	|----------------	|
 | 原作 	| 2014-Convolutional Neural Networks for Sentence Classification                                                         	| (1) CNN-random-init <br> (2)CNN-static <br> (3)CNN-non-static <br> (4)CNN-multichannel 	| [link](https://aclanthology.org/D14-1181.pdf) 	|

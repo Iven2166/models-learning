@@ -56,20 +56,32 @@
 | 解读 	| 2016-A Sensitivity Analysis of (and Practitioners’ Guide to) Convolutional Neural Networks for Sentence Classification 	|                                                                                        	| [link](https://arxiv.org/pdf/1510.03820.pdf)  	|
 |      	|                                                                                                                        	|                                                                                        	|                                               	|
 
-
-
 ### 原理推导
+
+模型原理 (原作-2.Model)：
 
 - 构造词（句）的向量表示：文章中使用到了 word2vec 训练的词向量，
 
-$x_{i} \in \mathbb{R}^{k}$: k be the k-dimensional word vector corresponding to the i-th word in the sentence
+$x_{i} \in \mathbb{R}^{k}$: 句子中第 $i$ 个词，向量具备 $k$ 个维度
 
-- 在一定窗口长度下构造句子的部分向量
+- 在一定窗口长度下构造句子的部分向量，横向拼接，xi:i+j代表concat了xi到xi+j的单词向量
 
 $x_{1:n}= x_{1} \oplus x_{2} \oplus . . . \oplus x_{n}$
 
+- 构造卷积filter，w∈ R hk，用于前一步的h个单词向量，产生新特征ci；函数f 是非线性函数 hyperbolic tangent
 
+ci = f(w · xi:i+h−1 + b)
 
+- 经过全部窗口，产生n-h+1个ci，再对ci进行拼接，获取c
+
+c = [c1, c2, . . . , cn−h+1], c ∈ R n−h+1
+
+- 采用max-pooling处理，c帽提取最显著的特征（由于在句子分类任务中，提取最显著的特征进行分类即可，所以max比较有效）
+`The idea is to capture the most important feature—one with the highest value—for
+each feature map. This pooling scheme naturally
+deals with variable sentence lengths.`
+
+- 其它因素：单词向量的"渠道(channels)"： （1）单词向量保持不变 （2）单词向量依据反向传播进行迭代更新
 
 
 

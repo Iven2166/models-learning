@@ -5,6 +5,68 @@
 - 整体的版图认知
 - 各个模型的认知 & 实践 （一个模型一个文件夹，需要包括md 及 ipynb模型训练文件）
 
+# 重构V1
+
+# 统计学习方法
+
+框架基于《统计学习方法-李航》，对经典的机器学习方法进行原理学习、复现。
+
+
+
+
+# 深度学习 - NLP部分
+
+***发展历史整体感知*** （从`综述`、博客不断积累，自己整理出整体发展的历史，再逐个掌握）
+
+![img.png](pics/img.png)
+
+```markdown 
+-- https://markmap.js.org/repl
+# NLP
+## 经典模型
+
+### 统计机器学习
+#### ......
+
+### 神经网络
+#### 词向量
+##### NNLM
+##### Word2Vec
+##### FaseText
+##### Glove
+#### CNN
+#### RNN & LSTM & GRU
+#### Bert 
+#### ElMo?
+```
+
+综述1:
+[2020 A Survey on Text Classification: From Shallow to Deep Learning](https://arxiv.org/pdf/2008.00364v2.pdf)
+
+![img_1.png](pics/img_from-shallow-to-deep-learning-fig2.png)
+
+## TextCNN
+
+重要参考
+
+| type 	| paper                                                                                                                  	| intro                                                                   	| link                                          	|
+|------	|------------------------------------------------------------------------------------------------------------------------	|-------------------------------------------------------------------------	|-----------------------------------------------	|
+| 原作 	| 2014-Convolutional Neural Networks for Sentence Classification                                                         	| (1) CNN-random-init (2)CNN-static (3)CNN-non-static (4)CNN-multichannel 	| [link](https://aclanthology.org/D14-1181.pdf) 	|
+| 解读 	| 2016-A Sensitivity Analysis of (and Practitioners’ Guide to) Convolutional Neural Networks for Sentence Classification 	|                                                                         	| [link](https://arxiv.org/pdf/1510.03820.pdf)  	|
+|      	|                                                                                                                        	|                                                                         	|                                               	|
+
+### 原理推导
+$x_{1:n}= x_{1} \oplus x_{2} \oplus . . . \oplus x_{n}$
+
+
+
+
+
+
+
+---
+---
+---
 
 # 通用
 ### optimization
@@ -65,28 +127,7 @@ model.compile(optimizer='rmsprop',...)
 # 领域划分
 ## NLP
 
-![img.png](img.png)
-
-```markdown 
-NLP
-# 经典模型
-
-## 统计机器学习
-### ......
-
-## 神经网络
-### 词向量
-#### NNLM
-#### Word2Vec
-#### FaseText
-#### Glove
-### CNN
-### RNN & LSTM & GRU
-### Bert 
-### ElMo?
-
-```
-
+---
 
 - 一些博客参考
   
@@ -118,12 +159,13 @@ NLP
 
 文本表示有哪些方法？
 - 基于one-hot、tf-idf、textrank等的bag-of-words 
-  - 维度灾难、语义鸿沟
+  - 维度灾难
+  - 语义鸿沟
 - 主题模型：LSA（SVD）、pLSA、LDA
   - 计算量复杂
 - 基于词向量的固定表征：word2vec、fastText、glove
   - 相同上下文语境的词有似含义
-  - 固定表征无法表示"一词多义"（因为一个单词只有一个emb）
+  - 固定表征无法表示"一词多义"（因为一个单词只有一个emb？）
 - 基于词向量的动态表征：elmo、GPT、bert
 
 单个介绍
@@ -171,7 +213,7 @@ NLP
 - [Transformer-论文解读](https://www.jianshu.com/p/4b1bcd5c5f80)
 
 - NNLM
-  - 论文: https://www.jmlr.org/papers/volume3/bengio03a/bengio03a.pdf
+  - 论文:  https://www.jmlr.org/papers/volume3/bengio03a/bengio03a.pdf 
   - 论文解读: https://www.jianshu.com/p/be242ed3f314
   - [!!! NNLM 的 PyTorch 实现](https://wmathor.com/index.php/archives/1442/)
 
@@ -181,3 +223,7 @@ NLP
 |:---|---|:---|
 |互联网核心应用（搜索、推荐、广告）算法宝藏书.pdf|结合公司业务进行的顶层设计介绍（广泛）|[PDF](https://livehbsaas.oss-cn-beijing.aliyuncs.com/%E4%BA%92%E8%81%94%E7%BD%91%E6%A0%B8%E5%BF%83%E5%BA%94%E7%94%A8%EF%BC%88%E6%90%9C%E7%B4%A2%E3%80%81%E6%8E%A8%E8%8D%90%E3%80%81%E5%B9%BF%E5%91%8A%EF%BC%89%E7%AE%97%E6%B3%95%E5%AE%9D%E8%97%8F%E4%B9%A6.pdf)|
 |知乎-视频合集|一些深度学习、机器学习的视频合集|[link](https://space.bilibili.com/73012391/video?tid=0&page=2&keyword=&order=pubdate)|
+
+
+
+

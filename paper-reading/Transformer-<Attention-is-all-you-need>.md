@@ -1,7 +1,8 @@
 
 Attention Is All You Need
 
-[PDF](https://arxiv.org/pdf/1706.03762.pdf)
+- [PDF](https://arxiv.org/pdf/1706.03762.pdf)
+- [limu - Transformer论文逐段精读【论文精读】](https://www.bilibili.com/video/BV1pu411o7BE?spm_id_from=333.999.0.0)
 
 摘要
 

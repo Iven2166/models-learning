@@ -51,7 +51,7 @@
 
 | type 	| paper                                                                                                                  	| intro                                                                   	| link                                          	|
 |------	|------------------------------------------------------------------------------------------------------------------------	|-------------------------------------------------------------------------	|-----------------------------------------------	|
-| 原作 	| 2014-Convolutional Neural Networks for Sentence Classification                                                         	| (1) CNN-random-init (2)CNN-static (3)CNN-non-static (4)CNN-multichannel 	| [link](https://aclanthology.org/D14-1181.pdf) 	|
+| 原作 	| 2014-Convolutional Neural Networks for Sentence Classification                                                         	| (1) CNN-random-init <br> (2)CNN-static <br>(3)CNN-non-static <br>(4)CNN-multichannel 	| [link](https://aclanthology.org/D14-1181.pdf) 	|
 | 解读 	| 2016-A Sensitivity Analysis of (and Practitioners’ Guide to) Convolutional Neural Networks for Sentence Classification 	|                                                                         	| [link](https://arxiv.org/pdf/1510.03820.pdf)  	|
 |      	|                                                                                                                        	|                                                                         	|                                               	|
 

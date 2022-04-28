@@ -23,6 +23,7 @@
 | 阅读记录 |-|-|[link](/paper-reading/xgboost-2016-a-scalable-tree-boosting-system.md)|
 | 知乎|【机器学习】决策树（下）——XGBoost、LightGBM（非常详细）|-|[link](https://docs.corp.kuaishou.com/d/home/fcAD4X4lMhKtzhClds5Hailby#section=h.fwvchqzixc1x)|
 |知乎|左手论文 右手代码 深入理解网红算法XGBoost|-|[link](https://zhuanlan.zhihu.com/p/91817667)|
+
 |知乎|一篇文章搞定GBDT、Xgboost和LightGBM的面试|-|[link](https://zhuanlan.zhihu.com/p/148050748)|
 
 | 我的代码复现 |jupyter文件|||

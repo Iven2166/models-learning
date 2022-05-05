@@ -45,9 +45,20 @@ xgboost在kaggle的成绩 & 实际的一些应用（商店销售预测； 高能
 
 # 2. TREE BOOSTING IN A NUTSHELL
 
-# 2.1 Regularized Learning Objective
+## 2.1 Regularized Learning Objective
+
+模型的基础公式：分类决策、损失函数
+
+损失函数内的泰勒展开，得到g、h函数，整理得到新形式
+
+## 2.2 Gradient Tree Boosting
+
+各类推导
 
 
+# 3. SPLIT FINDING ALGORITHMS
+
+四类算法：贪心、近似、利用h进行加权的分位数、对稀疏有感知的分裂算法
 
 
 

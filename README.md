@@ -149,6 +149,10 @@ model.compile(optimizer='rmsprop',...)
 
 ---
 
+- 学术论文 / 学会
+  - [ACL-Annual Meeting of the Association for Computational Linguistics `选择ACL为语言模型`](https://aclanthology.org/)
+  - [EMNLP - 2020](https://2020.emnlp.org/papers/main)
+
 - 一些博客参考
   
   - [rumor - 如何系统性地学习NLP 自然语言处理？ - `关注里面对综述的引用`](https://www.zhihu.com/question/27529154/answer/1643865710)

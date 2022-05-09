@@ -3,7 +3,7 @@
 2014-Convolutional Neural Networks for Sentence Classification [link](https://aclanthology.org/D14-1181.pdf) 
 
 
-模型原理 (原作 `2.Model`)：
+模型原理 (原作 `2.Model`)： 
 
 - 构造词（句）的向量表示：文章中使用到了 word2vec 训练的词向量， $x_{i} \in \mathbb{R}^{k}$: 句子中第 $i$ 个词，向量具备 $k$ 个维度
 

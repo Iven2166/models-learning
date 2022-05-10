@@ -73,4 +73,4 @@ xgboost在kaggle的成绩 & 实际的一些应用（商店销售预测； 高能
 > In this paper, we described the lessons we learnt when building XGBoost, a scalable tree boosting system that is widely used by data scientists and provides state-of-the-art results on many problems. We proposed a novel sparsity aware algorithm for handling sparse data and a theoretically justified weighted quantile sketch for approximate learning. Our experience shows that cache access patterns, data compression and sharding are essential elements for building a scalable end-to-end system for tree boosting. These lessons can be applied to other machine learning systems as well. By combining these insights, XGBoost is able to solve realworld scale problems using a minimal amount of resources.
 
 
-
+$\hat{y}_i = \sum_{k=1}^K f_k(x_i), f_k \in \mathcal{F}$

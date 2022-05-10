@@ -29,6 +29,11 @@ Hoeffding 不等式
 > 树提升是一种高效且广泛使用的机器学习方法。 在本文中，我们描述了一种名为 XGBoost 的可扩展端到端树增强系统，该系统被数据科学家广泛用于在许多机器学习挑战中实现最先进的结果。 我们提出了一种新颖的稀疏数据感知算法和用于近似树学习的加权分位数草图。 更重要的是，我们提供有关缓存访问模式、数据压缩和分片的见解，以构建可扩展的树增强系统。 通过结合这些见解，XGBoost 使用比现有系统少得多的资源扩展了数十亿个示例。
 
 扩展记录：
+- xgboost官方文档
+  - https://xgboost.readthedocs.io/en/stable/tutorials/model.html
+  - [Frequently Asked Questions](https://xgboost.readthedocs.io/en/stable/faq.html)
+  - [Notes on Parameter Tuning](https://xgboost.readthedocs.io/en/stable/tutorials/param_tuning.html)
+  - [XGBoost Parameters](https://xgboost.readthedocs.io/en/stable/parameter.html)
 - 原作论文阅读记录 [link](/paper-reading/xgboost-2016-a-scalable-tree-boosting-system.md)
 - 书
   - 机器学习-周志华(西瓜书)结合南瓜书看解析 - 第8章 集成学习

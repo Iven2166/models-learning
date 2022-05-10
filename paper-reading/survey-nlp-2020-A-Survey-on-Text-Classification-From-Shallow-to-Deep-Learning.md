@@ -105,7 +105,7 @@ BI-Attention [125]，跨语种文本分类，捕捉长距离依赖
 Self-attention [153] (Attention is all you need)。
 在句子中将词语的权重分布，通过构建K、Q、V矩阵来计算。
 对于输入的单词向量 $a_i$ 可以表示为三个n维向量，包括 $q_i$, $k_i$, $v_i$. 
-在self-attention之后，输出的向量 $b_i$ 表示为 $\sum_j softmax(a_{ij}) v_j$, where $a_{ij} = q_i \dot k_j / \sqrt{n}$
+在self-attention之后，输出的向量 $b_i$ 表示为 $\sum_j softmax(a_{ij}) v_j$, where $a_{ij} = q_i \cdot k_j / \sqrt{n}$
 所有的输出向量可以并行计算.
 
 ![img_example-of-self-attention.png](img_example-of-self-attention.png)
@@ -113,3 +113,55 @@ Self-attention [153] (Attention is all you need)。
 > Self-attention [153] captures the weight distribution of words in sentences by constructing K, Q and V matrices among sentences that can capture long-range dependencies on text classification. We give an example for self-attention, as shown in Fig. 9. 
 > Each input word vector ai can be represented as three n-dimensional vectors, including qi , ki and vi . 
 > After self-attention, the output vector bi can be represented as  j softmax(aij)vj and aij = qi · kj / √ n. All output vectors can be parallelly computed.
+
+
+第4段：Aspect-based sentiment analysis (ABSA) 将文本拆分为多个aspects（属性？部分？）并且分配给各个部分以情绪的polarity（最高概率？）
+
+[知乎-NLP系列之论文研读：细粒度的情感分析（ABSA）](https://zhuanlan.zhihu.com/p/397363963)
+
+ATAE-LSTM [151] 关注各个句子的不同位置
+
+MGAN [80] 
+
+第5段：
+
+QA任务捕获问题和候选答案之间的语义关系 Tan et al. [154], 引入CNN和RNN，用简单的单向(one-way)注意力机制生成答案的emb
+
+Extractive QA 可以视为文本分类任务。输入问题和若干个候选集答案，来预测正确答案。 AP-BILSTM [127] 使用双向注意力机制，获取问题和各个答案之间的权重，来评估候选答案对问题的重要性。
+
+
+### 2.2.6 Transformer-based Methods
+
+预训练模型学习全局的语义表示，显著提升了NLP任务（包括文本分类）。一般是用无监督方法，构建预训练目标，学习语义知识
+
+ELMo [66]：a deep contextualized word representation model 基于上下文的词汇表示模型，它能够学习词汇的复杂特点，学习在不同语境下的表示。
+模型是双向的LSTM
+
+OpenAI GPT [155]：使用有监督的微调和无监督的预训练，学习一般表示。能够迁移到很多NLP任务。
+此外，目标任务的领域不需要跟未标注的数据相似。
+训练步骤一般有两步：1、在对未标注的数据有目标地学习中，得到神经网络的最初参数 2、在目标任务中再应用这些参数
+
+BERT [19] ：学习双向的表示。通常加上微调的产出层来构建不同的NLP任务。
+
+比较：
+- 底层模型：ELMo是基于LSTM模型的基于特征方法；BERT和GPT是使用Transformer的微调方法。
+- 单双向：ELMo和BERT都是双向训练，GPT是单向（从左到右）训练
+- 因此，BERT有更好的结果，因为结合了ELMo和GPT的优点
+
+基于Transformer的方法不考虑序列信息，能够在大数据集上并行训练，得到更多的应用。
+
+RoBERTa [87]：应用动态的masking方法，在序列喂入模型时产生masking pattern。使用更多数据于更长的预训练，估计了不同重要超参数和数据集大小产生的影响。
+
+ALBERT [89]：`uses two-parameter simplification schemes` 这些模型在预训练应用了无监督目标方程，包括下一句子的预测， 以及 masking technology, and permutation（暂时不知道怎么翻译～）
+这些基于单词预测的目标方程展现了对词依赖关系和语义结构`word dependence and semantic structure`的强大学习能力
+
+XLNet [85]：`generalized autoregressive pre-training` 广义自回归的预训练
+
+### 2.2.7 GNN-based Methods
+该部分暂时不看
+
+
+# 3 DATASETS AND EVALUATION METRICS
+## 3.1 Datasets
+
+

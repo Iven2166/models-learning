@@ -104,8 +104,11 @@ BI-Attention [125]，跨语种文本分类，捕捉长距离依赖
 
 Self-attention [153] (Attention is all you need)。
 在句子中将词语的权重分布，通过构建K、Q、V矩阵来计算。
+对于输入的单词向量 $a_i$ 可以表示为三个n维向量，包括 $q_i$, $k_i$, $v_i$. 
+在self-attention之后，输出的向量 $b_i$ 表示为 $\sum_j softmax(a_{ij}) v_j$, where $a_{ij} = q_i \dot k_j / \sqrt{n}$
+所有的输出向量可以并行计算.
 
-![img_3.png](img_example-of-self-attention.png)
+![img_example-of-self-attention.png](img_example-of-self-attention.png)
 
 > Self-attention [153] captures the weight distribution of words in sentences by constructing K, Q and V matrices among sentences that can capture long-range dependencies on text classification. We give an example for self-attention, as shown in Fig. 9. 
 > Each input word vector ai can be represented as three n-dimensional vectors, including qi , ki and vi . 

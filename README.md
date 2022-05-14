@@ -230,7 +230,6 @@ model.compile(optimizer='rmsprop',...)
 
 ### 预训练
 
-
 - [不错的博主](https://github.com/loujie0822/Pre-trained-Models)
   - [NLP算法面试必备！PTMs：NLP预训练模型的全面总结](https://zhuanlan.zhihu.com/p/115014536)
   - [nlp中的词向量对比：word2vec/glove/fastText/elmo/GPT/bert](https://zhuanlan.zhihu.com/p/56382372)
@@ -246,6 +245,10 @@ model.compile(optimizer='rmsprop',...)
   - 论文解读: https://www.jianshu.com/p/be242ed3f314
   - [!!! NNLM 的 PyTorch 实现](https://wmathor.com/index.php/archives/1442/)
 
+## NER识别
+
+- [知乎-BiLSTM上的CRF，用命名实体识别任务来解释CRF（一）](https://zhuanlan.zhihu.com/p/119254570)
+- [wx-缺少训练样本怎么做实体识别？小样本下的NER解决方法汇总](https://mp.weixin.qq.com/s/FH1cWxXlTFt0RdEipSJH1w)
 
 # 其他参考
 |名称|描述|link|
@@ -253,6 +256,6 @@ model.compile(optimizer='rmsprop',...)
 |互联网核心应用（搜索、推荐、广告）算法宝藏书.pdf|结合公司业务进行的顶层设计介绍（广泛）|[PDF](https://livehbsaas.oss-cn-beijing.aliyuncs.com/%E4%BA%92%E8%81%94%E7%BD%91%E6%A0%B8%E5%BF%83%E5%BA%94%E7%94%A8%EF%BC%88%E6%90%9C%E7%B4%A2%E3%80%81%E6%8E%A8%E8%8D%90%E3%80%81%E5%B9%BF%E5%91%8A%EF%BC%89%E7%AE%97%E6%B3%95%E5%AE%9D%E8%97%8F%E4%B9%A6.pdf)|
 |知乎-视频合集|一些深度学习、机器学习的视频合集|[link](https://space.bilibili.com/73012391/video?tid=0&page=2&keyword=&order=pubdate)|
 
-
+- 感觉整体整理的目录不错：https://createmomo.github.io/2018/01/23/Super-Machine-Learning-Revision-Notes/#tableofcontents
 
 

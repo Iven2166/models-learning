@@ -101,7 +101,7 @@ model.compile(optimizer='rmsprop',...)
 - 参考
 - [深度学习优化算法解析(Momentum, RMSProp, Adam)](https://blog.csdn.net/willduan1/article/details/78070086)
 - [Intro to optimization in deep learning: Momentum, RMSProp and Adam](https://blog.paperspace.com/intro-to-optimization-momentum-rmsprop-adam/#:~:text=While%20momentum%20accelerates%20our%20search,of%20both%20Momentum%20and%20RMSProp.)
-
+- [wx-同样都是调参，为什么人家的神经网络比我牛逼100倍？](https://mp.weixin.qq.com/s/lbXUBcovfsL34tvgZkBZbw)
 ### 激活函数
 - [激活函数总结](https://zhuanlan.zhihu.com/p/73214810)
 - [逻辑回归原理小结](https://www.cnblogs.com/pinard/p/6029432.html)
@@ -257,5 +257,6 @@ model.compile(optimizer='rmsprop',...)
 |知乎-视频合集|一些深度学习、机器学习的视频合集|[link](https://space.bilibili.com/73012391/video?tid=0&page=2&keyword=&order=pubdate)|
 
 - 感觉整体整理的目录不错：https://createmomo.github.io/2018/01/23/Super-Machine-Learning-Revision-Notes/#tableofcontents
+- NLP岗位八股文：https://zhuanlan.zhihu.com/p/470674031
 
 

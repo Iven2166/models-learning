@@ -45,9 +45,21 @@
 
 ## RNN
 
+- 参考
+    - [深度学习之循环神经网络（RNN）](https://www.cnblogs.com/Luv-GEM/p/10703906.html)
+    - [TensorFlow之RNN：堆叠RNN、LSTM、GRU及双向LSTM](https://www.cnblogs.com/Luv-GEM/p/10788849.html)
+    - [循环神经网络之LSTM和GRU](https://www.cnblogs.com/Luv-GEM/p/10705967.html)
+    - [rnn各类模型复现](https://github.com/spro/practical-pytorch)
+    - [pytorch官方文章](https://pytorch.org/tutorials/intermediate/char_rnn_classification_tutorial.html#creating-the-network)
+    - [rnn-含有很多现实案例](http://karpathy.github.io/2015/05/21/rnn-effectiveness/)
+
+
 ## GRU
 
 ## LSTM 
+
+- 参考
+    - [Understanding LSTM Networks](https://colah.github.io/posts/2015-08-Understanding-LSTMs/)
 
 ## Bert
 

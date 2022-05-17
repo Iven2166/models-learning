@@ -71,15 +71,6 @@ model.compile(optimizer='rmsprop',...)
 [发展历史介绍](https://www.jiqizhixin.com/graph/technologies/f82b7976-b182-40fa-b7d8-a3aad9952937#:~:text=%E4%B9%8B%E5%BF%83Techopedia-,%E6%B7%B1%E5%BA%A6%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%EF%BC%88DNN%EF%BC%89%E6%98%AF%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%9A%84%E4%B8%80%E7%A7%8D,%E5%90%91%E4%BC%A0%E6%92%AD%E7%AE%97%E6%B3%95%E8%BF%9B%E8%A1%8C%E8%AE%AD%E7%BB%83%E3%80%82)
 
 
-## RNN & GRU & LSTM
-
-- 参考
-    - [深度学习之循环神经网络（RNN）](https://www.cnblogs.com/Luv-GEM/p/10703906.html)
-    - [TensorFlow之RNN：堆叠RNN、LSTM、GRU及双向LSTM](https://www.cnblogs.com/Luv-GEM/p/10788849.html)
-    - [循环神经网络之LSTM和GRU](https://www.cnblogs.com/Luv-GEM/p/10705967.html)
-
-- LSTM
-[Understanding LSTM Networks](https://colah.github.io/posts/2015-08-Understanding-LSTMs/)
 
 
 ## Transformer

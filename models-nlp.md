@@ -48,13 +48,13 @@
 模型简述
 假设我们在时间步 $t$ 有小批量输入 $\mathbf{X}_t \in \mathbb{R}^{n \times d}$
 
-$\mathbf{H}_t  = \in \mathbb{R}^{n \times h}$
+$\mathbf{H}_t \in \mathbb{R}^{n \times h}$
 
 $\mathbf{W}_{hh} \in \mathbb{R}^{h \times h}$
 
 当前时间步隐藏变量由当前时间步的输入与前一个时间步的隐藏变量一起计算得出：
 
-$\mathbf{H}_t = \phi(\mathbf{X}_t \mathbf{W}_{xh} + \mathbf{H}_{t-1} \mathbf{W}_{hh}  + \mathbf{b}_h)$
+$\mathbf{H}_t \equal \phi(\mathbf{X}_t \mathbf{W}_{xh} + \mathbf{H}_{t-1} \mathbf{W}_{hh}  + \mathbf{b}_h)$
 
 对于时间步$t$，输出层的输出类似于多层感知机中的计算：
 

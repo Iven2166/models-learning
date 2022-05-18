@@ -113,8 +113,10 @@ $$\exp\left(-\frac{1}{n} \sum_ {t=1}^n \log P(x_ t \mid x_ {t-1}, \ldots, x_ 1)\
 - 为了计算的效率，“通过时间反向传播”在计算期间会缓存中间值。
 
 
-梯度爆炸的公式推导
-![img.png](./pics/rnn-gradient-decrease1.png)
+
+
+> 梯度爆炸的公式推导: https://zhuanlan.zhihu.com/p/109519044
+> ![img.png](./pics/rnn-gradient-decrease1.png)
 
 
 

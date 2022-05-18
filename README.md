@@ -63,7 +63,8 @@ model.compile(optimizer='rmsprop',...)
 ### 计算
 - [[矩阵分析与应用].张贤达.扫描版](https://github.com/61--/weiyanmin/blob/master/BOOK/%5B%E7%9F%A9%E9%98%B5%E5%88%86%E6%9E%90%E4%B8%8E%E5%BA%94%E7%94%A8%5D.%E5%BC%A0%E8%B4%A4%E8%BE%BE.%E6%89%AB%E6%8F%8F%E7%89%88.pdf)
 - [DNN为例的梯度计算](https://zhuanlan.zhihu.com/p/29815081)
-
+- [wiki-矩阵和特征向量、特征值](https://zh.wikipedia.org/wiki/%E7%89%B9%E5%BE%81%E5%80%BC%E5%92%8C%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F)
+- [统计学-英文书](http://egrcc.github.io/docs/math/all-of-statistics.pdf)
 
 # 按照模型划分
 

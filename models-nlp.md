@@ -51,19 +51,22 @@
 
 模型总体公式：
 
-假设我们在时间步 $t$ 有小批量输入 $\mathbf{X}_t \in \mathbb{R}^{n \times d}$
+假设我们在时间步 $t$ 有小批量输入 
 
-$\mathbf{H}_t \in \mathbb{R}^{n \times h}$
-
-$\mathbf{W}_{hh} \in \mathbb{R}^{h \times h}$
+$\mathbf{X}_ {t} \in \mathbb{R}^{n \times d}$,
+$\mathbf{H}_ {t} \in \mathbb{R}^{n \times h}$,
+$\mathbf{W}_ {hh} \in \mathbb{R}^{h \times h}$,
+$\mathbf{W}_ {xh} \in \mathbb{R}^{d \times h}$,
+$\mathbf{b}_ {h} \in \mathbb{R}^{1 \times h}$,
+$\mathbf{b}_ {q} \in \mathbb{R}^{1 \times q}$,
 
 当前时间步隐藏变量由当前时间步的输入与前一个时间步的隐藏变量一起计算得出：
 
-$\mathbf{H}_ t = \phi ( \mathbf{X}_ {t} \mathbf{W}_ {xh} + \mathbf{H}_ {t-1} \mathbf{W}_ {hh}  + \mathbf{b}_ {h} )$
+$$\mathbf{H}_ t = \phi ( \mathbf{X}_ {t} \mathbf{W}_ {xh} + \mathbf{H}_ {t-1} \mathbf{W}_ {hh}  + \mathbf{b}_ {h} )$$
 
 对于时间步$t$，输出层的输出类似于多层感知机中的计算：
 
-$\mathbf{O}_t = \mathbf{H}_{t} \mathbf{W}_{hq} + \mathbf{b}_{q}$
+$$\mathbf{O}_{t} = \mathbf{H}_ {t} \mathbf{W}_ {hq} + \mathbf{b}_ {q} $$
 
 指标：困惑度(perplexity)：
 

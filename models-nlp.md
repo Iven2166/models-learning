@@ -48,7 +48,7 @@
 模型简述
 假设我们在时间步 $t$ 有小批量输入 $\mathbf{X}_t \in \mathbb{R}^{n \times d}$
 
-$\mathbf{H}_t  \in \mathbb{R}^{n \times h}$
+$\mathbf{H}_t  = \in \mathbb{R}^{n \times h}$
 
 $\mathbf{W}_{hh} \in \mathbb{R}^{h \times h}$
 

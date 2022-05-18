@@ -58,7 +58,7 @@ $\mathbf{H}_t = \phi(\mathbf{X}_t \mathbf{W}_{xh} + \mathbf{H}_{t-1} \mathbf{W}_
 
 对于时间步$t$，输出层的输出类似于多层感知机中的计算：
 
-$\mathbf{O}_t = \mathbf{H}_{t} \mathbf{W}_{hq} + \mathbf{b}_{q} $
+$\mathbf{O}_t  \mathbf{H}_{t} \mathbf{W}_{hq}  \mathbf{b}_{q}$
 
 
 - 参考

@@ -59,7 +59,7 @@ $\mathbf{W}_{hh} \in \mathbb{R}^{h \times h}$
 
 $/( /)$
 
-$\mathbf{H}_t = \phi /( \mathbf{X}_t \mathbf{W}_{xh} + \mathbf{H}_{t-1} \mathbf{W}_{hh}  + \mathbf{b}_h /) $
+$\mathbf{H}_t = \phi \( \mathbf{X}_t \mathbf{W}_{xh} + \mathbf{H}_{t-1} \mathbf{W}_{hh}  + \mathbf{b}_h \) $
 
 对于时间步$t$，输出层的输出类似于多层感知机中的计算：
 

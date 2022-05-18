@@ -45,9 +45,11 @@
 
 ## RNN
 
-**模型简述**
+**(1)模型简述**
 
 参考: [d2l-8.4. 循环神经网络](https://zh.d2l.ai/chapter_recurrent-neural-networks/rnn.html)
+
+模型总体公式：
 
 假设我们在时间步 $t$ 有小批量输入 $\mathbf{X}_t \in \mathbb{R}^{n \times d}$
 
@@ -57,19 +59,21 @@ $\mathbf{W}_{hh} \in \mathbb{R}^{h \times h}$
 
 当前时间步隐藏变量由当前时间步的输入与前一个时间步的隐藏变量一起计算得出：
 
-$\mathbf{H}_t = \phi $ 
-
-$( \mathbf{X}_{t} \mathbf{W}_{xh} + \mathbf{H}_{t-1} \mathbf{W}_{hh}  + \mathbf{b}_{h} )$
+$\mathbf{H}_ t = \phi ( \mathbf{X}_ {t} \mathbf{W}_ {xh} + \mathbf{H}_ {t-1} \mathbf{W}_ {hh}  + \mathbf{b}_ {h} )$
 
 对于时间步$t$，输出层的输出类似于多层感知机中的计算：
 
 $\mathbf{O}_t = \mathbf{H}_{t} \mathbf{W}_{hq} + \mathbf{b}_{q}$
 
-**训练**
+指标：困惑度(perplexity)：
+
+
+
+**(2)训练**
 
 参考: [d2l-8.7. 通过时间反向传播](https://zh.d2l.ai/chapter_recurrent-neural-networks/bptt.html)
 
-
+**(3)注意点**
 
 - 参考
     - [深度学习之循环神经网络（RNN）](https://www.cnblogs.com/Luv-GEM/p/10703906.html)

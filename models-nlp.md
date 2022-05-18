@@ -68,8 +68,18 @@ $$\mathbf{H}_ {t} = \phi ( \mathbf{X}_ {t} \mathbf{W}_ {xh} + \mathbf{H}_ {t-1} 
 
 $$\mathbf{O}_ {t} = \mathbf{H}_ {t} \mathbf{W}_ {hq} + \mathbf{b}_ {q} $$
 
+
 指标：困惑度(perplexity)：
 
+我们可以通过一个序列中所有的 $n$ 个词元的交叉熵损失的平均值来衡量:
+
+$$\frac{1}{n} \sum_{t=1}^n -\log P(x_t \mid x_ {t-1}, \ldots, x_1)$$
+
+其中$P$由语言模型给出，
+$x_t$是在时间步$t$从该序列中观察到的实际词元。
+这使得不同长度的文档的性能具有了可比性。
+
+$$\exp\left(-\frac{1}{n} \sum_ {t=1}^n \log P(x_ t \mid x_ {t-1}, \ldots, x_ 1)\right).$$
 
 
 **(2)训练**

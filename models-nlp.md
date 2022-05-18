@@ -98,9 +98,15 @@ $$\exp\left(-\frac{1}{n} \sum_ {t=1}^n \log P(x_ t \mid x_ {t-1}, \ldots, x_ 1)\
 
 **(2) 训练**
 
-参考: [d2l-8.7. 通过时间反向传播](https://zh.d2l.ai/chapter_recurrent-neural-networks/bptt.html)
+参考
+- [d2l-8.7. 通过时间反向传播](https://zh.d2l.ai/chapter_recurrent-neural-networks/bptt.html)
+- [d2l-8.5. 循环神经网络的从零开始实现](https://zh.d2l.ai/chapter_recurrent-neural-networks/rnn-scratch.html)
+
 
 公式有空再整理
+
+- 在进行任何预测之前，模型通过预热期进行自我更新（例如，获得比初始值更好的隐状态）。
+- 梯度裁剪可以防止梯度爆炸，但不能应对梯度消失
 
 - 矩阵 $\mathbf{W}_ {hh} \in \mathbb{R}^{h \times h}$ 的高次幂可能导致神经网络特征值的发散或消失，将以梯度爆炸或梯度消失的形式表现。
 - 截断是计算方便性和数值稳定性的需要。截断包括：规则截断和
@@ -109,10 +115,6 @@ $$\exp\left(-\frac{1}{n} \sum_ {t=1}^n \log P(x_ t \mid x_ {t-1}, \ldots, x_ 1)\
 
 
 **(3)注意点**
-
-
-
-
 
 - 参考
     - [深度学习之循环神经网络（RNN）](https://www.cnblogs.com/Luv-GEM/p/10703906.html)
@@ -123,9 +125,26 @@ $$\exp\left(-\frac{1}{n} \sum_ {t=1}^n \log P(x_ t \mid x_ {t-1}, \ldots, x_ 1)\
     - [rnn-含有很多现实案例](http://karpathy.github.io/2015/05/21/rnn-effectiveness/)
 
 
-## GRU
+## 门控循环单元（gated recurrent units，GRU）
 
-## LSTM 
+RNN需要解决的问题，可以由 GRU 和 LSTM来解决：
+- 长期记忆 - 进行存储：早期观测值对预测所有未来观测值具有非常重要的意义。`我们希望有某些机制能够在一个记忆元里存储重要的早期信息`。 如果没有这样的机制，我们将不得不给这个观测值指定一个非常大的梯度， 因为它会影响所有后续的观测值。
+- 选择遗忘 - 进行跳过：一些词元没有相关的观测值。 例如，在对网页内容进行情感分析时， 可能有一些辅助HTML代码与网页传达的情绪无关。 `我们希望有一些机制来跳过隐状态表示中的此类词元。`
+- 逻辑中断 - 进行重置：序列的各个部分之间存在逻辑中断。 例如，书的章节之间可能会有过渡存在。我们希望重置我们的内部状态表示
+- 其他需解决的：梯度消失和梯度爆炸
+
+小结：
+- 门控循环神经网络可以更好地捕获时间步距离很长的序列上的依赖关系。
+- 重置门有助于捕获序列中的短期依赖关系。
+- 更新门有助于捕获序列中的长期依赖关系。
+- 重置门打开时，门控循环单元包含基本循环神经网络；更新门打开时，门控循环单元可以跳过子序列。
+
+![img.png](./pics/GRU.png)
+
+
+
+
+## 长短期记忆网络（long short-term memory，LSTM） 
 
 - 参考
     - [Understanding LSTM Networks](https://colah.github.io/posts/2015-08-Understanding-LSTMs/)

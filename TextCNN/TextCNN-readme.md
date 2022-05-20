@@ -12,16 +12,16 @@ $x_{i:j}= x_{i} \oplus x_{i+1} \oplus . . . \oplus x_{j}$
 
 *以单个 $filter$ 提取单个 $feature$ 为例*，而实际上有多个 $filter$ 去做多个特征提取，因为有不同的窗口长度：
 
-`We have described the process by which one feature is extracted from one filter. The model uses multiple filters (with varying window sizes) to obtain multiple features. These features form the penultimate layer and are passed to a fully connected softmax layer whose output is the probability distribution over labels.`
+>We have described the process by which one feature is extracted from one filter. The model uses multiple filters (with varying window sizes) to obtain multiple features. These features form the penultimate layer and are passed to a fully connected softmax layer whose output is the probability distribution over labels.
 
 - 构造卷积 $filter$ ，$w \in \mathbb{R}^{hk}$ ，用于前一步的 $h$ 个单词向量，产生新特征 $c_{i}$；函数 $f$ 是非线性函数 hyperbolic tangent: $c_{i} = f(w \cdot x_{i:i+h−1} + b)$
 
 - 经过全部窗口，产生 $n-h+1$ 个 $c_{i}$，再对 $c_{i}$ 进行拼接，获取 $\pmb{c} = [c_{1}, c_{2}, ..., c_{n−h+1}]$ , $c \in \mathbb{R}^{n−h+1}$
 
 - 采用max-pooling处理，$\hat{c}$ 提取最显著的特征（由于在句子分类任务中，提取最显著的特征进行分类即可，所以max比较有效）
-`The idea is to capture the most important feature—one with the highest value—for
+>The idea is to capture the most important feature—one with the highest value—for
 each feature map. This pooling scheme naturally
-deals with variable sentence lengths.`
+deals with variable sentence lengths.
 
 - 其它因素：单词向量的"渠道(channels)"： （1）单词向量保持不变 （2）单词向量依据反向传播进行迭代更新
 

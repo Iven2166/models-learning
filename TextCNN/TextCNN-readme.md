@@ -30,7 +30,7 @@ deals with variable sentence lengths.
 - dropout: 对倒数第二层(`penultimate layer`, $z = [\hat{c_{1}}, ..., \hat{c_{m}}]$ )进行遮盖处理，在前向传播中(forward propagation)不使用 $y = w \dot z + b$， 而是 $y = w · (z \cdot r) + b$ 梯度仅在不遮盖的单元里进行反向传播更新参数。
 $r \in \mathbb{R}^{m}$ is a ‘masking’ vector of Bernoulli random variables with probability p of being 1.
 
-- `At test time, the learned weight vectors are scaled by p such that wˆ = pw, and wˆ is used (without dropout) to score unseen sentences. We additionally constrain l2-norms of the weight vectors by rescaling w to have ||w||2 = s whenever ||w||2 > s after a gradient descent step.`
+>`At test time, the learned weight vectors are scaled by p such that wˆ = pw, and wˆ is used (without dropout) to score unseen sentences. We additionally constrain l2-norms of the weight vectors by rescaling w to have ||w||2 = s whenever ||w||2 > s after a gradient descent step.
 
 # 其他参考
 

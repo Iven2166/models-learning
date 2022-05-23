@@ -188,6 +188,21 @@ RNN需要解决的问题，可以由 GRU 和 LSTM来解决：
 
 
 
+## fastText 
+
+- 官方参考
+  - 官方：https://fasttext.cc/
+  - git：https://github.com/facebookresearch/fastText
+  - 官方-文本分类：https://fasttext.cc/docs/en/supervised-tutorial.html
+  - FAQ：https://fasttext.cc/docs/en/faqs.html
+    - reduce the size of my fastText models
+- 论文
+  - 原作(2016)：https://arxiv.org/pdf/1607.01759.pdf 
+    - 实验数据：1  Sentiment analysis 2 tag predictions（有多个tag的情况）
+  
+> A simple and efficient baseline for sentence classification is to represent sentences as bag of words (BoW) and train a linear classifier, e.g., a logistic regression or an SVM (Joachims, 1998; Fan et al., 2008). However, linear classifiers do not share parameters among features and classes. This possibly limits their generalization in the context of large output space where some classes have very few examples. Common solutions to this problem are to factorize the linear classifier into low rank matrices (Schutze, 1992; Mikolov et al., 2013) or to use multilayer neural networks (Collobert and Weston, 2008; Zhang et al., 2015).
+>
+> 句子分类的一个简单有效的基线是将句子表示为词袋 (BoW) 并训练线性分类器，例如逻辑回归或 SVM (Joachims, 1998; Fan et al., 2008)。 然而，线性分类器不共享特征和类之间的参数。 这可能会限制它们在大输出空间的上下文中的泛化，其中某些类的示例很少。 这个问题的常见解决方案是将线性分类器分解为低秩矩阵（Schutze，1992；Mikolov 等人，2013）或使用多层神经网络（Collobert 和 Weston，2008；Zhang 等人，2015）。
 
 
 

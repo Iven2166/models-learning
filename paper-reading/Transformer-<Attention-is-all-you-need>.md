@@ -148,7 +148,8 @@ Decoder：
 
 ### 3.2.1 Scaled Dot-Product Attention
 
-query, key 的维度都等于 $d_ k$
+$ query, key /in d_ k$
+$ value /in d_ v $ 
 
 
 3.2.2 Multi-Head Attention

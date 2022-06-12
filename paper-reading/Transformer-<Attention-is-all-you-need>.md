@@ -161,7 +161,7 @@ $ value \in d_ v $
 
 实际上，query是一个矩阵 [n, d_k]，矩阵乘法能够非常好的并行。
 
-$$ Attention(Q, K, V) = sofrmax( \divide{Q K^T}_ {d_k}) V $$
+$$ Attention(Q, K, V) = softmax( \frac {Q K^T} {d_k}) V $$
 
 > In practice, we compute the attention function on a set of queries simultaneously, packed together into a matrix Q. The keys and values are also packed together into matrices K and V . We compute the matrix of outputs as:
 > 

@@ -70,13 +70,25 @@ Attention Is All You Need
 > In this work we propose the Transformer, a model architecture eschewing recurrence and instead relying entirely on an attention mechanism to draw global dependencies between input and output. The Transformer allows for significantly more parallelization and can reach a new state of the art in translation quality after being trained for as little as twelve hours on eight P100 GPUs.
 
 # 2 Background
+整体讲清楚了该论文和其他论文（模型） 的关系，区别是什么，做了什么改进。
 
-要点：
-- 减少sequential computation 是各大模型的基础，以卷积神经网络作为基本构建块
-- 提取两个任意输入/输出位置的信号所需的操作量会随着距离增长而增长：ConvS2S-线性增长，ByteNet-对数增长。而Transformer做到常数
-- 由于平均注意力加权位置而降低了有效分辨率，我们使用多头注意力来抵消这种影响
+第一段：和卷积网络的关系
+- 用卷积神经网络对长序列进行建模，每次都是看一个小窗口，而累计多层，才可以把两个比较远的位置联系起来。（比如每次看3*3的像素块，两个像素隔比较远，需要叠加多层卷积才可以看到联系）
+但如果使用transformer里面的attention，看全部的序列。
+- 而卷积模型比较好的一点是可以输出多个通道，那么transformer选择的是多头注意力机制。
+
+第二段：自注意力机制
+- 前人已经创造，在此并非创新
+
+最后一段：
+- transformer是第一个只依赖于注意力的、做encoder-decoder架构的模型
 
 
+> 翻译要点：
+> - 减少sequential computation 是各大模型的基础，以卷积神经网络作为基本构建块
+> - 提取两个任意输入/输出位置的信号所需的操作量会随着距离增长而增长：ConvS2S-线性增长，ByteNet-对数增长。而Transformer做到常数
+> - 由于平均注意力加权位置而降低了有效分辨率，我们使用多头注意力来抵消这种影响
+> 
 > 减少顺序计算的目标也构成了扩展神经 GPU [16]、ByteNet [18] 和 ConvS2S [9] 的基础，所有这些都使用卷积神经网络作为基本构建块，并行计算所有输入的隐藏表示和 输出位置。 在这些模型中，关联来自两个任意输入或输出位置的信号所需的操作数量随着位置之间的距离而增长，对于 ConvS2S 呈线性增长，而对于 ByteNet 则呈对数增长。 这使得学习远距离位置之间的依赖关系变得更加困难[12]。 在 Transformer 中，这被减少到`恒定数量`的操作，尽管由于平均注意力加权位置而降低了有效分辨率，我们使用多头注意力来抵消这种影响，如第 3.2 节所述。
 > 
 > 自注意，有时称为内部注意，是一种将单个序列的不同位置关联起来以计算序列表示的注意机制。 自注意力已成功用于各种任务，包括阅读理解、抽象摘要、文本蕴涵和学习任务无关的句子表示 [4, 27, 28, 22]。
@@ -85,7 +97,7 @@ Attention Is All You Need
 > 
 > 然而，据我们所知，Transformer 是第一个完全依赖自注意力来计算其输入和输出表示而不使用序列对齐 RNN 或卷积的转换模型。 在接下来的部分中，我们将描述 Transformer，激发自注意力并讨论其相对于 [17、18] 和 [9] 等模型的优势。
 
-> The goal of reducing sequential computation also forms the foundation of the Extended Neural GPU [16], ByteNet [18] and ConvS2S [9], all of which use convolutional neural networks as basic building block, computing hidden representations in parallel for all input and output positions. In these models, the number of operations required to relate signals from two arbitrary input or output positions grows in the distance between positions, linearly for ConvS2S and logarithmically for ByteNet. This makes it more difficult to learn dependencies between distant positions [12]. In the Transformer this is reduced to a `constant number of operations`, albeit at the cost of reduced effective resolution due to averaging attention-weighted positions, an effect we counteract with Multi-Head Attention as described in section 3.2.
+> The goal of reducing sequential computation also forms the foundation of the Extended Neural GPU [16], ByteNet [18] and ConvS2S [9], all of which use convolutional neural networks as basic building block, computing hidden representations in parallel for all input and output positions. In these models, the number of operations required to relate signals from two arbitrary input or output positions grows in the distance between positions, linearly for ConvS2S and logarithmically for ByteNet. This makes it more difficult to learn dependencies between distant positions [12]. In the Transformer this is reduced to a `constant number of operations`, albeit at the cost of reduced effective resolution due to averaging attention-weighted positions, an effect we counteract with `Multi-Head Attention` as described in section 3.2.
 > 
 > Self-attention, sometimes called intra-attention is an attention mechanism relating different positions of a single sequence in order to compute a representation of the sequence. Self-attention has been used successfully in a variety of tasks including reading comprehension, abstractive summarization, textual entailment and learning task-independent sentence representations [4, 27, 28, 22].
 > 
@@ -103,11 +115,41 @@ Attention Is All You Need
 > 
 > The Transformer follows this overall architecture using stacked self-attention and point-wise, fully connected layers for both the encoder and decoder, shown in the left and right halves of Figure 1, respectively.
 
-3.1 Encoder and Decoder Stacks
+## 3.1 Encoder and Decoder Stacks
 
-3.2 Attention
+Encoder： 多头注意力机制，一个MLP，残差连接、layerNorm
 
-3.2.1 Scaled Dot-Product Attention
+展开讲了下LayerNorm
+输入为2维时，[batch, n_feature]
+- BatchNorm： 对每个小批量进行归一化（均值调为0，除以方差）
+- LayerNorm： 对每个样本（行）做均值为0，方差为1
+
+3D时，[batch, n_seq, n_feature] 列为 序列的长度， n_seq就是n，n_feature就是d（文中设定为512）
+- BatchNorm：从特征维度切下去一个截面，那么是 [batch, n_seq]，但面临每个样本的时间步不同，而导致的均值和方差抖动较大；而如果输入的长度序列没在训练里出现过（比如很长，超过了常见的），那么不好预测
+- LayerNorm：从batch维度切下去一个样本，那么是 [n_seq, n_feature]，均值和方差是在自己里面进行计算；不会出现上述问题。而后续也有文章提到，layerNorm有效在于梯度的更新。
+
+Decoder：
+
+- 在Encoder的输出之后，加入了多头注意力机制。 
+  
+- 跟Encoder类似，也是有残差连接、layerNorm；但还有 masked 掩码机制，来控制在预测t时刻的文本时（文本生成里面），不能看到t时刻及以后的输入，保证训练和预测时的行为是一致的。
+
+接下来看每个子层是怎么定义的。
+
+
+## 3.2 Attention
+
+输出计算为值的加权和：输出的维度和value的维度是一样的。
+权重是怎么来的：每一个value的权重，是由查询和value对应的key的相似度来决定的（不同注意力的模型有不同的算法）
+
+> An attention function can be described as mapping a query and a set of key-value pairs to an output, where the query, keys, values, and output are all vectors. The output is computed as a weighted sum of the values, where the weight assigned to each value is computed by a compatibility function of the query with the corresponding key.
+> 
+> 注意力函数可以描述为将查询和一组键值对映射到输出，其中查询、键、值和输出都是向量。 输出计算为值的加权和，其中分配给每个值的权重由查询与相应键的兼容性函数计算。
+
+### 3.2.1 Scaled Dot-Product Attention
+
+query, key 的维度都等于 $d_ k$
+
 
 3.2.2 Multi-Head Attention
 

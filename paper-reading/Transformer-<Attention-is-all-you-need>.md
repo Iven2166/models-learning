@@ -147,9 +147,9 @@ Decoder：
 > 注意力函数可以描述为将查询和一组键值对映射到输出，其中查询、键、值和输出都是向量。 输出计算为值的加权和，其中分配给每个值的权重由查询与相应键的兼容性函数计算。
 
 ### 3.2.1 Scaled Dot-Product Attention
+维度query和key相同
 
-$ query, key /in d_ k$
-$ value /in d_ v $ 
+$ query, key \in d_ k$, $ value \in d_ v $ 
 
 
 3.2.2 Multi-Head Attention

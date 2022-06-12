@@ -149,7 +149,25 @@ Decoder：
 ### 3.2.1 Scaled Dot-Product Attention
 维度query和key相同
 
-$ query, key \in d_ k$, $ value \in d_ v $ 
+$ query, key \in d_ k$
+
+$ value \in d_ v $ 
+
+计算query和全部key的点积，如果有n个query就有n个值
+再除以维度长，再sortmax（就有n个非负的、和为1的权重），来得到value的权重，算到value上，就有输出了。
+（点积计算相似度：[知乎](https://zhuanlan.zhihu.com/p/359975221#:~:text=%E5%90%91%E9%87%8F%E7%82%B9%E4%B9%98%EF%BC%9A%EF%BC%88%E5%86%85%E7%A7%AF,%E6%A0%87%E9%87%8F%E7%A7%AF%EF%BC%88Scalar%20Product%EF%BC%89%E3%80%82&text=%E4%BB%8E%E4%BB%A3%E6%95%B0%E8%A7%92%E5%BA%A6%E7%9C%8B%EF%BC%8C%E7%82%B9,%E5%A4%B9%E8%A7%92%E4%BD%99%E5%BC%A6%E7%9A%84%E7%A7%AF%E3%80%82) ）
+
+> We call our particular attention "Scaled Dot-Product Attention" (Figure 2). The input consists of queries and keys of dimension $d_ k$, and values of dimension $d_ v$. We compute the dot products of the query with all keys, divide each by √ dk, and apply a softmax function to obtain the weights on the values.
+
+实际上，query是一个矩阵 [n, d_k]，矩阵乘法能够非常好的并行。
+
+$$ Attention(Q, K, V) = sofrmax( \divide{Q K^T}_ {d_k}) V $$
+
+> In practice, we compute the attention function on a set of queries simultaneously, packed together into a matrix Q. The keys and values are also packed together into matrices K and V . We compute the matrix of outputs as:
+> 
+> 在实践中，我们同时计算一组查询的注意力函数，并打包到矩阵 Q 中。键和值也打包到矩阵 K 和 V 中。 我们将输出矩阵计算为：
+
+
 
 
 3.2.2 Multi-Head Attention

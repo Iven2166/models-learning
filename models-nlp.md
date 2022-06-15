@@ -1,7 +1,17 @@
 
 # 深度学习 - NLP部分
 
-- 核心参考：https://huggingface.co/
+- 核心参考
+  - hugging-face 
+    - [官网](https://huggingface.co/)
+    - [course](https://huggingface.co/course/chapter2/2?fw=pt)
+    - [transformer](https://huggingface.co/docs/transformers/model_doc/albert#transformers.AlbertForTokenClassification)
+  - 中文预训练
+    - [bert-wwm](https://github.com/ymcui/Chinese-BERT-wwm)
+  - pytorch 
+    - [torchtext，含有数据集](https://github.com/pytorch/text)
+
+
 
 ## 发展历史整体感知
 从`综述`、博客不断积累，自己整理出整体发展的历史，再逐个掌握

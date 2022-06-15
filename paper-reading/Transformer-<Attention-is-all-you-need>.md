@@ -7,7 +7,7 @@ Attention Is All You Need
 - 其他参考：https://becominghuman.ai/multi-head-attention-f2cfb4060e9c
 - https://data-science-blog.com/blog/2021/04/07/multi-head-attention-mechanism/
 - https://towardsdatascience.com/transformers-explained-visually-part-3-multi-head-attention-deep-dive-1c1ff1024853
-
+- https://zhuanlan.zhihu.com/p/403433120
 
 
 摘要
@@ -205,11 +205,49 @@ scaled Dot-Product Attention 并没有可学习的参数，仅是依靠点积来
 
 3.3 Position-wise Feed-Forward Networks
 
+由于前面的attention已经汇聚(aggregate)了时序信息，所以后续的MLP只需要单个单个地对每个样本做线性变换即可。
+而作为对比，RNN是在每个时间步，都要将前一个的信息合并目前的信息，一起进行计算。
+
 3.4 Embeddings and Softmax
+
+三个emb的权重实际上是一样，学习起来方便一些。
+
+还在emb权重乘上 $\sqrt{d _{model}}$，因为emb越长由于norm的关系会导致里面的参数越小，乘后范围也在[-1,1]之间，和下方的sin、cos函数返回的[-1,1]范围一致。再和下面的position emb想加时会好点。
+
+attention的权重不会带有时序信息。假设句子打乱，attention不变但是无意义。所以在输入里加入时序信息。
 
 3.5 Positional Encoding
 
+
 4 Why Self-Attention
+
+解释Table1的复杂度比较，
+
+sequential operation：在计算第几步之前需要计算多少步，越不用等越好。
+
+maximum path length：两个位置的信息传播的步数（如何理解？下方原文）
+
+>The third is the path length between long-range dependencies in the network. Learning long-range
+dependencies is a key challenge in many sequence transduction tasks. One key factor affecting the
+ability to learn such dependencies is the length of the paths forward and backward signals have to
+traverse in the network. The shorter these paths between any combination of positions in the input
+and output sequences, the easier it is to learn long-range dependencies [12]. Hence we also compare
+the maximum path length between any two input and output positions in networks composed of the
+different layer types
+> 
+> 第三个是网络中远程依赖关系之间的路径长度。 学习长程依赖是许多序列转导任务中的关键挑战。 影响学习这种依赖性的能力的一个关键因素是前向和后向信号必须在网络中遍历的路径长度。 输入和输出序列中任意位置组合之间的这些路径越短，就越容易学习远程依赖[12]。 因此，我们还比较了由不同层类型组成的网络中任意两个输入和输出位置之间的最大路径长度
+
+各种模式的复杂度比较：
+- attention 
+    - 1. query和key的矩阵乘法，n^2*d
+    - 2. 并行度 O(1)
+    - 3. 
+- recurrent
+    - 1.
+    
+- convolutional：传递的距离是因为为卷积，一层层传上去，为取对数
+- self-attention-restricted: 只对r范围内的进行建模，所以复杂度不用 n^2 而只需要 n*r，但信息传递就需要通过 n/r 步来调过来
+
 
 5 Training
 

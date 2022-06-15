@@ -4,6 +4,12 @@ Attention Is All You Need
 - [PDF](https://arxiv.org/pdf/1706.03762.pdf)
 - [limu - Transformer论文逐段精读【论文精读】](https://www.bilibili.com/video/BV1pu411o7BE?spm_id_from=333.999.0.0)
 
+- 其他参考：https://becominghuman.ai/multi-head-attention-f2cfb4060e9c
+- https://data-science-blog.com/blog/2021/04/07/multi-head-attention-mechanism/
+- https://towardsdatascience.com/transformers-explained-visually-part-3-multi-head-attention-deep-dive-1c1ff1024853
+
+
+
 摘要
 
 `基于注意力，摒弃递归和卷积`: 主要的`序列转录模型`基于复杂的循环或卷积神经网络，包括编码器和解码器。性能最好的模型还通过注意力机制连接编码器和解码器。我们提出了一种新的简单网络架构 Transformer，它完全基于注意力机制，完全摒弃了递归和卷积。
@@ -167,10 +173,33 @@ $$ Attention(Q, K, V) = softmax( \frac {Q K^T} {\sqrt{d_k} }) V $$
 > 
 > 在实践中，我们同时计算一组查询的注意力函数，并打包到矩阵 Q 中。键和值也打包到矩阵 K 和 V 中。 我们将输出矩阵计算为：
 
+一般有两种注意力机制，一种是加性注意力机制，能够处理不等长的情况；另外一种叫做点积的注意力机制，和文章是一样的，除了文章多除了一个数之外（也就叫做scaled的原因）
+
+为什么除以 根号$d_ k$ ，因为softmax让小的更小，大的更大。而 $d_ k$ 很大时，可能做出来的点积部分值会更大，让softmax把分布往两端拉得更开。而那些中间的值会很接近于0，导致梯度很小。
+
+$\sqrt{d_k}$: 原因在于假定q和key都是均值为0方差为1的分布，所以点积是 $q_ i$ 与 $k_ i$ 的乘积之和是均值为0方差为 $d_ k$ 的数 
+
+> The two most commonly used attention functions are additive attention [2], and dot-product (multiplicative) attention. Dot-product attention is identical to our algorithm, except for the scaling factor
+of $\frac {1}{d _k} $ . Additive attention computes the compatibility function using a feed-forward network with
+a single hidden layer. While the two are similar in theoretical complexity, dot-product attention is
+much faster and more space-efficient in practice, since it can be implemented using highly optimized
+matrix multiplication code.
+
+> While for small values of dk the two mechanisms perform similarly, additive attention outperforms
+dot product attention without scaling for larger values of dk [3]. We suspect that for large values of
+dk, the dot products grow large in magnitude, pushing the softmax function into regions where it has
+extremely small gradients . To counteract this effect, we scale the dot products by $\frac {1}{d _k} $. 
 
 
+### 3.2.2 Multi-Head Attention
 
-3.2.2 Multi-Head Attention
+scaled Dot-Product Attention 并没有可学习的参数，仅是依靠点积来完成运算。而multi-head可以多学几个模式。
+
+先让其投影到低维度，然后学习超参（通过h次）。
+
+> Instead of performing a single attention function with dmodel-dimensional keys, values and queries, we found it beneficial to linearly project the queries, keys and values h times with different, learned linear projections to dk, dk and dv dimensions, respectively. On each of these projected versions of queries, keys and values we then perform the attention function in parallel, yielding dv-dimensional output values. These are concatenated and once again projected, resulting in the final values, as depicted in Figure 2
+> 
+> 与使用 dmodel 维度的键、值和查询执行单个注意函数不同，我们发现将查询、键和值分别线性投影到 dk、dk 和 dv 维度上的不同学习线性投影是有益的。 然后，在每个查询、键和值的投影版本上，我们并行执行注意功能，产生 dv 维输出值。 这些被连接起来并再次投影，产生最终值，如图 2 所示
 
 3.2.3 Applications of Attention in our Model
 

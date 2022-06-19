@@ -1,12 +1,12 @@
 
 
 
-参考资料
+# 参考资料
 - 综述类普及 & DeepCTR包（https://github.com/shenweichen/DeepCTR）
 
 
 
-# 博客们！
+# 博客们
 
 [1. 一文读懂CTR预估模型的发展历程(知乎)](https://zhuanlan.zhihu.com/p/465520407)
   

@@ -4,6 +4,7 @@
 - 核心参考
   - hugging-face 
     - [官网](https://huggingface.co/)
+    - [notebooks](https://huggingface.co/docs/transformers/v4.20.0/en/notebooks)
     - [course](https://huggingface.co/course/chapter2/2?fw=pt)
     - [transformer](https://huggingface.co/docs/transformers/model_doc/albert#transformers.AlbertForTokenClassification)
   - 中文预训练
@@ -273,6 +274,9 @@ RNN需要解决的问题，可以由 GRU 和 LSTM来解决：
 
 # Transfomer系列
 
+[历史介绍](https://huggingface.co/course/en/chapter1/4?fw=pt#a-bit-of-transformer-history)
+
+
 ## 基础知识
 
 注意力 
@@ -300,3 +304,10 @@ RNN需要解决的问题，可以由 GRU 和 LSTM来解决：
 
 课后qa：
 - masked_softmax的作用：比如，在句子不够长时（4 out of 10），padding填充了6个。那么拿到query时，要看键值，此时仅需要看前4个，后6个没有意义。
+
+参考：
+- [知乎-transformer解析和实现](https://zhuanlan.zhihu.com/p/420820453)
+
+
+
+

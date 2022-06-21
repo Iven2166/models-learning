@@ -169,3 +169,6 @@ model.compile(optimizer='rmsprop',...)
 - NLP岗位八股文：https://zhuanlan.zhihu.com/p/470674031
 
 
+---
+面经
+- [NLP算法](https://cloud.tencent.com/developer/article/1817838)

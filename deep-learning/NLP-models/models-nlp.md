@@ -9,15 +9,33 @@
 
 ## 任务范式
 
-文本分类、文本摘要、文本生成
+*任务*
 
-[comment]: <> (|任务范式|业务应用|)
+- sequence classification
+- Token classification
+  - Named entity recognition (NER)：命名实体识别
+  - Part-of-speech tagging (POS)：词性标注
+- masked language model：完形填空、预测
+- Translation
+- Summarization
+  - Extractive summarization：抽取式（从文中直接抽取关键词句）
+  - Abstractive summarization：摘要式（人类会理解上下文、语义等来创造摘要）
 
-[comment]: <> (|-----|-----|)
+*模型*
 
-[comment]: <> (|文本分类|TextCNN、预训练模型接NN|)
+Summarization
+- Text Rank：extractive and unsupervised 
 
-[comment]: <> (|文本摘要||)
+
+*参考*
+- 文本摘要使用的模型：https://medium.com/codex/long-story-short-an-nlp-use-case-on-text-summarization-2752a7daa5f7
+
+[transformers可用的任务](https://huggingface.co/course/chapter1/9?fw=pt)
+![img.png](./transformers-1.png)
+
+
+##
+
 
 岗位描述：主题识别、关键词提取、实体挖掘、文本检索、内容生成、精彩片段识别、情感分析
 
@@ -85,6 +103,18 @@
 [2020 A Survey on Text Classification: From Shallow to Deep Learning](https://arxiv.org/pdf/2008.00364v2.pdf)
 
 ![img_1.png](./img_from-shallow-to-deep-learning-fig2.png)
+
+## 常见指标
+
+### 损失函数
+
+### 困惑度（Perplexity)
+
+参考：
+- https://www.topbots.com/perplexity-and-entropy-in-nlp/
+- NLP课件
+  - https://courses.cs.washington.edu/courses/csep517/18au/
+  - page7： http://www.cs.columbia.edu/~mcollins/courses/nlp2011/notes/lm.pdf
 
 
 
@@ -249,4 +279,7 @@ rnn-learn.md
 - [NLP算法-面经](https://cloud.tencent.com/developer/article/1817838)
 - 感觉整体整理的目录不错：https://createmomo.github.io/2018/01/23/Super-Machine-Learning-Revision-Notes/#tableofcontents
 - NLP岗位八股文：https://zhuanlan.zhihu.com/p/470674031
-
+- 面试记录
+  - https://www.cvmart.net/community/detail/6234、
+  - https://cloud.tencent.com/developer/article/1499377?from=article.detail.1958292
+  

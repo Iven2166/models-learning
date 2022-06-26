@@ -3,6 +3,10 @@
 重点参考
 - 西瓜书 & 南瓜书 - 机器学习周志华：第8章 集成学习
 
+## LR
+参考
+- https://blog.csdn.net/qq_30219017/article/details/79558026?spm=1001.2014.3001.5502
+
 ## xgboost
 
 原作：[2016 XGBoost: A Scalable Tree Boosting System](https://arxiv.org/pdf/1603.02754.pdf)
@@ -26,3 +30,4 @@
   - [【机器学习】决策树（下）——XGBoost、LightGBM（非常详细）](https://zhuanlan.zhihu.com/p/87885678)
   - [左手论文 右手代码 深入理解网红算法XGBoost](https://zhuanlan.zhihu.com/p/91817667)
   - [一篇文章搞定GBDT、Xgboost和LightGBM的面试](https://zhuanlan.zhihu.com/p/148050748)
+

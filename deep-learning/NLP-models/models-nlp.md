@@ -17,14 +17,16 @@
   - Part-of-speech tagging (POS)：词性标注
 - masked language model：完形填空、预测
 - Translation
-- Summarization
+- Summarization - 
   - Extractive summarization：抽取式（从文中直接抽取关键词句）
   - Abstractive summarization：摘要式（人类会理解上下文、语义等来创造摘要）
 
 *模型*
 
-Summarization
-- Text Rank：extractive and unsupervised 
+Summarization 摘要 + 关键词抽取
+- 统计学习方法 [参考1](https://www.163.com/dy/article/GKB4GH1U0531D9VR.html)
+  - TF-IDF [代码实现参考](https://www.cnblogs.com/Micang/p/10366954.html)
+  - Text Rank：extractive and unsupervised 
 
 
 *参考*

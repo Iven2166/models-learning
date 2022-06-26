@@ -13,6 +13,28 @@
     - [torchtext，含有数据集](https://github.com/pytorch/text)
   - [bert可视化](https://huggingface.co/exbert/?model=bert-large-uncased&modelKind=bidirectional&sentence=Do%20not%20meddle%20in%20the%20affairs%20of%20wizards,%20for%20they%20are%20subtle%20and%20quick%20to%20anger.&layer=0&heads=..0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15&threshold=0.36&tokenInd=null&tokenSide=null&maskInds=..&hideClsSep=true)
 
+- 学术论文 / 学会
+  - [ACL-Annual Meeting of the Association for Computational Linguistics `选择ACL为语言模型`](https://aclanthology.org/)
+  - [EMNLP - 2020](https://2020.emnlp.org/papers/main)
+
+- 一些博客参考
+  
+  - [rumor - 如何系统性地学习NLP 自然语言处理？ - `关注里面对综述的引用`](https://www.zhihu.com/question/27529154/answer/1643865710)
+    - [NLP快速入门路线及任务详解 - `其他综述`](https://mp.weixin.qq.com/s/zrziuFLRvbG8axG48QpFvg)
+    - [深度学习文本分类｜模型&代码&技巧](https://mp.weixin.qq.com/s?__biz=MzAxMTk4NDkwNw==&mid=2247485854&idx=1&sn=040d51b0424bdee66f96d63d4ecfbe7e&chksm=9bb980faacce09ec069afa79c903b1e3a5c0d3679c41092e16b2fdd6949aa059883474d0c2af&token=1473678595&lang=zh_CN&scene=21#wechat_redirect)
+  - [nlp-tutorial](https://github.com/graykode/nlp-tutorial)
+  - [非常牛逼的nlp_course！！！](https://github.com/yandexdataschool/nlp_course)
+  - [nlp-roadmap](https://github.com/graykode/nlp-roadmap)
+  - [Transformers-大集合](https://github.com/huggingface/transformers)
+  - [个人博客1](https://wmathor.com/index.php/archives/1399/)
+  - [自然语言处理入门-一些名词和概念](http://www.fanyeong.com/2018/02/13/introduction_to_nlp/)
+  - [Archive | Deep Learning for Natural Language Processing](https://machinelearningmastery.com/category/natural-language-processing/)
+  - [NLP101-github](https://github.com/Huffon/NLP101)
+  - [text-classification](https://github.com/zhengwsh/text-classification)
+  - [meta-research](https://github.com/orgs/facebookresearch/repositories?q=&type=all&language=python&sort=)
+  
+
+
 
 ## 发展历史整体感知
 从`综述`、博客不断积累，自己整理出整体发展的历史，再逐个掌握
@@ -219,6 +241,28 @@ RNN需要解决的问题，可以由 GRU 和 LSTM来解决：
 
 
 
+
+## Transformer
+
+论文解读
+- 精读论文
+  - [Transformer-<Attention-is-all-you-need>](https://github.com/Iven2166/models-learning/blob/main/paper-reading/Transformer-%3CAttention-is-all-you-need%3E.md)
+  
+- 其他参考
+  - [公众号-实现](https://mp.weixin.qq.com/s/cuYAt5B22CYtB3FBabjEIw)
+  
+
+**历史发展**
+
+| 进程     | 论文    | 
+| :------------- | :------------- | 
+| 概念提出      | 在人工智能领域,注意力这一概念最早是在计算机视觉中提出，用来提取图像特征．[[Itti et al., 1998](https://www.cse.psu.edu/~rtc12/CSE597E/papers/Itti_etal98pami.pdf) ]提出了一种自下而上的注意力模型． 该模型通过提取局部的低级视觉特征，得到一些潜在的显著（salient）区域．      | 
+| 图像分类      | 在神经网络中， [[Mnih et al., 2014](https://arxiv.org/pdf/1406.6247.pdf) ]在循环神经网络模型上使用了注意力机制来进行图像分类．     | 
+| 机器翻译      | [[Bahdanau et al., 2014](https://arxiv.org/pdf/1409.0473.pdf) ]使用注意力机制在机器翻译任务上将翻译和对齐同时进行．     | 
+| attention is all you need      | 目前， 注意力机制已经在语音识别、图像标题生成、阅读理解、文本分类、机器 翻译等多个任务上取得了很好的效果， 也变得越来越流行． 注意力机制的一个重 要应用是自注意力． 自注意力可以作为神经网络中的一层来使用， 有效地建模长 距离依赖问题 [[Attention is all you need, Vaswani et al., 2017](https://arxiv.org/pdf/1706.03762.pdf) ]     | 
+
+
+
 ## Bert
 
 - Bert论文：https://arxiv.org/abs/1810.04805
@@ -228,6 +272,10 @@ RNN需要解决的问题，可以由 GRU 和 LSTM来解决：
 ## ElMo
 
 
+- NNLM
+  - 论文:  https://www.jmlr.org/papers/volume3/bengio03a/bengio03a.pdf 
+  - 论文解读: https://www.jianshu.com/p/be242ed3f314
+  - [!!! NNLM 的 PyTorch 实现](https://wmathor.com/index.php/archives/1442/)
 
 
 ## Word Embedding 词嵌入
@@ -270,7 +318,25 @@ RNN需要解决的问题，可以由 GRU 和 LSTM来解决：
   - 其实word2vec和Co-Occurrence Vector的思想是很相似的，都是基于一个统计学上的假设：经常在同一个上下文出现的单词是相似的。只是他们的实现方式是不一样的，前者是采用词频统计，降维，矩阵分解等确定性技术；而后者则采用了神经网络进行不确定预测，它的提出主要是采用神经网络之后计算复杂度和最终效果都比之前的模型要好。所以那篇文章的标题才叫：Efficient Estimation of Word Representations in Vector Space。[参考](http://www.fanyeong.com/2017/10/10/word2vec/) 
 
 
-- Glove [原论文](https://nlp.stanford.edu/pubs/glove.pdf)
+- Glove
+  - [原论文](https://nlp.stanford.edu/pubs/glove.pdf)
+  - [官网](https://nlp.stanford.edu/projects/glove/)
+  - [git](https://github.com/stanfordnlp/GloVe)
+  
+
+预训练
+
+- [不错的博主](https://github.com/loujie0822/Pre-trained-Models)
+  - [NLP算法面试必备！PTMs：NLP预训练模型的全面总结](https://zhuanlan.zhihu.com/p/115014536)
+  - [nlp中的词向量对比：word2vec/glove/fastText/elmo/GPT/bert](https://zhuanlan.zhihu.com/p/56382372)
+  - [nlp中的预训练语言模型总结(单向模型、BERT系列模型、XLNet)](https://zhuanlan.zhihu.com/p/76912493)
+- [Glove详解](http://www.fanyeong.com/2018/02/19/glove-in-detail/#comment-1462)
+- [神经网络语言模型(NNLM)](https://blog.csdn.net/u010089444/article/details/52624964)
+
+- [NLP必读 | 十分钟读懂谷歌BERT模型](https://www.jianshu.com/p/4dbdb5ab959b)
+- [Transformer-论文解读](https://www.jianshu.com/p/4b1bcd5c5f80)
+
+
 
 # Transfomer系列
 
@@ -308,6 +374,14 @@ RNN需要解决的问题，可以由 GRU 和 LSTM来解决：
 参考：
 - [知乎-transformer解析和实现](https://zhuanlan.zhihu.com/p/420820453)
 
+## NER识别
 
+- [知乎-BiLSTM上的CRF，用命名实体识别任务来解释CRF（一）](https://zhuanlan.zhihu.com/p/119254570)
+- [wx-缺少训练样本怎么做实体识别？小样本下的NER解决方法汇总](https://mp.weixin.qq.com/s/FH1cWxXlTFt0RdEipSJH1w)
 
+## 面试相关
+
+- [NLP算法-面经](https://cloud.tencent.com/developer/article/1817838)
+- 感觉整体整理的目录不错：https://createmomo.github.io/2018/01/23/Super-Machine-Learning-Revision-Notes/#tableofcontents
+- NLP岗位八股文：https://zhuanlan.zhihu.com/p/470674031
 

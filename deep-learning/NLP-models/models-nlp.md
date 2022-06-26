@@ -1,6 +1,29 @@
 
 # 深度学习 - NLP部分
 
+## 目的
+该project有若干目的：
+- 梳理模型概念、算法、细节，给出小项目实现
+- 归纳任务范式下主要的模型
+- 归纳发展历史
+
+## 任务范式
+
+文本分类、文本摘要、文本生成
+
+[comment]: <> (|任务范式|业务应用|)
+
+[comment]: <> (|-----|-----|)
+
+[comment]: <> (|文本分类|TextCNN、预训练模型接NN|)
+
+[comment]: <> (|文本摘要||)
+
+岗位描述：主题识别、关键词提取、实体挖掘、文本检索、内容生成、精彩片段识别、情感分析
+
+
+## 参考来源
+
 - 核心参考
   - hugging-face 
     - [官网](https://huggingface.co/)
@@ -33,13 +56,10 @@
   - [text-classification](https://github.com/zhengwsh/text-classification)
   - [meta-research](https://github.com/orgs/facebookresearch/repositories?q=&type=all&language=python&sort=)
   
-
-
-
 ## 发展历史整体感知
 从`综述`、博客不断积累，自己整理出整体发展的历史，再逐个掌握
 
-![img.png](pics/img.png)
+![img.png](./img-nlp-history1.png)
 
 ```markdown 
 -- https://markmap.js.org/repl
@@ -64,13 +84,15 @@
 综述1:
 [2020 A Survey on Text Classification: From Shallow to Deep Learning](https://arxiv.org/pdf/2008.00364v2.pdf)
 
-![img_1.png](pics/img_from-shallow-to-deep-learning-fig2.png)
+![img_1.png](./img_from-shallow-to-deep-learning-fig2.png)
+
+
 
 ## TextCNN
 
 重要参考
 
-| type 	| paper                                                                                                             	| intro                                                                         	| link                                  	|
+| type 	| name                                                                                                             	| intro                                                                         	| link                                  	|
 |------	|-------------------------------------------------	|-------------------------------------------------	|----------------	|
 | 原作 	| 2014-Convolutional Neural Networks for Sentence Classification                                                         	| (1) CNN-random-init <br> (2)CNN-static <br> (3)CNN-non-static <br> (4)CNN-multichannel 	| [link](https://aclanthology.org/D14-1181.pdf) 	|
 | 衍生解读1 	| 2016-A Sensitivity Analysis of (and Practitioners’ Guide to) Convolutional Neural Networks for Sentence Classification 	|                                                                                        	| [link](https://arxiv.org/pdf/1510.03820.pdf)  	|
@@ -80,147 +102,7 @@
 
 ## RNN
 
-**(1) 模型简述**
-
-参考: [d2l-8.4. 循环神经网络](https://zh.d2l.ai/chapter_recurrent-neural-networks/rnn.html)
-
-模型总体公式：
-
-假设我们在时间步 $t$ 有小批量输入 
-
-$\mathbf{X}_ {t} \in \mathbb{R}^{n \times d}$,
-$\mathbf{H}_ {t} \in \mathbb{R}^{n \times h}$,
-$\mathbf{W}_ {hh} \in \mathbb{R}^{h \times h}$,
-$\mathbf{W}_ {xh} \in \mathbb{R}^{d \times h}$,
-$\mathbf{b}_ {h} \in \mathbb{R}^{1 \times h}$,
-$\mathbf{b}_ {q} \in \mathbb{R}^{1 \times q}$,
-
-当前时间步隐藏变量由当前时间步的输入与前一个时间步的隐藏变量一起计算得出：
-
-$$\mathbf{H}_ {t} = \phi ( \mathbf{X}_ {t} \mathbf{W}_ {xh} + \mathbf{H}_ {t-1} \mathbf{W}_ {hh}  + \mathbf{b}_ {h} )$$
-
-对于时间步$t$，输出层的输出类似于多层感知机中的计算：
-
-$$\mathbf{O}_ {t} = \mathbf{H}_ {t} \mathbf{W}_ {hq} + \mathbf{b}_ {q} $$
-
-
-指标：困惑度(perplexity)：
-
-我们可以通过一个序列中所有的 $n$ 个词元的交叉熵损失的平均值来衡量:
-
-$$\frac{1}{n} \sum_{t=1}^n -\log P(x_t \mid x_ {t-1}, \ldots, x_1)$$
-
-其中$P$由语言模型给出，
-$x_t$是在时间步$t$从该序列中观察到的实际词元。
-这使得不同长度的文档的性能具有了可比性。
-
-$$\exp\left(-\frac{1}{n} \sum_ {t=1}^n \log P(x_ t \mid x_ {t-1}, \ldots, x_ 1)\right).$$
-
-* 在最好的情况下，模型总是完美地估计标签词元的概率为1。
-  在这种情况下，模型的困惑度为1。
-* 在最坏的情况下，模型总是预测标签词元的概率为0。
-  在这种情况下，困惑度是正无穷大。
-* 在基线上，该模型的预测是词表的所有可用词元上的均匀分布。
-  在这种情况下，困惑度等于词表中唯一词元的数量。
-
-小结
-
-* 循环神经网络的隐状态可以捕获直到当前时间步序列的历史信息。
-* 循环神经网络模型的参数数量不会随着时间步的增加而增加。
-* 我们可以使用循环神经网络创建字符级语言模型。
-* 我们可以使用困惑度来评价语言模型的质量。
-
-
-**(2) 训练**
-
-参考
-- [d2l-8.7. 通过时间反向传播](https://zh.d2l.ai/chapter_recurrent-neural-networks/bptt.html)
-- [d2l-8.5. 循环神经网络的从零开始实现](https://zh.d2l.ai/chapter_recurrent-neural-networks/rnn-scratch.html)
-
-
-公式有空再整理
-
-- 循环神经网络模型在训练以前需要初始化状态，不过随机抽样和顺序划分使用初始化方法不同。[见<随机采样和顺序分区>](https://zh-v2.d2l.ai/chapter_recurrent-neural-networks/language-models-and-dataset.html)
-- 当使用顺序划分时，我们需要分离梯度以减少计算量。
-  > 具体来说，当使用顺序分区时， 我们只在每个迭代周期的开始位置初始化隐状态。 由于下一个小批量数据中的第 𝑖 个子序列样本 与当前第 𝑖 个子序列样本相邻， 因此当前小批量数据最后一个样本的隐状态， 将用于初始化下一个小批量数据第一个样本的隐状态。 这样，存储在隐状态中的序列的历史信息 可以在一个迭代周期内流经相邻的子序列。 然而，在任何一点隐状态的计算， 都依赖于同一迭代周期中前面所有的小批量数据， 这使得梯度计算变得复杂。 为了降低计算量，在处理任何一个小批量数据之前， 我们先分离梯度，使得隐状态的梯度计算总是限制在一个小批量数据的时间步内。
-- 在进行任何预测之前，模型通过预热期进行自我更新（例如，获得比初始值更好的隐状态）。
-- 梯度裁剪可以防止梯度爆炸，但不能应对梯度消失
-- 矩阵 $\mathbf{W}_ {hh} \in \mathbb{R}^{h \times h}$ 的高次幂可能导致神经网络特征值的发散或消失，将以梯度爆炸或梯度消失的形式表现。
-- 截断是计算方便性和数值稳定性的需要。截断包括：规则截断和
-  随机截断(实现方法是有一定概率在某个时间步上截断，因此不用全部计算；但总体的期望是1，相当于理论公式；某些时间步会有更大的梯度权重)。
-- 为了计算的效率，“通过时间反向传播”在计算期间会缓存中间值。
-
-
-> 梯度爆炸的公式推导: https://zhuanlan.zhihu.com/p/109519044
-> ![img.png](./pics/rnn-gradient-decrease1.png)
-
-
-
-**(3)注意点**
-
-QA：
-
-- 为什么做字符而非预测单词？
-  - 因为字符的vocab_size小，one-hot的向量也小。而单词则很大
-
-
----
-- 参考
-    - [深度学习之循环神经网络（RNN）](https://www.cnblogs.com/Luv-GEM/p/10703906.html)
-    - [TensorFlow之RNN：堆叠RNN、LSTM、GRU及双向LSTM](https://www.cnblogs.com/Luv-GEM/p/10788849.html)
-    - [循环神经网络之LSTM和GRU](https://www.cnblogs.com/Luv-GEM/p/10705967.html)
-    - [rnn各类模型复现](https://github.com/spro/practical-pytorch)
-    - [pytorch官方文章](https://pytorch.org/tutorials/intermediate/char_rnn_classification_tutorial.html#creating-the-network)
-    - [rnn-含有很多现实案例](http://karpathy.github.io/2015/05/21/rnn-effectiveness/)
-
-
-## 门控循环单元（gated recurrent units，GRU）
-
-参考
-- [9.1. 门控循环单元（GRU）](https://zh.d2l.ai/chapter_recurrent-modern/gru.html)
-
-RNN需要解决的问题，可以由 GRU 和 LSTM来解决：
-- 长期记忆 - 进行存储：早期观测值对预测所有未来观测值具有非常重要的意义。`我们希望有某些机制能够在一个记忆元里存储重要的早期信息`。 如果没有这样的机制，我们将不得不给这个观测值指定一个非常大的梯度， 因为它会影响所有后续的观测值。
-- 选择遗忘 - 进行跳过：一些词元没有相关的观测值。 例如，在对网页内容进行情感分析时， 可能有一些辅助HTML代码与网页传达的情绪无关。 `我们希望有一些机制来跳过隐状态表示中的此类词元。`
-- 逻辑中断 - 进行重置：序列的各个部分之间存在逻辑中断。 例如，书的章节之间可能会有过渡存在。我们希望重置我们的内部状态表示
-- 其他需解决的：梯度消失和梯度爆炸
-
-
-![img.png](./pics/GRU.png)
-
-- Reset Gate：重置门。 与 $H_ {t-1}$ 进行点积，由于是 $(0,1)$ 的范围，因此能够选择遗忘 $H_ {t-1}$，从而减少以往状态的影响
-- Update Gate：更新门。 当 $Z_ {t}$ 偏向 1 时，则选择更多的 $H_ {t-1}$，即记住更长期的信息；如果偏向于0，则选择更多的候选隐状态，即含有 $X_t$的当前信息
-
-小结：
-- 门控循环神经网络可以更好地捕获时间步距离很长的序列上的依赖关系。
-- 重置门有助于捕获序列中的短期依赖关系。
-- 更新门有助于捕获序列中的长期依赖关系。
-- 重置门打开时，门控循环单元包含基本循环神经网络；更新门打开时，门控循环单元可以跳过子序列。
-
-
-## 长短期记忆网络（long short-term memory，LSTM） 
-参考
-- [9.2. 长短期记忆网络（LSTM）](https://zh.d2l.ai/chapter_recurrent-modern/lstm.html)
-
-
-![img.png](./pics/lstm-1.png)
-
-小结
-- 长短期记忆网络有三种类型的门：输入门、遗忘门和输出门。
-- 长短期记忆网络的隐藏层输出包括“隐状态”和“记忆元”。只有隐状态会传递到输出层，而记忆元完全属于内部信息。
-- 长短期记忆网络可以缓解梯度消失和梯度爆炸。
-
-- 参考
-  - [Understanding LSTM Networks](https://colah.github.io/posts/2015-08-Understanding-LSTMs/)
-  - [为何能解决梯度消失问题？- Why LSTMs Stop Your Gradients From Vanishing](https://weberna.github.io/blog/2017/11/15/LSTM-Vanishing-Gradients.html)
-  - [为何能解决梯度消失问题？- 中文翻译](https://zhuanlan.zhihu.com/p/109519044)
-  
-
-## RNN簇的比较点
-
-- RNN最长序列一般为几十，难以做到上百的长度（所以随机抽样即可，还可以避开overfit问题，不一定要因为序列的关联性而用顺序分区）
-- GRU的更新门 $Z_ {t}$ 是加权求和（1-z与z），而LSTM的记忆单元 $C_ {t}$ 是加和得到的，而 $H_ {t}$ 是由输出门 $O_ {t}$决定是否重置
-
+rnn-learn.md
 
 
 ## fastText 
@@ -240,29 +122,6 @@ RNN需要解决的问题，可以由 GRU 和 LSTM来解决：
 > 句子分类的一个简单有效的基线是将句子表示为词袋 (BoW) 并训练线性分类器，例如逻辑回归或 SVM (Joachims, 1998; Fan et al., 2008)。 然而，线性分类器不共享特征和类之间的参数。 这可能会限制它们在大输出空间的上下文中的泛化，其中某些类的示例很少。 这个问题的常见解决方案是将线性分类器分解为低秩矩阵（Schutze，1992；Mikolov 等人，2013）或使用多层神经网络（Collobert 和 Weston，2008；Zhang 等人，2015）。
 
 
-
-
-## Transformer
-
-论文解读
-- 精读论文
-  - [Transformer-<Attention-is-all-you-need>](https://github.com/Iven2166/models-learning/blob/main/paper-reading/Transformer-%3CAttention-is-all-you-need%3E.md)
-  
-- 其他参考
-  - [公众号-实现](https://mp.weixin.qq.com/s/cuYAt5B22CYtB3FBabjEIw)
-  
-
-**历史发展**
-
-| 进程     | 论文    | 
-| :------------- | :------------- | 
-| 概念提出      | 在人工智能领域,注意力这一概念最早是在计算机视觉中提出，用来提取图像特征．[[Itti et al., 1998](https://www.cse.psu.edu/~rtc12/CSE597E/papers/Itti_etal98pami.pdf) ]提出了一种自下而上的注意力模型． 该模型通过提取局部的低级视觉特征，得到一些潜在的显著（salient）区域．      | 
-| 图像分类      | 在神经网络中， [[Mnih et al., 2014](https://arxiv.org/pdf/1406.6247.pdf) ]在循环神经网络模型上使用了注意力机制来进行图像分类．     | 
-| 机器翻译      | [[Bahdanau et al., 2014](https://arxiv.org/pdf/1409.0473.pdf) ]使用注意力机制在机器翻译任务上将翻译和对齐同时进行．     | 
-| attention is all you need      | 目前， 注意力机制已经在语音识别、图像标题生成、阅读理解、文本分类、机器 翻译等多个任务上取得了很好的效果， 也变得越来越流行． 注意力机制的一个重 要应用是自注意力． 自注意力可以作为神经网络中的一层来使用， 有效地建模长 距离依赖问题 [[Attention is all you need, Vaswani et al., 2017](https://arxiv.org/pdf/1706.03762.pdf) ]     | 
-
-
-
 ## Bert
 
 - Bert论文：https://arxiv.org/abs/1810.04805
@@ -272,7 +131,7 @@ RNN需要解决的问题，可以由 GRU 和 LSTM来解决：
 ## ElMo
 
 
-- NNLM
+## NNLM
   - 论文:  https://www.jmlr.org/papers/volume3/bengio03a/bengio03a.pdf 
   - 论文解读: https://www.jianshu.com/p/be242ed3f314
   - [!!! NNLM 的 PyTorch 实现](https://wmathor.com/index.php/archives/1442/)
@@ -342,6 +201,12 @@ RNN需要解决的问题，可以由 GRU 和 LSTM来解决：
 
 [历史介绍](https://huggingface.co/course/en/chapter1/4?fw=pt#a-bit-of-transformer-history)
 
+| 进程     | 论文    | 
+| :------------- | :------------- | 
+| 概念提出      | 在人工智能领域,注意力这一概念最早是在计算机视觉中提出，用来提取图像特征．[[Itti et al., 1998](https://www.cse.psu.edu/~rtc12/CSE597E/papers/Itti_etal98pami.pdf) ]提出了一种自下而上的注意力模型． 该模型通过提取局部的低级视觉特征，得到一些潜在的显著（salient）区域．      | 
+| 图像分类      | 在神经网络中， [[Mnih et al., 2014](https://arxiv.org/pdf/1406.6247.pdf) ]在循环神经网络模型上使用了注意力机制来进行图像分类．     | 
+| 机器翻译      | [[Bahdanau et al., 2014](https://arxiv.org/pdf/1409.0473.pdf) ]使用注意力机制在机器翻译任务上将翻译和对齐同时进行．     | 
+| attention is all you need      | 目前， 注意力机制已经在语音识别、图像标题生成、阅读理解、文本分类、机器 翻译等多个任务上取得了很好的效果， 也变得越来越流行． 注意力机制的一个重 要应用是自注意力． 自注意力可以作为神经网络中的一层来使用， 有效地建模长 距离依赖问题 [[Attention is all you need, Vaswani et al., 2017](https://arxiv.org/pdf/1706.03762.pdf) ]     | 
 
 ## 基础知识
 

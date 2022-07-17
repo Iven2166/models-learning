@@ -19,14 +19,21 @@ CRF层可以向最终的预测标签添加一些约束，以确保它们是有�
 - “O I-label”无效。一个命名实体的第一个标签应该以“B-”而不是“I-”开头，换句话说，有效的模式应该是“O B-label”
 
 ## CRF：Emission得分
-这些emission分数来自BiLSTM层
+这些emission分数来自BiLSTM层，是这个句子第 $i$ 种情况下的标签排序组合
+
+$$ Emission_score_ {i} = x_ {0, start} + x_ {1, B-person} + x_ {2, I-person} + x_ {3, O} + ...$$
 
 ## CRF：Transition得分
 各个标签之间的所有得分（理解为转移概率？），该矩阵(T * T, T: tag_size)是BiLSTM-CRF模型的参数
 
+$$ Transition_score_ {i} = t_ {start, B-person} + t_ {B-person, I-person} + t_ {I-person, O} + ...$$
+
 ## 实际路径得分
 
-$$ P_ total = P1 + P2 + ... + Pn = e^{S1} + e^{S2} + ... + e^{Sn} $$
+$$ P_ {total} = P1 + P2 + ... + Pn = e^{S1} + e^{S2} + ... + e^{Sn} $$
+
+其中, i 代表第i种可能的路径，并且其分数为 $S_ {i} = Emission_score_ {i} + Transition_score_ {i}$
+
 
 
 ### 参考

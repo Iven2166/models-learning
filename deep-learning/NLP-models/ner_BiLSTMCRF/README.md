@@ -21,19 +21,28 @@ CRF层可以向最终的预测标签添加一些约束，以确保它们是有�
 ## CRF-Emission得分
 这些emission分数来自BiLSTM层，是这个句子第 $i$ 种情况下的标签排序组合
 
+该公式的第$j$位对应第$j$个单词的按照该tag的标记分数，所以理论上有 $tag_size^{sentenceLength}$ 个情况
+
 $$ EmissionScore_ {i} = x_ {0, start} + x_ {1, B-person} + x_ {2, I-person} + x_ {3, O} + ...$$
 
 ## CRF-Transition得分
 各个标签之间的所有得分（理解为转移概率？），该矩阵(T * T, T: tag_size)是BiLSTM-CRF模型的参数
 
+而实际上构成这个公式的得分，比如 t_ {start, B-person} 也是模型学习的参数
+
+特别地，比如我们限制 `不能从结尾标签再有后续的标签`， 那么 t_ {end, ...} 均为 -10000.0 （因为exp(x)令其变成无限接近0）
+
 $$ TransitionScore_ {i} = t_ {start, B-person} + t_ {B-person, I-person} + t_ {I-person, O} + ...$$
 
 ## CRF-实际路径得分
+
+所有路径的得分为
 
 $$ P_ {total} = P1 + P2 + ... + Pn = e^{S1} + e^{S2} + ... + e^{Sn} $$
 
 其中, i 代表第i种可能的路径，并且其分数为 $S_ {i} = EmissionScore_ {i} + TransitionScore_ {i}$
 
+理论上，得到全部可能的路径得分，最真实路径的占比应该最高。
 
 
 ### 参考

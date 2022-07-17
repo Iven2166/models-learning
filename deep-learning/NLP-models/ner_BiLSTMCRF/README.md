@@ -21,7 +21,7 @@ CRF层可以向最终的预测标签添加一些约束，以确保它们是有�
 ## CRF-Emission得分
 这些emission分数来自BiLSTM层，是这个句子第 $i$ 种情况下的标签排序组合
 
-该公式的第$j$位对应第$j$个单词的按照该tag的标记分数，所以理论上有 $tag_size^{sentenceLength}$ 个情况
+该公式的第$j$位对应第$j$个单词的按照该tag的标记分数，所以理论上全部有 $tagSize^{sentenceLength}$ 个组合（包含了不合理的句式）
 
 $$ EmissionScore_ {i} = x_ {0, start} + x_ {1, B-person} + x_ {2, I-person} + x_ {3, O} + ...$$
 

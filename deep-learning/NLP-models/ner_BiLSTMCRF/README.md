@@ -9,7 +9,7 @@
 3. 输入CRF进一步学习各标签转移概率，整句的最佳概率，选择预测得分最高的标签序列作为最佳答案
 
 
-# CRF 的作用
+## CRF 的作用
 
 CRF层可以向最终的预测标签添加一些约束，以确保它们是有效的。这些约束可以由CRF层在训练过程中从训练数据集自动学习。
 
@@ -28,9 +28,9 @@ $$ EmissionScore_ {i} = x_ {0, start} + x_ {1, B-person} + x_ {2, I-person} + x_
 ## CRF-Transition得分
 各个标签之间的所有得分（理解为转移概率？），该矩阵(T * T, T: tag_size)是BiLSTM-CRF模型的参数
 
-而实际上构成这个公式的得分，比如 t_ {start, B-person} 也是模型学习的参数
+而实际上构成这个公式的得分，比如 $t_ {start, B-person}$ 也是模型学习的参数
 
-特别地，比如我们限制 `不能从结尾标签再有后续的标签`， 那么 t_ {end, ...} 均为 -10000.0 （因为exp(x)令其变成无限接近0）
+特别地，比如我们限制 `不能从结尾标签再有后续的标签`， 那么 $t_ {end, anyTag}$ 均为 -10000.0 （因为exp(x)令其变成无限接近0）
 
 $$ TransitionScore_ {i} = t_ {start, B-person} + t_ {B-person, I-person} + t_ {I-person, O} + ...$$
 

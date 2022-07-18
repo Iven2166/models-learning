@@ -263,7 +263,7 @@ rnn-learn.md
 
 在这个教程里，体现了查询q，在注意力里面和 键-值的计算关系。特别地，在代码里，扩展到了高维度的计算方法。（不太好懂，需要反复看代码 print(shape) ）
 
-![attention-pic1.png](./pics/attention-pic1.png)
+![attention-pic1.png](./attention-pic1.png)
 
 课后qa：
 - masked_softmax的作用：比如，在句子不够长时（4 out of 10），padding填充了6个。那么拿到query时，要看键值，此时仅需要看前4个，后6个没有意义。

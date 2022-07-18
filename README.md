@@ -13,3 +13,5 @@
 
 - https://data-science-blog.com/
 - 论文 & 代码： https://paperswithcode.com/ 
+- 数据集：https://huggingface.co/datasets/conll2003#data-instances
+- https://cloud.tencent.com/developer/column/2116

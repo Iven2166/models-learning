@@ -46,5 +46,9 @@ $$ P_ {total} = P1 + P2 + ... + Pn = e^{S1} + e^{S2} + ... + e^{Sn} $$
 
 
 ### 参考
-- 代码应用：https://pytorch.org/tutorials/beginner/nlp/advanced_tutorial.html
+- 代码应用
+  - [官方](https://pytorch.org/tutorials/beginner/nlp/advanced_tutorial.html)
+  - [git1-pytorch](https://github.com/jidasheng/bi-lstm-crf)
+  - [git2-pytorch](https://github.com/threelittlemonkeys/lstm-crf-pytorch)
+
 - [通俗易懂！BiLSTM上的CRF，用命名实体识别任务来解释CRF（一）](https://zhuanlan.zhihu.com/p/119254570)

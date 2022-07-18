@@ -84,23 +84,26 @@ class BiLSTM_CRF(nn.Module):
     def _forward_alg(self, feats):
         """
         do the forward algorithm to compute the partition function
-        :param feats:
+        :param feats: 表示发射矩阵(emit score)，实际上就是LSTM的输出，
+        意思是经过LSTM的sentence的每个word对应于每个label的得分
         :return:
         """
         init_alphas = torch.full((1, self.tagset_size), -10000.)
         # START_TAG has all of the score
+        # 因为start tag是4，所以tensor([[-10000., -10000., -10000., 0., -10000.]])，
         init_alphas[0][self.tag_to_idx[START_TAG]] = 0.
 
         # Wrap in a variable so that we will get automatic backprop
         forward_var = init_alphas
-        print("forward_var", forward_var.shape) # torch.Size([1, 5])
+        # print("forward_var", forward_var.shape) # torch.Size([1, 5])
 
         # Iterate through the sentence
         for feat in feats:
-            alphas_t = [] # the forward tensors at this timestep
+            alphas_t = [] # the forward tensors at this timestep # 当前时间步的正向tensor
             for next_tag in range(self.tagset_size):
 
                 # broadcast the emission score: it is the same regardless of the previous tag
+                # LSTM的生成矩阵是emit_score，维度为1*5
                 emit_score = feat[next_tag].view(1, -1).expand(1, self.tagset_size)
 
                 # The i_th entry of trans_score is the score of transitioning to next_tag from i
@@ -113,6 +116,8 @@ class BiLSTM_CRF(nn.Module):
 
                 # The forward variable for this tag is log-sum-exp of all the scores
                 alphas_t.append(log_sum_exp(next_tag_var).view(1))
+                # 此时的alphas t 是一个长度为5，例如<class 'list'>:
+                # [tensor(0.8259), tensor(2.1739), tensor(1.3526), tensor(-9999.7168), tensor(-0.7102)]
             forward_var = torch.cat(alphas_t).view(1, -1)
 
         terminal_var = forward_var + self.transitions[self.tag_to_idx[STOP_TAG]]
@@ -160,7 +165,7 @@ class BiLSTM_CRF(nn.Module):
 
     def _viterbi_decode(self, feats):
         """
-
+        预测序列的得分，维特比解码，输出得分与路径值
         :param feats:
         :return:
         """
@@ -177,6 +182,7 @@ class BiLSTM_CRF(nn.Module):
             viterbivars_t = []  # holds the viterbi variables for this step
 
             for next_tag in range(self.tagset_size):
+                # 其他标签（B,I,E,Start,End）到标签next_tag的概率
                 # next_tag_var[i] holds the viterbi variable for tag i at the previous step,
                 # plus the score of transitioning from tag i to next_tag
                 # we don't include the emission scores here because the max does not depend on them
@@ -188,7 +194,7 @@ class BiLSTM_CRF(nn.Module):
             forward_var = (torch.cat(viterbivars_t) + feat).view(1, -1)
             backpointers.append(bptrs_t)
 
-        # Transition to STOP_TAG
+        # Transition to STOP_TAG， 其他标签到STOP_TAG的转移概率
         terminal_var = forward_var + self.transitions[self.tag_to_idx[STOP_TAG]]
         best_tag_id = argmax(terminal_var)
         path_score = terminal_var[0][best_tag_id]

@@ -16,3 +16,4 @@
 - 数据集：https://huggingface.co/datasets/conll2003#data-instances
 - https://cloud.tencent.com/developer/column/2116
 - https://github.com/Iven2166/AiLearning
+- 各类DL代码实现：https://curiousily.com/posts/object-detection-on-custom-dataset-with-yolo-v5-using-pytorch-and-python/

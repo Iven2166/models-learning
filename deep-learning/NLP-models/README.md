@@ -281,6 +281,7 @@ rnn-learn.md
 - [NLP算法-面经](https://cloud.tencent.com/developer/article/1817838)
 - 感觉整体整理的目录不错：https://createmomo.github.io/2018/01/23/Super-Machine-Learning-Revision-Notes/#tableofcontents
 - NLP岗位八股文：https://zhuanlan.zhihu.com/p/470674031
+- 一文搞懂NLP中的词向量: https://www.easemob.com/news/5370
 - 面试记录
   - https://www.cvmart.net/community/detail/6234、
   - https://cloud.tencent.com/developer/article/1499377?from=article.detail.1958292

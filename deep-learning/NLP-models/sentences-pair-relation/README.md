@@ -59,10 +59,18 @@
 
 ## 模型：交互式
 
+### MatchPyramid
 
+> 题目：Text Matching as Image Recognition 
+> 
+> 论文：https://arxiv.org/pdf/1602.06359.pdf
+> 
+> 代码：https://github.com/pl8787/MatchPyramid-TensorFlow
 
 
 # 我的实现
+
+主要基于 Quora 问题对的相似度数据评测
 
 ## 尝试1. 
 - 做法
@@ -73,10 +81,14 @@
 - 结果：在200个epoch后，测试集准确率 从 63%提升至 72%，差强人意。
 
 ## 尝试2
+调整为 Bert 输出的 token-emb 的最后一层及第一层做平均（记得用 mask-ids 进行遮盖）获得句子向量。
 
 
-## 尝试3
+## 尝试3：词向量做CNN
 
+glove或者fasttext获取词向量
+
+## 尝试4：直接使用 InferText 再做精调，接入下一层进行自定义判断
 
 
 

@@ -61,11 +61,11 @@
 
 ### MatchPyramid
 
-> 题目：Text Matching as Image Recognition 
-> 
-> 论文：https://arxiv.org/pdf/1602.06359.pdf
-> 
-> 代码：https://github.com/pl8787/MatchPyramid-TensorFlow
+题目：Text Matching as Image Recognition
+论文：https://arxiv.org/pdf/1602.06359.pdf
+
+项目github：https://github.com/pl8787/MatchPyramid-TensorFlow
+
 
 
 # 我的实现

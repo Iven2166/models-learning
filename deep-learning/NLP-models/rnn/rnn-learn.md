@@ -70,7 +70,7 @@ $$\exp\left(-\frac{1}{n} \sum_ {t=1}^n \log P(x_ t \mid x_ {t-1}, \ldots, x_ 1)\
 
 
 > 梯度爆炸的公式推导: https://zhuanlan.zhihu.com/p/109519044
-> ![img.png](./pics/rnn-gradient-decrease1.png)
+> ![img.png](./rnn-gradient-decrease1.png)
 
 
 
@@ -104,7 +104,7 @@ RNN需要解决的问题，可以由 GRU 和 LSTM来解决：
 - 其他需解决的：梯度消失和梯度爆炸
 
 
-![img.png](./pics/GRU.png)
+![img.png](./GRU.png)
 
 - Reset Gate：重置门。 与 $H_ {t-1}$ 进行点积，由于是 $(0,1)$ 的范围，因此能够选择遗忘 $H_ {t-1}$，从而减少以往状态的影响
 - Update Gate：更新门。 当 $Z_ {t}$ 偏向 1 时，则选择更多的 $H_ {t-1}$，即记住更长期的信息；如果偏向于0，则选择更多的候选隐状态，即含有 $X_t$的当前信息
@@ -121,7 +121,7 @@ RNN需要解决的问题，可以由 GRU 和 LSTM来解决：
 - [9.2. 长短期记忆网络（LSTM）](https://zh.d2l.ai/chapter_recurrent-modern/lstm.html)
 
 
-![img.png](./pics/lstm-1.png)
+![img.png](./lstm-1.png)
 
 小结
 - 长短期记忆网络有三种类型的门：输入门、遗忘门和输出门。

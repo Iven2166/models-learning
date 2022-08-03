@@ -86,7 +86,7 @@
 
 ## 尝试3：词向量做CNN
 
-glove或者fasttext获取词向量
+glove、fasttext、bert-encoder 获取词向量，进行乘积后获取句子与句子之间的二维矩阵，接入卷积网络，最后分类。
 
 ## 尝试4：直接使用 InferText 再做精调，接入下一层进行自定义判断
 

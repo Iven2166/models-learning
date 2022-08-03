@@ -55,6 +55,7 @@ Summarization 摘要 + 关键词抽取
   - pytorch 
     - [torchtext，含有数据集](https://github.com/pytorch/text)
   - [bert可视化](https://huggingface.co/exbert/?model=bert-large-uncased&modelKind=bidirectional&sentence=Do%20not%20meddle%20in%20the%20affairs%20of%20wizards,%20for%20they%20are%20subtle%20and%20quick%20to%20anger.&layer=0&heads=..0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15&threshold=0.36&tokenInd=null&tokenSide=null&maskInds=..&hideClsSep=true)
+  - [torchtext-dataset](https://pytorch.org/text/stable/datasets.html)
 
 - 学术论文 / 学会
   - [ACL-Annual Meeting of the Association for Computational Linguistics `选择ACL为语言模型`](https://aclanthology.org/)

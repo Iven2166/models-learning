@@ -1,15 +1,90 @@
 
 # 深度学习 - NLP部分
 
-## 目的
+# 目的
 该project有若干目的：
 - 梳理模型概念、算法、细节，给出小项目实现
 - 归纳任务范式下主要的模型
 - 归纳发展历史
 
-## 任务范式
+# 任务范式
 
-*任务*
+主题识别、关键词提取、实体挖掘、文本检索、内容生成、精彩片段识别、情感分析
+
+> ![img_lirumor1.png](img_lirumor1.png)
+> 引用自【自然语言处理怎么最快入门？ - 李rumor的回答 - 知乎】
+https://www.zhihu.com/question/19895141/answer/1650139426
+
+## 文本分类
+
+
+## 序列标注
+
+
+综述1: 
+[ A Survey on Recent Advances in Sequence Labeling from Deep Learning Models](https://arxiv.org/pdf/2011.06727.pdf)
+- 介绍深度学习下的序列标注 (Sequence Labeling, SL) 的三种任务：part-of-speech tagging (POS), named entity recognition (NER) and text chunking
+
+1. Introduction 
+    1. 1～2段：
+下游任务：实体关系识别、
+传统的方法：HMM、CRF，同时依赖于文本的手工特征（首字母是否大写、语言特定特征-地名等）
+
+    2. 4段：Contributions of this survey 
+将SL的领域分为三个来介绍：embedding module, context encoder module, inference module
+
+2. Background 
+    1. 任务介绍
+        1. POS 标注词性
+        2. NER 标注实体
+            1. 应用业务广泛：搜索、问答、知识图谱、翻译（词组如果直接翻译，是单词翻译后的拼凑；而NER能够理解词组先后顺序、范围）
+            1. 标注类型
+                1. 三大类：entity, time, and numeric
+                2. 七小类：person name, organization, location, time, date, currency, and percentage
+                3. CoNLL2003 NER 制定：person (PER), location (LOC), organization (ORG) and proper nouns (MISC)
+            2. 标注规则
+                1. BIOES system： “B” (Begin), “I” (Inside), “E” (End), 
+                   “0-” (Outside) means it does not belong to any named entity phrase
+                   “S-” (Single) indicates it is the only word that represent an entity
+        3. Text Chunking 句子分割句法上独立的、不重叠的词组
+    2. 传统的机器学习方法
+        1. 模型：HMM、SVM、Maximum Entropy Models、CRF
+    3. 深度学习方法
+        1. 分 module 介绍
+            1. embedding encoder module: 词的emb映射
+            2. context encoder module: 提取上下文特征
+            3. inference module: 预测最佳概率的label
+        2. embedding encoder module
+            1. 
+                
+            
+  
+
+
+
+
+## 主题识别
+
+
+
+## 关键词提取
+
+统计方法模型
+
+深度学习模型
+
+## 实体识别
+baseline： lstm + crf
+
+
+## 内容生成
+
+
+
+
+
+
+*任务（hugging face）*
 
 - sequence classification
 - Token classification
@@ -36,10 +111,7 @@ Summarization 摘要 + 关键词抽取
 ![img.png](./transformers-1.png)
 
 
-##
 
-
-岗位描述：主题识别、关键词提取、实体挖掘、文本检索、内容生成、精彩片段识别、情感分析
 
 
 ## 参考来源

@@ -50,7 +50,11 @@
             2. CRFs: 比如softmax是单独地对token的label进行预测，而没有考虑label之间的依赖关系。
                 而且label的正确选择往往取决于附近单词的信息。
                 1. CRFs: 对单词进行预测和label之间关系的转移矩阵学习
-                2. semi-CRFs: 对输入序列的segment进行建模（而非单词维度）
+                2. semi-CRFs: 对输入序列的segment (`subsequence`: 
+                   [Semi-Markov Conditional Random Fields for Information Extraction](https://www.cs.cmu.edu/~wcohen/postscript/semiCRF.pdf) )
+                   进行建模（而非单词维度）；缺点是增加了计算复杂度
+                3. Hybrid Semi-CRFs(HSCRF): 同时对单词和segment进行建模
+                4. NCRF transducers (neural CRF transducers): 利用
                 
 
 

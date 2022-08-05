@@ -54,8 +54,10 @@
                    [Semi-Markov Conditional Random Fields for Information Extraction](https://www.cs.cmu.edu/~wcohen/postscript/semiCRF.pdf) )
                    进行建模（而非单词维度）；缺点是增加了计算复杂度
                 3. Hybrid Semi-CRFs(HSCRF): 同时对单词和segment进行建模
-                4. NCRF transducers (neural CRF transducers): 利用
-                
+                4. NCRF transducers (neural CRF transducers): [参考：transducer一般用于语音识别](https://zhuanlan.zhihu.com/p/430152118)
+                    transducer当前时刻的输出不仅仅依赖历史的输入信息，还依赖历史的输出信息。考虑了截止目前的输出，建模了对之前label的依赖。
+            3. RNN类：
+                1. Encoder-Decoder-Pointer Framework: 将任务分为两块，先segment切块，再做label预测
 
 
 

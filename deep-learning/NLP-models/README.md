@@ -25,6 +25,9 @@ https://www.zhihu.com/question/19895141/answer/1650139426
 
 [ A Survey on Recent Advances in Sequence Labeling from Deep Learning Models](https://arxiv.org/pdf/2011.06727.pdf)
 
+[笔记](https://github.com/Iven2166/models-learning/blob/main/paper-reading/nlp-survey-sequence-labeling.md)
+
+
 [A Survey on Deep Learning for Named Entity Recognition](https://arxiv.org/pdf/1812.09449.pdf)
             
   

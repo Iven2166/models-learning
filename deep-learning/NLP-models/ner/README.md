@@ -14,3 +14,13 @@ NER
 
 参考：
 - 知乎NER话题：https://www.zhihu.com/topic/19648557/top-answers
+- [POS的 Vitebi 算法](https://www.freecodecamp.org/news/a-deep-dive-into-part-of-speech-tagging-using-viterbi-algorithm-17c8de32e8bc/)
+
+
+> $q(s|u,v)$ 是转移(transition)概率
+> 
+> $e(x|s)$ 是发射emission函数，表示在状态s下，观察x出现的概率，一般 $=c(x,s) / c(s)$
+> 
+>
+> ![POS_vitebi_algo.png](./POS_vitebi_algo.png)
+

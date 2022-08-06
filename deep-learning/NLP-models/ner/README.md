@@ -17,10 +17,11 @@ NER
 - [POS的 Vitebi 算法](https://www.freecodecamp.org/news/a-deep-dive-into-part-of-speech-tagging-using-viterbi-algorithm-17c8de32e8bc/)
 
 
-> $q(s|u,v)$ 是转移(transition)概率
+> $q(s|u,v)$ 是转移(transition)概率，$q(s|u,v)=c(u,v,s)/c(u,v)$ (有顺序的)
 > 
-> $e(x|s)$ 是发射emission函数，表示在状态s下，观察x出现的概率，一般 $=c(x,s) / c(s)$
+> $e(x|s)$ 是发射emission函数，表示在状态$s$下，观察$x$出现的概率，一般 $e(x|s)=c(x,s) / c(s)$
 > 
->
+> 这里面的$c(~)$都是count函数
+> 
 > ![POS_vitebi_algo.png](./POS_vitebi_algo.png)
 

@@ -39,6 +39,6 @@ NER
 > ![POS_vitebi_algo3.png](./POS_vitebi_algo3.png)
 > 
 
+![POS_vitebi_algo3.png](./POS_vitebi_algo3.png){:height="20px" width="20px"}.
 
-<img src="./POS_vitebi_algo3.jpg" width="324" height="324">
 

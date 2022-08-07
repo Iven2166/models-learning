@@ -23,16 +23,29 @@ https://www.zhihu.com/question/19895141/answer/1650139426
 
 综述见 paper-reading 笔记
 
-[ A Survey on Recent Advances in Sequence Labeling from Deep Learning Models](https://arxiv.org/pdf/2011.06727.pdf)
+1.综述[ A Survey on Recent Advances in Sequence Labeling from Deep Learning Models](https://arxiv.org/pdf/2011.06727.pdf)
+｜ [笔记](https://github.com/Iven2166/models-learning/blob/main/paper-reading/nlp-survey-sequence-labeling.md)
 
-[笔记](https://github.com/Iven2166/models-learning/blob/main/paper-reading/nlp-survey-sequence-labeling.md)
+2.综述[A Survey on Deep Learning for Named Entity Recognition](https://arxiv.org/abs/1812.09449)
+｜ [笔记](https://github.com/Iven2166/models-learning/blob/main/paper-reading/nlp-survey-on-deep-learning-for-ner.md)            
+
+3.对字符级别的模型 [Learning Character-level Representations for Part-of-Speech Tagging](http://proceedings.mlr.press/v32/santos14.pdf)
 
 
-[A Survey on Deep Learning for Named Entity Recognition](https://arxiv.org/pdf/1812.09449.pdf)
-            
-  
+深度学习含有几个架构：
+1. Input encoder: 涉及到输入的表示，word-、token-、character-emb
+2. Context encoder: 上下文的表示，捕捉上下文对于产生label的依赖关系，RNN、LSTM、CNN、Transformer
+3. Tag decoder: 可能直接产生label（比如softmax），或者建立label之间的依赖关系（CRF、RNN、Pointer Networks([1](https://zhuanlan.zhihu.com/p/48959800) / [2](https://hyperscience.com/tech-blog/power-of-pointer-networks/) ）
+
+经典问题
+1. 实体嵌套
+2. 
 
 
+经典数据集
+
+
+指标：acc、recall、F1
 
 
 ## 主题识别
@@ -122,6 +135,7 @@ Summarization 摘要 + 关键词抽取
   - [NLP101-github](https://github.com/Huffon/NLP101)
   - [text-classification](https://github.com/zhengwsh/text-classification)
   - [meta-research](https://github.com/orgs/facebookresearch/repositories?q=&type=all&language=python&sort=)
+  - [美团nlp](https://tech.meituan.com/tags/nlp.html)
   
 ## 发展历史整体感知
 从`综述`、博客不断积累，自己整理出整体发展的历史，再逐个掌握

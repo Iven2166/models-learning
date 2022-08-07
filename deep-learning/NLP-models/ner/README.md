@@ -34,11 +34,7 @@ NER
 > 
 > ![POS_vitebi_algo2.png](./POS_vitebi_algo2.png)
 >
-> 增加正则化，让
+> 增加正则化，让测试集无法出现的样例能够得到函数的值。
 > 
 > ![POS_vitebi_algo3.png](./POS_vitebi_algo3.png)
 > 
-
-![POS_vitebi_algo3.png](./POS_vitebi_algo3.png){:height="20px" width="20px"}.
-
-

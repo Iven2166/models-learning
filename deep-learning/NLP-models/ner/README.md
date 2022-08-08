@@ -21,7 +21,6 @@ NER
 HMM的两个重要假定： 
 
 > （1）马尔可夫假设（状态构成一阶马尔可夫链），trigram的HMM中，$Y _{i}$仅依赖$Y _{i-1}$与$Y _{i-2}$
-> `Hence we are making an assumption here that is similar to the Markov assumption in HMMs, i.e., that the state in the i’th position depends only on the state in the (i − 1)’th position.`
 > 
 > （2）输出独立性假设（输出仅与当前状态有关），随机变量 $X _{i}$仅依赖于 $Y _{i}$
 > 

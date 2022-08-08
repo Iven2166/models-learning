@@ -18,7 +18,7 @@ NER
 - [cs4705-有关POS的课程集合](http://www.cs.columbia.edu/~cs4705/)
 - [cs课程-HMM介绍（清晰明了）](http://www.cs.columbia.edu/~mcollins/courses/nlp2011/notes/hmms.pdf)
 
-HMM的两个重要假定：
+HMM的两个重要假定： 
 
 > （1）马尔可夫假设（状态构成一阶马尔可夫链），trigram的HMM中，$Y _{i}$仅依赖$Y _{i-1}$与$Y _{i-2}$
 > `Hence we are making an assumption here that is similar to the Markov assumption in HMMs, i.e., that the state in the i’th position depends only on the state in the (i − 1)’th position.`

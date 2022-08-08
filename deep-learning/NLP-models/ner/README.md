@@ -15,10 +15,24 @@ NER
 参考：
 - 知乎NER话题：https://www.zhihu.com/topic/19648557/top-answers
   
+- [cs4705-有关POS的课程集合](http://www.cs.columbia.edu/~cs4705/)
+- [cs课程-HMM介绍（清晰明了）](http://www.cs.columbia.edu/~mcollins/courses/nlp2011/notes/hmms.pdf)
+
+HMM的两个重要假定：
+
+> （1）马尔可夫假设（状态构成一阶马尔可夫链），trigram的HMM中，$Y _{i}$仅依赖$Y _{i-1}$与$Y _{i-2}$
+> `Hence we are making an assumption here that is similar to the Markov assumption in HMMs, i.e., that the state in the i’th position depends only on the state in the (i − 1)’th position.`
+> 
+> （2）输出独立性假设（输出仅与当前状态有关），随机变量 $X _{i}$仅依赖于 $Y _{i}$
+> 
+> 链式法则
+> 
+> ![hmm_1.png](./hmm_1.png)
+
 
 - [POS的 Vitebi 算法](https://www.freecodecamp.org/news/a-deep-dive-into-part-of-speech-tagging-using-viterbi-algorithm-17c8de32e8bc/)
 
-目的是计算整体 label（状态）的最大概率，也就是选取一条最大可能的路径。
+目的是计算整体 label（状态）的最大概率，也就是选取一条最大可能的路径。Vitebi算法应用动态规划的思想，求解。
 
 > $q(s|u,v)$ 是转移(transition)概率，表示在状态$u,v$连续出现后，状态$s$出现的概率 $q(s|u,v)=c(u,v,s)/c(u,v)$ (有顺序的)
 > 
@@ -37,4 +51,9 @@ NER
 > 增加正则化，让测试集无法出现的样例能够得到函数的值。
 > 
 > ![POS_vitebi_algo3.png](./POS_vitebi_algo3.png)
-> 
+
+
+- 代码实现1[Building a Named Entity Recognition model using a BiLSTM-CRF network](https://www.dominodatalab.com/blog/named-entity-recognition-ner-challenges-and-model)
+
+- [Log-Linear Models, MEMMs, and CRFs](http://www.cs.columbia.edu/~mcollins/crf.pdf)
+

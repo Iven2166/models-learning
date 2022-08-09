@@ -28,8 +28,7 @@ HMM的两个重要假定：
 > 
 > ![hmm_1.png](./hmm_1.png)
 
-
-- [POS的 Vitebi 算法](https://www.freecodecamp.org/news/a-deep-dive-into-part-of-speech-tagging-using-viterbi-algorithm-17c8de32e8bc/)
+- [HMM Vitebi 算法（与课程相同，加入了案例数据）](https://www.freecodecamp.org/news/a-deep-dive-into-part-of-speech-tagging-using-viterbi-algorithm-17c8de32e8bc/)
 
 目的是计算整体 label（状态）的最大概率，也就是选取一条最大可能的路径。Vitebi算法应用动态规划的思想，求解。
 
@@ -51,8 +50,17 @@ HMM的两个重要假定：
 > 
 > ![POS_vitebi_algo3.png](./POS_vitebi_algo3.png)
 
-
 - 代码实现1[Building a Named Entity Recognition model using a BiLSTM-CRF network](https://www.dominodatalab.com/blog/named-entity-recognition-ner-challenges-and-model)
+
 
 - [Log-Linear Models, MEMMs, and CRFs](http://www.cs.columbia.edu/~mcollins/crf.pdf)
 
+MEMMs 和 HMMs 的区别在于：
+> 加入了一个特征函数，MEMMs 捕捉观察值（单词序列）对于label的预测信息，而 HMMs 是基于先验信息的
+> 
+> ![img.png](./mcollins_crf_1.png)
+
+- [CRF的原理介绍-学习函数推导](https://www.cnblogs.com/weilonghu/p/11960984.html)
+
+全网最详细的CRF算法讲解 - 水孕冰的文章 - 知乎
+https://zhuanlan.zhihu.com/p/483820319

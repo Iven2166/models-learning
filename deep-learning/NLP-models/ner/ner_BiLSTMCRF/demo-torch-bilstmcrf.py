@@ -84,6 +84,7 @@ class BiLSTM_CRF(nn.Module):
     def _forward_alg(self, feats):
         """
         do the forward algorithm to compute the partition function
+        计算全局归一化的分母 —— 配分函数Z
         :param feats: 表示发射矩阵(emit score)，实际上就是LSTM的输出，
         意思是经过LSTM的sentence的每个word对应于每个label的得分
         :return:
@@ -103,15 +104,16 @@ class BiLSTM_CRF(nn.Module):
             for next_tag in range(self.tagset_size):
 
                 # broadcast the emission score: it is the same regardless of the previous tag
-                # LSTM的生成矩阵是emit_score，维度为1*5
+                # LSTM的生成矩阵是emit_score，维度为1*5；由于没有涉及到tag之间的转化概率，因此是expand
                 emit_score = feat[next_tag].view(1, -1).expand(1, self.tagset_size)
 
                 # The i_th entry of trans_score is the score of transitioning to next_tag from i
-                # self.transitions[next_tag] 这一行是各个 tag 转移到 next_tag 的分
+                # self.transitions[next_tag] 这一行是各个 tag 转移到 next_tag 的分（非归一化概率）
                 trans_score = self.transitions[next_tag].view(1, -1)
 
                 # The i_th entry of next_tag_var is the value for the edge (i -> next_tag)
                 # before we do log-sum-exp
+                # next_tag_var 的第i位，是表示第i位到该tag的总体转化分数
                 next_tag_var = forward_var + trans_score + emit_score
 
                 # The forward variable for this tag is log-sum-exp of all the scores

@@ -64,3 +64,7 @@ MEMMs 和 HMMs 的区别在于：
 
 全网最详细的CRF算法讲解 - 水孕冰的文章 - 知乎
 https://zhuanlan.zhihu.com/p/483820319
+
+- https://www.cnblogs.com/pinard/p/7068574.html
+
+- http://blog.echen.me/2012/01/03/introduction-to-conditional-random-fields/

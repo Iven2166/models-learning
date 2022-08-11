@@ -68,4 +68,3 @@ class BiLSTM_CRF(nn.Module):
         tag_score = self.hidden2tag(lstm_out)
         return tag_score
 
-

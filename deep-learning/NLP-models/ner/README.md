@@ -68,3 +68,9 @@ https://zhuanlan.zhihu.com/p/483820319
 - https://www.cnblogs.com/pinard/p/7068574.html
 
 - http://blog.echen.me/2012/01/03/introduction-to-conditional-random-fields/
+
+- 代码层面
+    - [使用pytorch处理不同长度序列](https://www.jianshu.com/p/376c16b71130) `多对多的任务与多对一任务非常重要的一点不同就是，多对多任务一般是使用每个时序状态的输出作为输出与target计算loss，而多对一则一般是通过最后的hidden层来计算loss。在多对一的文本分类任务中，这个hidden可以看作是前面所有输入语句总结出来的语义信息，也即模型提取出来的语句语义特征，用于后续计算分类。`
+    - [RNN在变长序列上处理问题](https://blog.csdn.net/zwqjoy/article/details/95050794)
+    
+

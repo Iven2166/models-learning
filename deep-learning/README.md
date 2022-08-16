@@ -23,3 +23,6 @@
 - [DNN为例的梯度计算](https://zhuanlan.zhihu.com/p/29815081)
 - [wiki-矩阵和特征向量、特征值](https://zh.wikipedia.org/wiki/%E7%89%B9%E5%BE%81%E5%80%BC%E5%92%8C%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F)
 - [统计学-英文书](http://egrcc.github.io/docs/math/all-of-statistics.pdf)
+
+### 课程
+- [showmeai-方案以及实现code](https://showmeai.tech/article-detail/94)

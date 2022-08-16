@@ -1,5 +1,20 @@
-NER
 
+
+# NER
+
+## 从读好论文和code开始
+
+- [CoNLL-2003论文及code合集](https://paperswithcode.com/dataset/conll-2003)
+    - [Semi-Supervised Sequence Modeling with Cross-View Training](https://paperswithcode.com/paper/semi-supervised-sequence-modeling-with-cross)
+    
+- [pengjun xie论文](https://aclanthology.org/people/p/pengjun-xie/)
+- EMNLP 2020, More Embeddings, Better Sequence Labelers?
+- [ACL 2021, Improving Named Entity Recognition by External Context Retrieving and Cooperative Learning](https://arxiv.org/abs/2105.03654)
+- ACL 2021, Automated Concatenation of Embeddings for Structured Prediction
+- SemEval 2022, DAMO-NLP at SemEval-2022 Task 11: A Knowledge-based System for Multilingual Named Entity Recognition
+
+
+## 杂
 
 - 1. 无监督关键词提取
     - a. 描述：不需要人工标注语料，通过统计学方法发现较为重要的词作为关键词。
@@ -11,12 +26,19 @@ NER
     - a. 描述1：将关键词抽取过程视为二分类问题，先提取出候选词，然后对于每个候选词划定标签，要么是关键词，要么不是关键词，然后训练关键词抽取分类器。
     - b. 描述2：基于时序序列模型（LSTM）、Bert（transformer-encoder）学习特征，结合CRF条件随机场进行预测。
 
+## HMM, CRF 合集
 
-参考：
 - 知乎NER话题：https://www.zhihu.com/topic/19648557/top-answers
-  
 - [cs4705-有关POS的课程集合](http://www.cs.columbia.edu/~cs4705/)
 - [cs课程-HMM介绍（清晰明了）](http://www.cs.columbia.edu/~mcollins/courses/nlp2011/notes/hmms.pdf)
+- [CRF的原理介绍-学习函数推导](https://www.cnblogs.com/weilonghu/p/11960984.html)
+- [全网最详细的CRF算法讲解 - 水孕冰的文章 - 知乎](https://zhuanlan.zhihu.com/p/483820319)
+- https://www.cnblogs.com/pinard/p/7068574.html
+- http://blog.echen.me/2012/01/03/introduction-to-conditional-random-fields/
+- 代码层面
+    - [使用pytorch处理不同长度序列](https://www.jianshu.com/p/376c16b71130) `多对多的任务与多对一任务非常重要的一点不同就是，多对多任务一般是使用每个时序状态的输出作为输出与target计算loss，而多对一则一般是通过最后的hidden层来计算loss。在多对一的文本分类任务中，这个hidden可以看作是前面所有输入语句总结出来的语义信息，也即模型提取出来的语句语义特征，用于后续计算分类。`
+    - [RNN在变长序列上处理问题](https://blog.csdn.net/zwqjoy/article/details/95050794)
+    
 
 HMM的两个重要假定： 
 
@@ -60,17 +82,5 @@ MEMMs 和 HMMs 的区别在于：
 > 
 > ![img.png](./mcollins_crf_1.png)
 
-- [CRF的原理介绍-学习函数推导](https://www.cnblogs.com/weilonghu/p/11960984.html)
 
-全网最详细的CRF算法讲解 - 水孕冰的文章 - 知乎
-https://zhuanlan.zhihu.com/p/483820319
-
-- https://www.cnblogs.com/pinard/p/7068574.html
-
-- http://blog.echen.me/2012/01/03/introduction-to-conditional-random-fields/
-
-- 代码层面
-    - [使用pytorch处理不同长度序列](https://www.jianshu.com/p/376c16b71130) `多对多的任务与多对一任务非常重要的一点不同就是，多对多任务一般是使用每个时序状态的输出作为输出与target计算loss，而多对一则一般是通过最后的hidden层来计算loss。在多对一的文本分类任务中，这个hidden可以看作是前面所有输入语句总结出来的语义信息，也即模型提取出来的语句语义特征，用于后续计算分类。`
-    - [RNN在变长序列上处理问题](https://blog.csdn.net/zwqjoy/article/details/95050794)
-    
 

@@ -1,0 +1,7 @@
+
+
+[More Embeddings, Better Sequence Labelers?](https://aclanthology.org/2020.findings-emnlp.356/)
+
+摘要：最近的工作提出了一系列上下文嵌入，与非上下文嵌入相比，它们显着提高了序列标注器的准确性。但是，对于我们是否可以通过在各种设置中组合不同类型的嵌入来构建更好的序列标记器，还没有明确的结论。在本文中，我们对 18 个数据集和 8 种语言的 3 个任务进行了广泛的实验，以研究具有各种嵌入连接的序列标记的准确性，并提出三个观察结果：（1）连接更多嵌入变体可以提高资源丰富和交叉的准确性- 域设置和一些低资源设置的条件； (2) 将上下文子词嵌入与上下文字符嵌入连接起来会损害极低资源设置的准确性； (3) 基于 (1) 的结论，连接额外的相似上下文嵌入不能导致进一步的改进。我们希望这些结论可以帮助人们在各种环境中建立更强大的序列标记器。
+> Recent work proposes a family of contextual embeddings that significantly improves the accuracy of sequence labelers over noncontextual embeddings. However, there is no definite conclusion on whether we can build better sequence labelers by combining different kinds of embeddings in various settings. In this paper, we conduct extensive experiments on 3 tasks over 18 datasets and 8 languages to study the accuracy of sequence labeling with various embedding concatenations and make three observations: (1) concatenating more embedding variants leads to better accuracy in rich-resource and cross-domain settings and some conditions of low-resource settings; (2) concatenating contextual sub-word embeddings with contextual character embeddings hurts the accuracy in extremely lowresource settings; (3) based on the conclusion of (1), concatenating additional similar contextual embeddings cannot lead to further improvements. We hope these conclusions can help people build stronger sequence labelers in various settings.
+

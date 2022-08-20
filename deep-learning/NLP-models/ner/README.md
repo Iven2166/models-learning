@@ -4,15 +4,17 @@
 
 ## 从读好论文和code开始
 
-- [CoNLL-2003论文及code合集](https://paperswithcode.com/dataset/conll-2003)
+- [CoNLL-2003论文及code合集：感觉是非常好的找论文方法，通过项目star来筛选](https://paperswithcode.com/dataset/conll-2003)
     - [Semi-Supervised Sequence Modeling with Cross-View Training](https://paperswithcode.com/paper/semi-supervised-sequence-modeling-with-cross)
     
 - [pengjun xie论文](https://aclanthology.org/people/p/pengjun-xie/)
-- EMNLP 2020, More Embeddings, Better Sequence Labelers?
+- [EMNLP 2020, More Embeddings, Better Sequence Labelers?](https://aclanthology.org/2020.findings-emnlp.356/)
 - [ACL 2021, Improving Named Entity Recognition by External Context Retrieving and Cooperative Learning](https://arxiv.org/abs/2105.03654)
 - ACL 2021, Automated Concatenation of Embeddings for Structured Prediction
 - SemEval 2022, DAMO-NLP at SemEval-2022 Task 11: A Knowledge-based System for Multilingual Named Entity Recognition
- 
+
+- [达摩院语言实验室论文](https://damo.alibaba.com/labs/language-technology/)
+- 一些大神：https://wangxinyu0922.github.io/cv/、http://jiangyong.site/
 
 ## 杂
 

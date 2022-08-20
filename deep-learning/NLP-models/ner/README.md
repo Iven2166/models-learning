@@ -19,10 +19,14 @@
 - [达摩院语言实验室论文](https://damo.alibaba.com/labs/language-technology/)
 - 一些大神：https://wangxinyu0922.github.io/cv/、http://jiangyong.site/
 
-|论文| 方向 | 主要内容 |  
-|:---- | :---- | :---- | 
-| [ACL 2021 Automated Concatenation of Embeddings for Structured Prediction](https://arxiv.org/abs/2010.05006) / [CoNLL 2003EN榜单](https://paperswithcode.com/sota/named-entity-recognition-ner-on-conll-2003?p=automated-concatenation-of-embeddings-for-1) / [gibhub](https://github.com/Alibaba-NLP/ACE)| concat embeddings| 自动化地找到结构化预测任务的更好emb-concat |
-|| 单元格 | 单元格 | 单元格 |
+
+- [ACL 2021 Automated Concatenation of Embeddings for Structured Prediction](https://arxiv.org/abs/2010.05006)
+    - [CoNLL 2003EN榜单](https://paperswithcode.com/sota/named-entity-recognition-ner-on-conll-2003?p=automated-concatenation-of-embeddings-for-1)
+    - [gibhub](https://github.com/Alibaba-NLP/ACE)
+    - [笔记](https://github.com/Iven2166/models-learning/blob/main/paper-reading/nlp-2021-ACL-Automated-Concatenation-of-Embeddings-for-Structured-Prediction.md)
+    - 主要方向：寻找 concat embeddings 最佳结构，利用强化学习
+
+
 
 ## 杂
 

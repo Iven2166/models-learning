@@ -346,4 +346,4 @@ rnn-learn.md
 - 面试记录
   - https://www.cvmart.net/community/detail/6234、
   - https://cloud.tencent.com/developer/article/1499377?from=article.detail.1958292
-  
+  - https://zhuanlan.zhihu.com/p/247599441

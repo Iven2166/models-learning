@@ -8,13 +8,21 @@
     - [Semi-Supervised Sequence Modeling with Cross-View Training](https://paperswithcode.com/paper/semi-supervised-sequence-modeling-with-cross)
     
 - [pengjun xie论文](https://aclanthology.org/people/p/pengjun-xie/)
+- [CoNLL 2003EN榜单](https://paperswithcode.com/sota/named-entity-recognition-ner-on-conll-2003?p=automated-concatenation-of-embeddings-for-1)
+  --- [ACL 2021, Automated Concatenation of Embeddings for Structured Prediction](https://arxiv.org/abs/2010.05006)
+    - github:
 - [EMNLP 2020, More Embeddings, Better Sequence Labelers?](https://aclanthology.org/2020.findings-emnlp.356/)
 - [ACL 2021, Improving Named Entity Recognition by External Context Retrieving and Cooperative Learning](https://arxiv.org/abs/2105.03654)
-- ACL 2021, Automated Concatenation of Embeddings for Structured Prediction
+
 - SemEval 2022, DAMO-NLP at SemEval-2022 Task 11: A Knowledge-based System for Multilingual Named Entity Recognition
 
 - [达摩院语言实验室论文](https://damo.alibaba.com/labs/language-technology/)
 - 一些大神：https://wangxinyu0922.github.io/cv/、http://jiangyong.site/
+
+|论文| 方向 | 主要内容 |  
+|:---- | :---- | :---- | 
+| [ACL 2021 Automated Concatenation of Embeddings for Structured Prediction](https://arxiv.org/abs/2010.05006) / [CoNLL 2003EN榜单](https://paperswithcode.com/sota/named-entity-recognition-ner-on-conll-2003?p=automated-concatenation-of-embeddings-for-1) / [gibhub](https://github.com/Alibaba-NLP/ACE)| concat embeddings| 自动化地找到结构化预测任务的更好emb-concat |
+|| 单元格 | 单元格 | 单元格 |
 
 ## 杂
 

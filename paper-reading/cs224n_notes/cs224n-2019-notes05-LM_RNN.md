@@ -2,7 +2,7 @@
  
 - 课件：http://web.stanford.edu/class/cs224n/readings/cs224n-2019-notes05-LM_RNN.pdf
 - youtube: https://youtu.be/iWea12EAu6U
-
+- 2022ppt:http://web.stanford.edu/class/cs224n/slides/cs224n-2022-lecture05-rnnlm.pdf
 
 ## youtube-ppt截图
 
@@ -40,3 +40,13 @@
 
 ![img_9.png](img_9.png)
 
+![img_11.png](img_11.png)
+
+## RNN的梯度计算推导
+
+https://d2l.ai/chapter_recurrent-neural-networks/bptt.html
+
+解决梯度爆炸/消失问题：
+
+- 切断部分：计算h_t的梯度时，到t-π 就停止往前回溯累加计算该梯度，仅求近似（9.7.1.2. Truncating Time Steps）
+- 随机截断：9.7.1.3. Randomized Truncation

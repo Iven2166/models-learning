@@ -8,6 +8,36 @@
     - Lecture 8 – Translation, Seq2Seq, Attention: https://youtu.be/XXtpJxZBa2c
 
 
+## 课件
+
+![img_20.png](img_20.png)
+
+![img_21.png](img_21.png)
+
+![img_22.png](img_22.png)
+
+![img_23.png](img_23.png)
+
+![img_24.png](img_24.png)
+
+![img_25.png](img_25.png)
+
+![img_26.png](img_26.png)
+
+![img_27.png](img_27.png)
+
+![img_28.png](img_28.png)
+
+（10、11、12、13页省略）
+
+![img_29.png](img_29.png)
+
+![img_30.png](img_30.png)
+
+![img_31.png](img_31.png)
+
+
+
 ## PPT
 
 ![img_14.png](img_14.png)

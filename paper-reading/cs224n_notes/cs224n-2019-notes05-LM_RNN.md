@@ -1,7 +1,9 @@
 # notes 05 LM and RNN
  
 - 课件：http://web.stanford.edu/class/cs224n/readings/cs224n-2019-notes05-LM_RNN.pdf
-- youtube: https://youtu.be/iWea12EAu6U
+- youtube: 
+  - Lecture 6 – Language Models and RNNs: https://youtu.be/iWea12EAu6U
+  - Lecture 7 – Vanishing Gradients, Fancy RNNs: https://youtu.be/QEw0qEa0E50
 - 2022ppt:http://web.stanford.edu/class/cs224n/slides/cs224n-2022-lecture05-rnnlm.pdf
 
 ## youtube-ppt截图

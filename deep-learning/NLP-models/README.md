@@ -70,6 +70,14 @@ baseline： lstm + crf
 [预训练技术在美团到店搜索广告中的应用](https://tech.meituan.com/2021/12/02/application-of-pre-training-technology-in-meituan-search-ads.html)
 
 
+## 数据增强
+
+- https://amitness.com/2020/05/data-augmentation-for-nlp/
+- 中文数据增强：
+  - https://github.com/425776024/nlpcda
+  - https://zhuanlan.zhihu.com/p/161947528
+
+
 
 *任务（hugging face）*
 

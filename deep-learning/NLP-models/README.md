@@ -129,6 +129,7 @@ baseline： lstm + crf
   - Sequence to Sequence Learning with Neural Networks：https://arxiv.org/abs/1409.3215 ｜ 笔记
   - Neural Machine Translation by Jointly Learning to Align and Translate：https://arxiv.org/abs/1409.0473 ｜ 笔记   
   - A Neural Conversational Model：https://arxiv.org/abs/1506.05869 | 笔记
+  - `local attention` Effective Approaches to Attention-based Neural Machine Translation: https://arxiv.org/abs/1508.04025 | 笔记
   
 - 课程及其他
   - cs224n课程-[翻译部分笔记](https://github.com/Iven2166/models-learning/blob/main/paper-reading/cs224n_notes/cs224n-2019-notes06-NMT_seq2seq_attention.md)

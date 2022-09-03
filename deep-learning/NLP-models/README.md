@@ -104,8 +104,8 @@ baseline： lstm + crf
 
 ## 文本匹配
 
-[预训练技术在美团到店搜索广告中的应用](https://tech.meituan.com/2021/12/02/application-of-pre-training-technology-in-meituan-search-ads.html)
 
+## 文本翻译
 
 ## 数据增强
 
@@ -242,6 +242,9 @@ rnn-learn.md
 
 
 ## Word Embedding 词嵌入
+
+[预训练技术在美团到店搜索广告中的应用](https://tech.meituan.com/2021/12/02/application-of-pre-training-technology-in-meituan-search-ads.html)
+
 `word2vec, fastText, Glove, Bert`
 
 概念上而言，它是指把一个维数为所有词的数量的高维空间嵌入到一个维数低得多的连续向量空间中，每个单词或词组被映射为实数域上的向量。

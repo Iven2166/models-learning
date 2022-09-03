@@ -3,11 +3,49 @@
 
 # 目的
 该project有若干目的：
-- 梳理模型概念、算法、细节，给出小项目实现
-- 归纳任务范式下主要的模型
-- 归纳发展历史
+- 1. 归纳任务范式下主要的模型、论文、数据集等
+- 2. 梳理模型概念、算法、细节，给出项目实现
+- 3. 归纳发展历史
 
-# 任务范式
+# 0.参考来源
+
+- 核心参考
+  - hugging-face 
+    - [官网](https://huggingface.co/)
+    - [notebooks](https://huggingface.co/docs/transformers/v4.20.0/en/notebooks)
+    - [course](https://huggingface.co/course/chapter2/2?fw=pt)
+    - [transformer](https://huggingface.co/docs/transformers/model_doc/albert#transformers.AlbertForTokenClassification)
+  - 中文预训练
+    - [bert-wwm](https://github.com/ymcui/Chinese-BERT-wwm)
+  - pytorch 
+    - [torchtext，含有数据集](https://github.com/pytorch/text)
+  - [bert可视化](https://huggingface.co/exbert/?model=bert-large-uncased&modelKind=bidirectional&sentence=Do%20not%20meddle%20in%20the%20affairs%20of%20wizards,%20for%20they%20are%20subtle%20and%20quick%20to%20anger.&layer=0&heads=..0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15&threshold=0.36&tokenInd=null&tokenSide=null&maskInds=..&hideClsSep=true)
+  - [torchtext-dataset](https://pytorch.org/text/stable/datasets.html)
+
+- 学术论文 / 学会
+  - [ACL-Annual Meeting of the Association for Computational Linguistics `选择ACL为语言模型`](https://aclanthology.org/)
+  - [EMNLP - 2020](https://2020.emnlp.org/papers/main)
+    
+
+
+- 一些博客参考
+  
+  - [rumor - 如何系统性地学习NLP 自然语言处理？ - `关注里面对综述的引用`](https://www.zhihu.com/question/27529154/answer/1643865710)
+    - [NLP快速入门路线及任务详解 - `其他综述`](https://mp.weixin.qq.com/s/zrziuFLRvbG8axG48QpFvg)
+    - [深度学习文本分类｜模型&代码&技巧](https://mp.weixin.qq.com/s?__biz=MzAxMTk4NDkwNw==&mid=2247485854&idx=1&sn=040d51b0424bdee66f96d63d4ecfbe7e&chksm=9bb980faacce09ec069afa79c903b1e3a5c0d3679c41092e16b2fdd6949aa059883474d0c2af&token=1473678595&lang=zh_CN&scene=21#wechat_redirect)
+  - [nlp-tutorial](https://github.com/graykode/nlp-tutorial)
+  - [非常牛逼的nlp_course！！！](https://github.com/yandexdataschool/nlp_course)
+  - [nlp-roadmap](https://github.com/graykode/nlp-roadmap)
+  - [Transformers-大集合](https://github.com/huggingface/transformers)
+  - [个人博客1](https://wmathor.com/index.php/archives/1399/)
+  - [自然语言处理入门-一些名词和概念](http://www.fanyeong.com/2018/02/13/introduction_to_nlp/)
+  - [Archive | Deep Learning for Natural Language Processing](https://machinelearningmastery.com/category/natural-language-processing/)
+  - [NLP101-github](https://github.com/Huffon/NLP101)
+  - [text-classification](https://github.com/zhengwsh/text-classification)
+  - [meta-research](https://github.com/orgs/facebookresearch/repositories?q=&type=all&language=python&sort=)
+  - [美团nlp](https://tech.meituan.com/tags/nlp.html)
+
+# 1. 任务范式-划分
 
 主题识别、关键词提取、实体挖掘、文本检索、内容生成、精彩片段识别、情感分析
 
@@ -15,12 +53,15 @@
 > 引用自【自然语言处理怎么最快入门？ - 李rumor的回答 - 知乎】
 https://www.zhihu.com/question/19895141/answer/1650139426
 
+paperswithcode
+- NLP：https://paperswithcode.com/area/natural-language-processing
+- Sentence Pair Modeling：https://paperswithcode.com/task/sentence-pair-modeling
+- Sentiment Analysis：https://paperswithcode.com/task/sentiment-analysis
+
 ## 文本分类
 
 
 ## 序列标注
-
-
 综述见 paper-reading 笔记
 
 1.综述[ A Survey on Recent Advances in Sequence Labeling from Deep Learning Models](https://arxiv.org/pdf/2011.06727.pdf)
@@ -39,18 +80,12 @@ https://www.zhihu.com/question/19895141/answer/1650139426
 
 经典问题
 1. 实体嵌套
-2. 
-
 
 经典数据集
 
-
 指标：acc、recall、F1
 
-
 ## 主题识别
-
-
 
 ## 关键词提取
 
@@ -61,9 +96,11 @@ https://www.zhihu.com/question/19895141/answer/1650139426
 ## 实体识别
 baseline： lstm + crf
 
+- [知乎-BiLSTM上的CRF，用命名实体识别任务来解释CRF（一）](https://zhuanlan.zhihu.com/p/119254570)
+- [wx-缺少训练样本怎么做实体识别？小样本下的NER解决方法汇总](https://mp.weixin.qq.com/s/FH1cWxXlTFt0RdEipSJH1w)
+
 
 ## 内容生成
-
 
 ## 文本匹配
 
@@ -109,41 +146,7 @@ Summarization 摘要 + 关键词抽取
 
 
 
-## 参考来源
 
-- 核心参考
-  - hugging-face 
-    - [官网](https://huggingface.co/)
-    - [notebooks](https://huggingface.co/docs/transformers/v4.20.0/en/notebooks)
-    - [course](https://huggingface.co/course/chapter2/2?fw=pt)
-    - [transformer](https://huggingface.co/docs/transformers/model_doc/albert#transformers.AlbertForTokenClassification)
-  - 中文预训练
-    - [bert-wwm](https://github.com/ymcui/Chinese-BERT-wwm)
-  - pytorch 
-    - [torchtext，含有数据集](https://github.com/pytorch/text)
-  - [bert可视化](https://huggingface.co/exbert/?model=bert-large-uncased&modelKind=bidirectional&sentence=Do%20not%20meddle%20in%20the%20affairs%20of%20wizards,%20for%20they%20are%20subtle%20and%20quick%20to%20anger.&layer=0&heads=..0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15&threshold=0.36&tokenInd=null&tokenSide=null&maskInds=..&hideClsSep=true)
-  - [torchtext-dataset](https://pytorch.org/text/stable/datasets.html)
-
-- 学术论文 / 学会
-  - [ACL-Annual Meeting of the Association for Computational Linguistics `选择ACL为语言模型`](https://aclanthology.org/)
-  - [EMNLP - 2020](https://2020.emnlp.org/papers/main)
-
-- 一些博客参考
-  
-  - [rumor - 如何系统性地学习NLP 自然语言处理？ - `关注里面对综述的引用`](https://www.zhihu.com/question/27529154/answer/1643865710)
-    - [NLP快速入门路线及任务详解 - `其他综述`](https://mp.weixin.qq.com/s/zrziuFLRvbG8axG48QpFvg)
-    - [深度学习文本分类｜模型&代码&技巧](https://mp.weixin.qq.com/s?__biz=MzAxMTk4NDkwNw==&mid=2247485854&idx=1&sn=040d51b0424bdee66f96d63d4ecfbe7e&chksm=9bb980faacce09ec069afa79c903b1e3a5c0d3679c41092e16b2fdd6949aa059883474d0c2af&token=1473678595&lang=zh_CN&scene=21#wechat_redirect)
-  - [nlp-tutorial](https://github.com/graykode/nlp-tutorial)
-  - [非常牛逼的nlp_course！！！](https://github.com/yandexdataschool/nlp_course)
-  - [nlp-roadmap](https://github.com/graykode/nlp-roadmap)
-  - [Transformers-大集合](https://github.com/huggingface/transformers)
-  - [个人博客1](https://wmathor.com/index.php/archives/1399/)
-  - [自然语言处理入门-一些名词和概念](http://www.fanyeong.com/2018/02/13/introduction_to_nlp/)
-  - [Archive | Deep Learning for Natural Language Processing](https://machinelearningmastery.com/category/natural-language-processing/)
-  - [NLP101-github](https://github.com/Huffon/NLP101)
-  - [text-classification](https://github.com/zhengwsh/text-classification)
-  - [meta-research](https://github.com/orgs/facebookresearch/repositories?q=&type=all&language=python&sort=)
-  - [美团nlp](https://tech.meituan.com/tags/nlp.html)
   
 ## 发展历史整体感知
 从`综述`、博客不断积累，自己整理出整体发展的历史，再逐个掌握
@@ -187,7 +190,7 @@ Summarization 摘要 + 关键词抽取
   - https://courses.cs.washington.edu/courses/csep517/18au/
   - page7： http://www.cs.columbia.edu/~mcollins/courses/nlp2011/notes/lm.pdf
 
-
+# 2. 算法模型
 
 ## TextCNN
 
@@ -298,7 +301,7 @@ rnn-learn.md
 
 
 
-# Transfomer系列
+## Transfomer系列
 
 [历史介绍](https://huggingface.co/course/en/chapter1/4?fw=pt#a-bit-of-transformer-history)
 
@@ -309,7 +312,7 @@ rnn-learn.md
 | 机器翻译      | [[Bahdanau et al., 2014](https://arxiv.org/pdf/1409.0473.pdf) ]使用注意力机制在机器翻译任务上将翻译和对齐同时进行．     | 
 | attention is all you need      | 目前， 注意力机制已经在语音识别、图像标题生成、阅读理解、文本分类、机器 翻译等多个任务上取得了很好的效果， 也变得越来越流行． 注意力机制的一个重 要应用是自注意力． 自注意力可以作为神经网络中的一层来使用， 有效地建模长 距离依赖问题 [[Attention is all you need, Vaswani et al., 2017](https://arxiv.org/pdf/1706.03762.pdf) ]     | 
 
-## 基础知识
+### 基础知识
 
 注意力 
 
@@ -340,10 +343,6 @@ rnn-learn.md
 参考：
 - [知乎-transformer解析和实现](https://zhuanlan.zhihu.com/p/420820453)
 
-## NER识别
-
-- [知乎-BiLSTM上的CRF，用命名实体识别任务来解释CRF（一）](https://zhuanlan.zhihu.com/p/119254570)
-- [wx-缺少训练样本怎么做实体识别？小样本下的NER解决方法汇总](https://mp.weixin.qq.com/s/FH1cWxXlTFt0RdEipSJH1w)
 
 ## 面试相关
 

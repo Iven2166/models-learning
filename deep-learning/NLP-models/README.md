@@ -107,6 +107,33 @@ baseline： lstm + crf
 
 ## 文本翻译
 
+### 到目前的理解
+
+- seq2seq
+  - 经典架构，包含encoder和decoder，最开始是用RNN系列模型。输入一个序列，encoder对input序列进行编码，得到隐藏的（浓缩）信息，到decoder进行解码。
+  - seq2seq还可以应用在问答（本质也是根据提问的输入来获得最大概率的回答）
+- attention
+  - 注意力机制，用于进行对齐，目的是让decoder产出翻译序列时，能够知道当下应该注意input序列里的哪个词，从而进行"软"对齐。
+- 评价机制
+  - BLEU分数
+
+### 项目实现
+
+#### 项目1：pytorch翻译
+
+- 原文：https://pytorch.org/tutorials/intermediate/seq2seq_translation_tutorial.html#the-decoder
+
+
+### 文本翻译-参考
+- 论文
+  - Sequence to Sequence Learning with Neural Networks：https://arxiv.org/abs/1409.3215 ｜ 笔记
+  - Neural Machine Translation by Jointly Learning to Align and Translate：https://arxiv.org/abs/1409.0473 ｜ 笔记   
+  - A Neural Conversational Model：https://arxiv.org/abs/1506.05869 | 笔记
+  
+- 课程及其他
+  - cs224n课程-[翻译部分笔记](https://github.com/Iven2166/models-learning/blob/main/paper-reading/cs224n_notes/cs224n-2019-notes06-NMT_seq2seq_attention.md)
+
+
 ## 数据增强
 
 - https://amitness.com/2020/05/data-augmentation-for-nlp/

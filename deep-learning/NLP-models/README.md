@@ -124,7 +124,7 @@ baseline： lstm + crf
 - 原文：https://pytorch.org/tutorials/intermediate/seq2seq_translation_tutorial.html#the-decoder
 
 
-### 文本翻译-参考
+### 论文及其它参考
 - 论文
   - Sequence to Sequence Learning with Neural Networks：https://arxiv.org/abs/1409.3215 ｜ 笔记
   - Neural Machine Translation by Jointly Learning to Align and Translate：https://arxiv.org/abs/1409.0473 ｜ 笔记   

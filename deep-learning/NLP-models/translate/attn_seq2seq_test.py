@@ -94,7 +94,10 @@ def train(input_tensor, target_tensor, encoder, decoder, encoder_optimizer, deco
 
 import time
 import math
+import string
 
+tmp = [1,2]
+tmp.reverse()
 
 def asMinutes(s):
     m = math.floor(s / 60)
@@ -109,6 +112,7 @@ def timeSince(since, percent):
     rs = es - s
     return '%s (- %s)' % (asMinutes(s), asMinutes(rs))
 
+import string
 
 def trainIters(encoder, decoder, n_iters, print_every=1000, plot_every=100, learning_rate=0.01):
     start = time.time()

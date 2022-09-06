@@ -104,6 +104,10 @@ baseline： lstm + crf
 
 ## 文本匹配
 
+### 语义相似度
+
+#### 数据集
+- 中文自然语言推理与语义相似度数据集：https://github.com/zejunwang1/CSTS
 
 ## 文本翻译
 
@@ -385,3 +389,4 @@ rnn-learn.md
   - https://www.cvmart.net/community/detail/6234、
   - https://cloud.tencent.com/developer/article/1499377?from=article.detail.1958292
   - https://zhuanlan.zhihu.com/p/247599441
+- [Transformer、BERT细节基础知识点](https://cloud.tencent.com/developer/article/1981488)

@@ -26,6 +26,8 @@
   - [ACL-Annual Meeting of the Association for Computational Linguistics `选择ACL为语言模型`](https://aclanthology.org/)
   - [EMNLP - 2020](https://2020.emnlp.org/papers/main)
     
+- 数据集
+  - [百度NLP数据集](https://ai.baidu.com/broad/download?dataset=dureader)
 
 
 - 一些博客参考
@@ -44,6 +46,10 @@
   - [text-classification](https://github.com/zhengwsh/text-classification)
   - [meta-research](https://github.com/orgs/facebookresearch/repositories?q=&type=all&language=python&sort=)
   - [美团nlp](https://tech.meituan.com/tags/nlp.html)
+  - [中文NLP工具](https://cloud.tencent.com/developer/article/2082921)
+  
+- 腾讯云
+  - []
 
 # 1. 任务范式-划分
 

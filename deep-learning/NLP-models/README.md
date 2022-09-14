@@ -384,6 +384,23 @@ rnn-learn.md
 参考：
 - [知乎-transformer解析和实现](https://zhuanlan.zhihu.com/p/420820453)
 
+### Bert
+
+论文：[BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding](https://arxiv.org/abs/1810.04805)
+
+
+
+
+### GPT
+
+GPT实质上是transformer的解码器（解码器是不能看到后面序列的，mask起来。），用于文本预测的任务（论文的 "L1" 损失函数）
+
+在预训练后，在多个任务上进行了微调。任务包括：分类、句子相似、问答的最佳答案选择
+
+参考
+- [李沐视频](https://www.bilibili.com/video/BV1AF411b7xQ?from=search&seid=15281165116455457971&spm_id_from=333.337.0.0&vd_source=4089d4a51ca3637483befeb898ed1a46)
+
+
 
 ## 面试相关
 

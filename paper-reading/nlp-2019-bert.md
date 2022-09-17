@@ -1,4 +1,6 @@
 
+[BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding](https://arxiv.org/abs/1810.04805)
+
 参考
 
 - Bert论文：https://arxiv.org/abs/1810.04805
@@ -26,3 +28,13 @@ ELMo是双向的RNN架构，但bert运用transformer
 带掩码的语言模型
 
 分词：wordpiece，获取低频率词的词根
+
+在计算机视觉领域，在ImageNET学习后的模型迁移运用比较多。但NLP至此并没有大量的预训练模型可以迁移（标号数据量级不够；任务的多样性），bert属于开创之作。
+
+而bert给的启示是，在nlp上使用大量没有标号的数据（比如一个句子的完形填空预测），比小型的有标号数据集的训练，效果要好。
+
+
+BERT模型参数量级计算：
+
+BERT-base
+L=12, H=768, A=12

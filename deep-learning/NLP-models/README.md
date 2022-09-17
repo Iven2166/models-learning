@@ -386,9 +386,32 @@ rnn-learn.md
 
 ### Bert
 
-论文：[BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding](https://arxiv.org/abs/1810.04805)
+- 论文：[BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding](https://arxiv.org/abs/1810.04805)
+- 笔记
+- 频繁问的问题：https://yashuseth.wordpress.com/2019/06/12/bert-explained-faqs-understand-bert-working/
+- 参数量级计算：https://stackoverflow.com/questions/64485777/how-is-the-number-of-parameters-be-calculated-in-bert-model
 
 
+- 嵌入层：$30K * H$
+- 多头注意力机制
+  - 自注意力机制本身没有可学习参数，但多头注意力机制有。 对所有的key、value、query做投影，每次投影维度=64。头个数A(=12)乘以64等于H(=768)。
+  - $(H * H / A ) * 3 + H ^ 2$ （其中，$H ^ 2$ 是由于Q、K、A计算注意力之后得到的输出）
+- linear映射：H到4H，再到H维度。因此有 $H^2 * 8$
+- 以上两者相加是一个transformer块的参数，共有12个
+
+因此，总参数层 = 30k * H + 12 * (4 * H ^ 2 + 8 * H ^ 2) = 30000*768+12*768*768*12 = 107,974,656 
+
+24分钟左右没懂的，我来说一下我的理解，这里的参数就是各个W，比如将key，value，query降为低维，这三个维度矩阵都是(H, H/h),H就是我们字典输入embedding层后的特征数，h是多头中头的数量。 对于一个头而言，参数的总数是(H * (H / h) * 3),总共有h个头，所以这一部分的参数是3(H²),然后我们需要把所有头拼接后又输出，就又是一个H * H,相当于Attention层的参数个数是4H²，在下面的前馈网络里，隐藏层维度是(H,4*H)，输出层是(4H,H），所有这一部分就是8H²
+
+
+面试题：
+1. BERT分为哪两种任务，各自的作用是什么；
+2.在计算MLM预训练任务的损失函数的时候，参与计算的Tokens有哪些？是全部的15%的词汇还是15%词汇中真正被Mask的那些tokens？
+3.在实现损失函数的时候，怎么确保没有被 Mask 的函数不参与到损失计算中去；
+4.BERT的三个Embedding为什么直接相加
+5.BERT的优缺点分别是什么？
+6.你知道有哪些针对BERT的缺点做优化的模型？
+7.BERT怎么用在生成模型中？
 
 
 ### GPT

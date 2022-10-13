@@ -7,7 +7,7 @@
 - youtube
     - Lecture 8 – Translation, Seq2Seq, Attention: https://youtu.be/XXtpJxZBa2c
 
-
+ 
 ## 课件
 
 ![img_20.png](img_20.png)

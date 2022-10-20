@@ -19,6 +19,6 @@ epoch=50时，效果没有v0好
 
 (4)V3:加入CRF层
 首尾加入start和stop，所以需要在token原文、token_id的seq里加入、token_emb里加入。
-token在首尾分别加入：START_TAG = "\\<START/>"，STOP_TAG = "/<STOP/>"
+token在首尾分别加入：START_TAG = "< START >"，STOP_TAG = "< STOP >"
 
 不用lstm对start和stop的emb进行预测，只预测之间的；再补上两边的tag，用crf进行预测？

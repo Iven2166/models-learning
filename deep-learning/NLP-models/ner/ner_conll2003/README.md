@@ -1,3 +1,9 @@
+
+*从各个版本的效果提升来看，不同模块对应的指标提升有小许差异*
+- biLSTM：能够捕捉到时序特征，但仍需要注意正则来减少过拟合风险，体现于提升测试集的recall和precision指标
+- GLOVE、bert等：因为预训练特征提前学习了实体、非实体的词语特征，能够很有效地提升整体的accuracy指标
+- CRF：捕捉转移概率，能够有效地提升实体与非实体之间的关系，实体词组里的B和I关系，有效提升precision指标
+
 （1）V0: biLSTM单独预测
 - 名称：Embrand200-bilstm1Layer200Hidden16Batch1e-3Learn
 - token-emb：nn.embedding随机初始化， 200维度

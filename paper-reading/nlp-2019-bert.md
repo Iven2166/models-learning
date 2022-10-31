@@ -1,6 +1,8 @@
 
 [BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding](https://arxiv.org/abs/1810.04805)
 
+[attention is all you need](https://arxiv.org/abs/1706.03762)
+
 参考
 
 - Bert论文：https://arxiv.org/abs/1810.04805

@@ -19,8 +19,6 @@
 使用criteo-Small的点击数据，来构造模型预测CTR。 
   - 结果：测试集的AUC应该是在0.7-0.75左右，略低于公开记录。
   
-  
-
 ### 多任务：MMOE
 
 - 模型重点：第一个M是multi-gate，第二个M是multi-expert。由多个expert来生成向量，并且经过T个gate（scalar，广播的权重），
@@ -30,6 +28,9 @@
   - [MMOE复现](https://github.com/Iven2166/models-learning/blob/main/deep-learning/REC-models/MMOE/%E5%A4%9A%E4%BB%BB%E5%8A%A1%E7%9B%AE%E6%A0%87%E5%AD%A6%E4%B9%A0-mmoe.ipynb)
 使用公开数据集census-income来预测（1）收入是否破50k，以及（2）是否未婚
   - 结果：最终test task1 auc: 0.946, test task2 auc: 0.974。接近论文AUC
+
+### 注意力：DIN
+[doing]
 
 # 参考
 - d2l: https://d2l.ai/chapter_recommender-systems.html

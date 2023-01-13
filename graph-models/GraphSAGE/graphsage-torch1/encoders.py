@@ -16,7 +16,7 @@ class Encoder(nn.Module):
 
         self.features = features
         self.feature_dim = feature_dim
-        self.adj_lists = adj_lists # 连接
+        self.adj_lists = adj_lists  # 连接
         self.aggregator = aggregator
         self.num_sample = num_sample
         self.gcn = gcn

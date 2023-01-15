@@ -26,7 +26,7 @@ class Encoder(nn.Module):
         self.weight = nn.Parameter(
             torch.FloatTensor(embed_dim, self.feature_dim if self.gcn else 2 * self.feature_dim)
         )
-        init.xavier_uniform(self.weight)
+        init.xavier_uniform_(self.weight)
 
     def forward(self, nodes):
         """

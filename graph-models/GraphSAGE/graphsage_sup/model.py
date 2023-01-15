@@ -13,6 +13,10 @@ from encoders import Encoder
 from aggregators import MeanAggregator
 
 
+# python 3.7
+# torch 1.10.1
+
+
 def load_cora():
     """
     return:
@@ -42,7 +46,7 @@ def load_cora():
             info = line.strip().split()
             paper1 = node_map[info[0]]
             paper2 = node_map[info[1]]
-            adj_lists[paper1].add(paper2)
+            adj_lists[paper1].add(paper2) # 在此转化为 0～2707
             adj_lists[paper2].add(paper1)
     return feat_data, labels, adj_lists
 
@@ -76,7 +80,7 @@ def run_cora():
 
     agg1 = MeanAggregator(features, cuda=False)
     enc1 = Encoder(features, 1433, 128, adj_lists, agg1, gcn=False, cuda=False)
-    agg2 = MeanAggregator(lambda nodes: enc1(nodes).t(), cuda = False)
+    agg2 = MeanAggregator(lambda nodes: enc1(nodes).t(), cuda=False)
     enc2 = Encoder(lambda nodes: enc1(nodes).t(), enc1.embed_dim, 128, adj_lists,
                    agg2, base_model=enc1, gcn=True, cuda=False)
     enc1.num_sample = 5
@@ -91,7 +95,7 @@ def run_cora():
     optimizer = torch.optim.SGD(filter(lambda p: p.requires_grad, myGraphsage.parameters()), lr=0.7)
     times = []
     for batch in range(100):
-        batch_nodes = train[:256]
+        batch_nodes = train[:256] # list of 256 node num
         random.shuffle(train)
         start_time = time.time()
         optimizer.zero_grad()
@@ -100,16 +104,14 @@ def run_cora():
         optimizer.step()
         end_time = time.time()
         times.append(end_time - start_time)
-        print(batch, loss.data[0])
+        # print(batch, loss.data[0])
 
-    val_output = myGraphsage.forward(val)
+    val_output = myGraphsage.forward(val) # tensor, shape(500, 7)
     print("Validation F1: ", f1_score(labels[val], val_output.data.numpy().argmax(axis=1), average='micro'))
     print("Average batch time: ", np.mean(times))
-
-    # print(feat_data[0:10])
-    # print(labels[0:10])
-    # print(adj_lists[0])
+    return features
 
 
 if __name__ == "__main__":
-    run_cora()
+    trained_features = run_cora()
+    print(trained_features(torch.tensor(0)))

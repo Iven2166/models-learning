@@ -12,6 +12,24 @@ import torch.nn.functional as F
 from dgl.nn.pytorch import SAGEConv
 
 
+# tools
+def load_subtensor(nfeat, labels, seeds, input_nodes, device):
+    """
+    extracts features and labels for a subset of nodes
+    """
+    batch_inputs = nfeat[input_nodes].to(device)
+    batch_labels = labels[seeds].to(device)
+    return batch_inputs, batch_labels
+
+
+def evaluate(model, my_net, labels, val_nid, val_mask, batch_s, num_worker, device):
+    model.eval()
+    with torch.no_grad():
+        label_pred = model.inference(my_net, val_nid, batch_s, num_worker, device)
+    model.train()
+    return (torch.argmax(label_pred[val_mask], dim=1) == labels[val_mask]).float().sum() / len(label_pred[val_mask])
+
+
 class MyGraphSAGE(nn.Module):
     def __init__(self,
                  in_feats,
@@ -26,10 +44,13 @@ class MyGraphSAGE(nn.Module):
         self.n_hidden = n_hidden
         self.n_classes = n_classes
         self.layer = nn.ModuleList()
+
+        # SAGEConv: https://docs.dgl.ai/en/0.8.x/generated/dgl.nn.pytorch.conv.SAGEConv.html
         self.layer.append(SAGEConv(in_feats, n_hidden, aggregator))
         for i in range(1, n_layers - 1):
             self.layer.append(SAGEConv(n_hidden, n_hidden, aggregator))
         self.layer.append(SAGEConv(n_hidden, n_classes, aggregator))
+
         self.dropout = nn.Dropout(dropout)
         self.activation = activation
 
@@ -46,4 +67,27 @@ class MyGraphSAGE(nn.Module):
                 h = self.activation(h)
                 h = self.dropout(h)
         return h
-
+    
+    def inference(self, my_net, val_nid, batch_s, num_worker, device):
+        sampler = dgl.dataloading.MultiLayerFullNeighborSampler(self.n_layers)
+        dataloader = dgl.dataloading.NodeDataLoader(
+            my_net,
+            val_nid,
+            sampler,
+            batch_size=batch_s,
+            shuffle=True,
+            drop_last=False,
+            num_workers=num_worker
+        )
+        ret = torch.zeros(my_net.num_nodes(), self.n_classes)
+        
+        for input_nodes, output_nodes, blocks in dataloader:
+            h = blocks[0].srcdata['feature'].to(device)
+            for i, (layer, block) in enumerate(zip(self.layer, blocks)):
+                block = block.int().to(device)
+                h = layer(block, h)
+                if i != self.n_layers - 1:
+                    h = self.activation(h)
+                    h = self.dropout(h)
+            ret[output_nodes] = h.cpu()
+        return ret 

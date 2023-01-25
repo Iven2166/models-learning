@@ -57,16 +57,21 @@ if __name__ == '__main__':
         img_vector_dict = get_all_char_vectors('../../../../dataset/charsCNpng')
         pickle.dump(img_vector_dict, open(dict_path, "wb"))
     else:
-        img_vector_dict = pickle.load(open(dict_path), "rb")
+        with open(dict_path, 'rb') as handle:
+            img_vector_dict = pickle.load(handle)
+            # img_vector_dict = pickle.load(dict_path,"rb")
     # 获取最接近的汉字
-    similarity_dict = {}
-    # print(img_vector_dict.keys())
-    while True:
-        match_char = input("输入汉字:")
-        match_vector = img_vector_dict[match_char]
-        for char, vector in img_vector_dict.items():
-            cosine_similar = cosine_similarity(match_vector, vector)
-            similarity_dict[char] = cosine_similar
-        # 按相似度排序，取前10个
+    total_dict_path = '../../../../dataset/charsCNpng/total_dict_pkl.pickle'
+    # if not os.path.isfile(total_dict_path):
+    total_dict = {}
+    stuff = img_vector_dict.items()
+    for char1, vec1 in stuff:
+        similarity_dict = {}
+        for char2, vec2 in stuff:
+            cosine_similar = cosine_similarity(vec1, vec2)
+            similarity_dict[char2] = cosine_similar
+        # 按相似度排序，取前 N 个
         sorted_similarity = sorted(similarity_dict.items(), key=itemgetter(1), reverse=True)
-        print([(char, round(similarity, 4)) for char, similarity in sorted_similarity[:10]])
+        total_dict[char1] = [(char, round(similarity, 4)) for char, similarity in sorted_similarity[:10]]
+
+    pickle.dump(total_dict, open(total_dict_path, "wb"))

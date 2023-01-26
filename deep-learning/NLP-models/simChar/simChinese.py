@@ -14,13 +14,13 @@
 #     font = pygame.font.SysFont('songti', 100)
 #     rtext = font.render(char, True, (0,0,0), (255,255,255))
 #     pygame.image.save(rtext, "../../../../dataset/charsCNpng/{}_{}.png".format(char, i))
-#
 
 import numpy as np
 import cv2
 import os
 import pickle
 from operator import itemgetter
+
 
 def read_img_2_list(img_path):
     img = cv2.imdecode(np.fromfile(img_path, dtype=np.uint8), -1)

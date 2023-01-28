@@ -27,9 +27,9 @@ def train_val_split(node_fea):
     val_nid = []
     test_nid = []
     for (train_nodes, val_nodes, test_nodes) in zip(train_node_ids, val_node_ids, test_node_ids):
-        train_nid.append(train_nodes)
-        val_nid.append(val_nodes)
-        test_nid.append(test_nodes)
+        train_nid.extend(train_nodes)
+        val_nid.extend(val_nodes)
+        test_nid.extend(test_nodes)
 
     train_mask = node_fea['node_id_number'].apply(lambda x: x in train_nid)
     val_mask = node_fea['node_id_number'].apply(lambda x: x in val_nid)
@@ -43,11 +43,11 @@ def load_data():
     # 0是node id， 1434是node label
     node_fea.rename(columns={0: 'node_id', 1434: 'label'}, inplace=True)
 
-    nodeid_number_dict = dict(zip(node_fea['node_id'].unique(),
-                                  range(node_fea['node_id'].nunique())))
-    node_fea['node_id_number'] = node_fea['node_id'].map(nodeid_number_dict)
-    edges['edge1'] = edges[0].map(nodeid_number_dict)
-    edges['edge2'] = edges[1].map(nodeid_number_dict)
+    node_id_number_dict = dict(zip(node_fea['node_id'].unique(),
+                                   range(node_fea['node_id'].nunique())))
+    node_fea['node_id_number'] = node_fea['node_id'].map(node_id_number_dict)
+    edges['edge1'] = edges[0].map(node_id_number_dict)
+    edges['edge2'] = edges[1].map(node_id_number_dict)
 
     label_dict = dict(zip(node_fea['label'].unique(),
                           range(node_fea['label'].nunique())))
@@ -76,10 +76,6 @@ def load_data():
     data = in_feats, n_classes, my_net, fea_np
     train_val_data = train_val_split(node_fea)
     return data, train_val_data
-
-
-data, tmp = load_data()
-print(data)
 
 
 class MyGraphSAGE(nn.Module):
@@ -226,3 +222,40 @@ def run(data, train_val_data, args, sample_size, learning_rate, device_num):
     for epoch in range(100):
         for batch, (input_nodes, output_nodes, block) in enumerate(dataloader):
             batch_feature, batch_label = load_subtensor(in_feats, labels, output_nodes, input_nodes, device)
+            block = [block_.int().to(device) for block_ in block]
+            model_pred = model(block, batch_feature)
+            loss = loss_fn(model_pred, batch_label)
+            optimizer.zero_grad()
+            loss.backward()
+            optimizer.step()
+            if batch % 1 == 0:
+                print('Batch %d | loss: %.4f' % (batch, loss.item()))
+
+            if epoch % 10 == 0:
+                print('----')
+                val_acc = evaluate(model, my_net, labels, val_nid, val_mask,
+                                   batch_s, num_workers, device)
+                train_acc = evaluate(model, my_net, labels, train_nid, train_mask,
+                                     batch_s, num_workers, device)
+                print('Epoch %d val acc: %.4f, train acc: %.4f' % (epoch, val_acc.item(), train_acc.item()))
+
+            acc_test = evaluate(model, my_net, labels, test_nid, test_mask,
+                                batch_s, num_workers, device)
+            print('Test acc: %.4f' % (acc_test.item()))
+            return model
+
+
+data, train_val_data = load_data()
+hidden_size = 16
+n_layers = 2
+sample_size = [10, 25]
+activation = F.relu
+dropout = 0.5
+aggregator = 'mean'
+batch_s = 128
+num_worker = 0
+learning_rate = 0.003
+device = 1
+
+# args = hidden_size, n_layers, activation, dropout, aggregator, batch_s, num_worker
+# trained_model = run(data, train_val_data, args, sample_size, learning_rate, device)

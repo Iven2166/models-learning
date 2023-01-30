@@ -17,11 +17,11 @@ from dgl.nn.pytorch import SAGEConv
 def train_val_split(node_fea):
     # 划分数据集
     train_node_ids = np.array(node_fea.groupby('label_number')
-                              .apply(lambda x: x.sort_values('node_id_number')['node_id_number'].values[:20]))
+                              .apply(lambda x: x.sort_values('node_id_number')['node_id_number'].values[:100]))
     val_node_ids = np.array(node_fea.groupby('label_number')
-                            .apply(lambda x: x.sort_values('node_id_number')['node_id_number'].values[21:110]))
+                            .apply(lambda x: x.sort_values('node_id_number')['node_id_number'].values[100:200]))
     test_node_ids = np.array(node_fea.groupby('label_number')
-                             .apply(lambda x: x.sort_values('node_id_number')['node_id_number'].values[111:300]))
+                             .apply(lambda x: x.sort_values('node_id_number')['node_id_number'].values[200:300]))
 
     train_nid = []
     val_nid = []
@@ -151,7 +151,7 @@ class MyGraphSAGE(nn.Module):
         # 推理计算过程
         # dataloader 返回 输入节点，输出节点，blocks
         for input_nodes, output_nodes, blocks in dataloader:
-            h = blocks[0].srcdata['feature'].to(device)
+            h = blocks[0].srcdata['features'].to(device)
             for i, (layer, block) in enumerate(zip(self.layer, blocks)):
                 block = block.int().to(device)
                 h = layer(block, h)
@@ -185,7 +185,7 @@ def evaluate(model, my_net, labels, val_nid, val_mask, batch_s, num_worker, devi
 
 #  调用过程
 def run(data, train_val_data, args, sample_size, learning_rate, device_num):
-    if device_num >= 0:
+    if device_num > 0:
         device = torch.device('cuda')
     else:
         device = torch.device('cpu')
@@ -196,10 +196,10 @@ def run(data, train_val_data, args, sample_size, learning_rate, device_num):
 
     n_feat = my_net.ndata['features']
     labels = my_net.ndata['label']
-    sampler = dgl.dataloading.MultiLayerNeighborSampler(sample_size)
+    sampler = dgl.dataloading.MultiLayerNeighborSampler(sample_size)  # sample_size = [5,10] 表示在第一层抽样5个邻居，第二层抽样10个邻居
     dataloader = dgl.dataloading.NodeDataLoader(
         my_net,
-        val_nid,
+        train_nid,
         sampler,
         batch_size=batch_s,
         shuffle=True,
@@ -221,14 +221,16 @@ def run(data, train_val_data, args, sample_size, learning_rate, device_num):
     loss_fn.to(device)
     for epoch in range(100):
         for batch, (input_nodes, output_nodes, block) in enumerate(dataloader):
-            batch_feature, batch_label = load_subtensor(in_feats, labels, output_nodes, input_nodes, device)
+            # block: [Block(num_src_nodes=1348, num_dst_nodes=565, num_edges=2723), Block(num_src_nodes=565,
+            # num_dst_nodes=128, num_edges=646)] 是list
+            batch_feature, batch_label = load_subtensor(n_feat, labels, output_nodes, input_nodes, device)
             block = [block_.int().to(device) for block_ in block]
             model_pred = model(block, batch_feature)
             loss = loss_fn(model_pred, batch_label)
             optimizer.zero_grad()
             loss.backward()
             optimizer.step()
-            if batch % 1 == 0:
+            if batch % 10 == 0:
                 print('Batch %d | loss: %.4f' % (batch, loss.item()))
 
             if epoch % 10 == 0:
@@ -239,14 +241,14 @@ def run(data, train_val_data, args, sample_size, learning_rate, device_num):
                                      batch_s, num_workers, device)
                 print('Epoch %d val acc: %.4f, train acc: %.4f' % (epoch, val_acc.item(), train_acc.item()))
 
-            acc_test = evaluate(model, my_net, labels, test_nid, test_mask,
-                                batch_s, num_workers, device)
-            print('Test acc: %.4f' % (acc_test.item()))
-            return model
+    acc_test = evaluate(model, my_net, labels, test_nid, test_mask,
+                        batch_s, num_workers, device)
+    print('Test acc: %.4f' % (acc_test.item()))
+    return model
 
 
 data, train_val_data = load_data()
-hidden_size = 16
+hidden_size = 120
 n_layers = 2
 sample_size = [10, 25]
 activation = F.relu
@@ -255,7 +257,7 @@ aggregator = 'mean'
 batch_s = 128
 num_worker = 0
 learning_rate = 0.003
-device = 1
+device_num = 0
 
-# args = hidden_size, n_layers, activation, dropout, aggregator, batch_s, num_worker
-# trained_model = run(data, train_val_data, args, sample_size, learning_rate, device)
+args = hidden_size, n_layers, activation, dropout, aggregator, batch_s, num_worker
+trained_model = run(data, train_val_data, args, sample_size, learning_rate, device_num)

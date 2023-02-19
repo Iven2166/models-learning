@@ -1,0 +1,5 @@
+dataset_name: my_cora_dataset
+edge_data:
+- file_name: cora_edges.csv
+node_data:
+- file_name: cora_nodes.csv

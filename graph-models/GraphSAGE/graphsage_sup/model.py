@@ -30,7 +30,7 @@ def load_cora():
     labels = np.empty((num_nodes, 1), dtype=np.int64)
     node_map = {}
     label_map = {}
-    with open("../cora/cora.content") as fp:
+    with open("../test-data/cora/cora.content") as fp:
         for i, line in enumerate(fp):
             info = line.strip().split()
             feat_data[i, :] = list(map(float, info[1:-1]))
@@ -41,7 +41,7 @@ def load_cora():
 
     adj_lists = defaultdict(set)
     edge_lists = []
-    with open("../cora/cora.cites") as fp:
+    with open("../test-data/cora/cora.cites") as fp:
         for i, line in enumerate(fp):
             info = line.strip().split()
             paper1 = node_map[info[0]]

@@ -37,6 +37,7 @@ class CrossEntropyLoss(nn.Module):
         loss = F.binary_cross_entropy_with_logits(score, label.float())
         return loss
 
+
 class SAGELightning(LightningModule):
     def __init__(self,
                  in_feats,
@@ -165,6 +166,7 @@ class UnsupervisedClassification(Callback):
             node_emb, labels, trainer.datamodule.train_nid,
             trainer.datamodule.val_nid, trainer.datamodule.test_nid)
         pl_module.log('val_f1_micro', f1_micro)
+
 
 if __name__ == '__main__':
     argparser = argparse.ArgumentParser("multi-gpu training")
